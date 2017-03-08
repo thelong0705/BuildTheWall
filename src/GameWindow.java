@@ -112,6 +112,9 @@ public class GameWindow extends Frame {
                         donaldTrump.moveUp();
                     if (isKeyDown)
                         donaldTrump.moveDown();
+
+
+
                     blockArray[donaldTrump.row][donaldTrump.column].color= Square.enumColor.RED;
                     blockArray[donaldTrump.row][donaldTrump.column].setPictureForColor();
                     repaint();
