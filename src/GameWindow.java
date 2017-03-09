@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * Created by Inpriron on 3/6/2017.
@@ -25,6 +26,10 @@ public class GameWindow extends Frame {
     public boolean isKeyRight = false;
     public boolean isKeyUp = false;
     public boolean isKeyDown = false;
+    public static ArrayList<Square> pool1=new ArrayList<>();
+    public static ArrayList<Square> pool2=new ArrayList<>();
+    public static boolean pool1HasEnemy=false;
+    public static boolean pool2HasEnemy=false;
     public GameWindow() {
         setVisible(true);
         setSize(FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE);
@@ -95,7 +100,6 @@ public class GameWindow extends Frame {
                     blockArray[i][j] = new Square(i, j, Square.enumColor.BLUE);
             }
         }
-        blockArray[20][30]= new Square(20,30, Square.enumColor.ENEMY);
         donaldTrump = new PlayerDonaldTrump(0, 0, Utils.loadImageFromFile("images.png"));
         thread = new Thread(new Runnable() {
             @Override
@@ -153,5 +157,41 @@ public class GameWindow extends Frame {
         floodFill(row+1,column,sourceColor,desColor);
         floodFill(row,column-1,sourceColor,desColor);
         floodFill(row,column+1,sourceColor,desColor);
+    }
+    public static void floodFillpool1(int row, int column, Square.enumColor sourceColor, Square.enumColor desColor)
+    {
+        if (row < 0) return;
+        if (column < 0) return;
+        if(row>=NUMBER_OF_ROW) return;
+        if(column>=NUMBER_OF_COLUMN)return;
+        if(blockArray[row][column].color!=sourceColor) return;
+        blockArray[row][column].color=desColor;
+        pool1.add(blockArray[row][column]);
+        if(row==20&&column==30)
+        {
+            pool1HasEnemy=true;
+        }
+        floodFillpool1(row-1,column,sourceColor,desColor);
+        floodFillpool1(row+1,column,sourceColor,desColor);
+        floodFillpool1(row,column-1,sourceColor,desColor);
+        floodFillpool1(row,column+1,sourceColor,desColor);
+    }
+    public static void floodFillpool2(int row, int column, Square.enumColor sourceColor, Square.enumColor desColor)
+    {
+        if (row < 0) return;
+        if (column < 0) return;
+        if(row>=NUMBER_OF_ROW) return;
+        if(column>=NUMBER_OF_COLUMN)return;
+        if(blockArray[row][column].color!=sourceColor) return;
+        blockArray[row][column].color=desColor;
+        pool2.add(blockArray[row][column]);
+        if(row==20&&column==30)
+        {
+            pool2HasEnemy=true;
+        }
+        floodFillpool2(row-1,column,sourceColor,desColor);
+        floodFillpool2(row+1,column,sourceColor,desColor);
+        floodFillpool2(row,column-1,sourceColor,desColor);
+        floodFillpool2(row,column+1,sourceColor,desColor);
     }
 }

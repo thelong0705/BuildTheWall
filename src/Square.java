@@ -5,7 +5,7 @@ import java.awt.*;
  */
 public class Square {
     public enum enumColor {
-        GRAY, BLUE, RED,ENEMY
+        GRAY, BLUE, RED,ENEMY,YELLOW,GREEN
     }
 
     public int column;

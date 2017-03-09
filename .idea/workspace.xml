@@ -7,7 +7,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$3.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/PlayerDonaldTrump.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/PlayerDonaldTrump.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Square.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Square.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Square$enumColor.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Square$enumColor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameWindow.java" afterPath="$PROJECT_DIR$/src/GameWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayerDonaldTrump.java" afterPath="$PROJECT_DIR$/src/PlayerDonaldTrump.java" />
@@ -30,11 +30,11 @@
       <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="116" column="101" lean-forward="false" selection-start-line="116" selection-start-column="101" selection-end-line="116" selection-end-column="101" />
+            <state relative-caret-position="958">
+              <caret line="101" column="9" lean-forward="false" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#windowClosing#0;class#1139:1499" expanded="false" />
+                <element signature="method#windowClosing#0;class#1383:1743" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -43,8 +43,8 @@
       <file leaf-file-name="PlayerDonaldTrump.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PlayerDonaldTrump.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state relative-caret-position="308">
+              <caret line="63" column="52" lean-forward="false" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,8 +55,8 @@
       <file leaf-file-name="Square.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Square.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+            <state relative-caret-position="119">
+              <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -99,8 +99,8 @@
         <option value="$PROJECT_DIR$/src/GameViews.java" />
         <option value="$PROJECT_DIR$/src/Utils.java" />
         <option value="$PROJECT_DIR$/src/Square.java" />
-        <option value="$PROJECT_DIR$/src/PlayerDonaldTrump.java" />
         <option value="$PROJECT_DIR$/src/GameWindow.java" />
+        <option value="$PROJECT_DIR$/src/PlayerDonaldTrump.java" />
       </list>
     </option>
   </component>
@@ -461,7 +461,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/GameWindow.java</url>
-          <line>30</line>
+          <line>35</line>
           <properties />
         </line-breakpoint>
       </breakpoints>
@@ -499,7 +499,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1139:1499" expanded="false" />
+            <element signature="method#windowClosing#0;class#1383:1743" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -539,7 +539,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1139:1499" expanded="false" />
+            <element signature="method#windowClosing#0;class#1383:1743" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -579,7 +579,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1139:1499" expanded="false" />
+            <element signature="method#windowClosing#0;class#1383:1743" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -598,7 +598,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1139:1499" expanded="false" />
+            <element signature="method#windowClosing#0;class#1383:1743" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -668,7 +668,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1139:1499" expanded="false" />
+            <element signature="method#windowClosing#0;class#1383:1743" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -723,7 +723,7 @@
           <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1139:1499" expanded="false" />
+            <element signature="method#windowClosing#0;class#1383:1743" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -778,7 +778,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1139:1499" expanded="false" />
+            <element signature="method#windowClosing#0;class#1383:1743" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -857,14 +857,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -876,21 +868,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="116" column="101" lean-forward="false" selection-start-line="116" selection-start-column="101" selection-end-line="116" selection-end-column="101" />
+        <state relative-caret-position="958">
+          <caret line="101" column="9" lean-forward="false" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1139:1499" expanded="false" />
+            <element signature="method#windowClosing#0;class#1383:1743" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayerDonaldTrump.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        <state relative-caret-position="308">
+          <caret line="63" column="52" lean-forward="false" selection-start-line="63" selection-start-column="52" selection-end-line="63" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

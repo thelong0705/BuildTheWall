@@ -31,7 +31,43 @@ public class PlayerDonaldTrump {
         if (row + 1 <= GameWindow.NUMBER_OF_ROW - 1) {
             if (GameWindow.blockArray[row + 1][column].color == Square.enumColor.BLUE
                  &&GameWindow.blockArray[row][column].color== Square.enumColor.RED  ) {
-                fill();
+                System.out.println("wtf");
+                fillDownLeft();
+                fillUpRight();
+                System.out.println(GameWindow.pool1HasEnemy);
+                System.out.println(GameWindow.pool2HasEnemy);
+                System.out.println(GameWindow.pool1.size());
+                System.out.println(GameWindow.pool2.size());
+                if(GameWindow.pool1HasEnemy)
+                {
+                    for(Square square: GameWindow.pool1)
+                        square.color= Square.enumColor.GRAY;
+                }
+                else
+                {
+                    for(Square square: GameWindow.pool1)
+                    {
+                        square.color= Square.enumColor.BLUE;
+                        square.setPictureForColor();
+                    }
+                }
+                if(GameWindow.pool2HasEnemy==true)
+                {
+                    for(Square square: GameWindow.pool2)
+                        square.color= Square.enumColor.GRAY;
+                }
+                else
+                {
+                    for(Square square: GameWindow.pool2)
+                    {
+                        square.color= Square.enumColor.BLUE;
+                        square.setPictureForColor();
+                    }
+                }
+                GameWindow.pool1HasEnemy=false;
+                GameWindow.pool2HasEnemy=false;
+                GameWindow.pool1.clear();
+                GameWindow.pool2.clear();
                 squareArrayList.clear();
             }
             row++;
@@ -73,20 +109,41 @@ public class PlayerDonaldTrump {
         graphics.drawImage(image, getXPixel(), getYPixel(), GameWindow.SQUARE_LENGTH, GameWindow.SQUARE_LENGTH, null);
     }
 
-    public void fill() {
+    public void fillDownLeft() {
         for (Square square : squareArrayList) {
 //            if (square.row > 0)
 //                GameWindow.floodFill(square.row - 1, square.column, Square.enumColor.GRAY, Square.enumColor.BLUE);
             if (square.column > 0)
-                GameWindow.floodFill(square.row, square.column - 1, Square.enumColor.GRAY, Square.enumColor.BLUE);
+                GameWindow.floodFillpool1(square.row, square.column - 1, Square.enumColor.GRAY, Square.enumColor.GREEN);
             if (square.row < GameWindow.NUMBER_OF_ROW - 1)
-                GameWindow.floodFill(square.row + 1, square.column, Square.enumColor.GRAY, Square.enumColor.BLUE);
+                GameWindow.floodFillpool1(square.row + 1, square.column, Square.enumColor.GRAY, Square.enumColor.GREEN);
 //            if (square.column < GameWindow.NUMBER_OF_COLUMN - 1)
 //                GameWindow.floodFill(square.row, square.column + 1, Square.enumColor.GRAY, Square.enumColor.BLUE);
         }
     }
-    public void clearList()
+    public void fillUpRight()
     {
-
+        for (Square square : squareArrayList) {
+            if (square.row > 0)
+                GameWindow.floodFillpool2(square.row - 1, square.column, Square.enumColor.GRAY, Square.enumColor.GREEN);
+//            if (square.column > 0)
+//                GameWindow.floodFill(square.row, square.column - 1, Square.enumColor.GRAY, Square.enumColor.YELLOW);
+//            if (square.row < GameWindow.NUMBER_OF_ROW - 1)
+//                GameWindow.floodFill(square.row + 1, square.column, Square.enumColor.GRAY, Square.enumColor.YELLOW);
+            if (square.column < GameWindow.NUMBER_OF_COLUMN - 1)
+                GameWindow.floodFillpool2(square.row, square.column + 1, Square.enumColor.GRAY, Square.enumColor.GREEN);
+        }
+    }
+    public void fillDownLeftWithBlue() {
+        for (Square square : squareArrayList) {
+//            if (square.row > 0)
+//                GameWindow.floodFill(square.row - 1, square.column, Square.enumColor.GRAY, Square.enumColor.BLUE);
+            if (square.column > 0)
+                GameWindow.floodFill(square.row, square.column - 1, Square.enumColor.YELLOW, Square.enumColor.GREEN);
+            if (square.row < GameWindow.NUMBER_OF_ROW - 1)
+                GameWindow.floodFill(square.row + 1, square.column, Square.enumColor.YELLOW, Square.enumColor.GREEN);
+//            if (square.column < GameWindow.NUMBER_OF_COLUMN - 1)
+//                GameWindow.floodFill(square.row, square.column + 1, Square.enumColor.GRAY, Square.enumColor.BLUE);
+        }
     }
 }
