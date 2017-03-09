@@ -5,7 +5,7 @@ import java.awt.*;
  */
 public class Square {
     public enum enumColor {
-        GRAY, BLUE, RED
+        GRAY, BLUE, RED,ENEMY
     }
 
     public int column;
@@ -27,6 +27,9 @@ public class Square {
             case RED:
                 this.image = Utils.loadImageFromFile("block2.png");
                 break;
+            case ENEMY:
+                this.image=Utils.loadImageFromFile("images.png");
+                break;
         }
     }
     public void setPictureForColor()
@@ -39,7 +42,7 @@ public class Square {
                 this.image = Utils.loadImageFromFile("blockgray.png");
                 break;
             case RED:
-                this.image = Utils.loadImageFromFile("block2.png");
+                this.image = Utils.loadImageFromFile("block.png");
                 break;
             default:
                 break;
