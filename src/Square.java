@@ -7,11 +7,15 @@ public class Square {
     public enum enumColor {
         GRAY, BLUE, RED,ENEMY,YELLOW,GREEN
     }
+    public enum enumDirection{
+        UP,DOWN,LEFT,RIGHT;
+    }
 
     public int column;
     public int row;
     Image image;
     enumColor color;
+    enumDirection direction;
 
     public Square(int row, int column, enumColor Color) {
         this.column = column;
@@ -42,7 +46,7 @@ public class Square {
                 this.image = Utils.loadImageFromFile("blockgray.png");
                 break;
             case RED:
-                this.image = Utils.loadImageFromFile("block.png");
+                this.image = Utils.loadImageFromFile("block2.png");
                 break;
             default:
                 break;

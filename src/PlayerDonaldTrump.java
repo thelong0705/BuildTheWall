@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by Inpriron on 3/8/2017.
@@ -23,6 +24,7 @@ public class PlayerDonaldTrump {
 
         if (row - 1 >= 0) {
             row--;
+            GameWindow.blockArray[row][column].direction = Square.enumDirection.UP;
             squareArrayList.add(GameWindow.blockArray[row][column]);
         }
     }
@@ -30,48 +32,15 @@ public class PlayerDonaldTrump {
     public void moveDown() {
         if (row + 1 <= GameWindow.NUMBER_OF_ROW - 1) {
             if (GameWindow.blockArray[row + 1][column].color == Square.enumColor.BLUE
-                 &&GameWindow.blockArray[row][column].color== Square.enumColor.RED  ) {
-                System.out.println("wtf");
-                fillDownLeft();
-                fillUpRight();
-                System.out.println(GameWindow.pool1HasEnemy);
-                System.out.println(GameWindow.pool2HasEnemy);
-                System.out.println(GameWindow.pool1.size());
-                System.out.println(GameWindow.pool2.size());
-                if(GameWindow.pool1HasEnemy)
-                {
-                    for(Square square: GameWindow.pool1)
-                        square.color= Square.enumColor.GRAY;
-                }
-                else
-                {
-                    for(Square square: GameWindow.pool1)
-                    {
-                        square.color= Square.enumColor.BLUE;
-                        square.setPictureForColor();
-                    }
-                }
-                if(GameWindow.pool2HasEnemy==true)
-                {
-                    for(Square square: GameWindow.pool2)
-                        square.color= Square.enumColor.GRAY;
-                }
-                else
-                {
-                    for(Square square: GameWindow.pool2)
-                    {
-                        square.color= Square.enumColor.BLUE;
-                        square.setPictureForColor();
-                    }
-                }
-                GameWindow.pool1HasEnemy=false;
-                GameWindow.pool2HasEnemy=false;
-                GameWindow.pool1.clear();
-                GameWindow.pool2.clear();
-                squareArrayList.clear();
-            }
+                    && GameWindow.blockArray[row][column].color == Square.enumColor.RED)
+                fill();
+
             row++;
-            squareArrayList.add(GameWindow.blockArray[row][column]);
+            if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY) {
+                GameWindow.blockArray[row][column].direction = Square.enumDirection.DOWN;
+                squareArrayList.add(GameWindow.blockArray[row][column]);
+            }
+
         }
 
 
@@ -84,6 +53,7 @@ public class PlayerDonaldTrump {
 //                GameWindow.floodFill(row+1,column, Square.enumColor.GRAY, Square.enumColor.BLUE);
 //            }
             column++;
+            GameWindow.blockArray[row][column].direction = Square.enumDirection.RIGHT;
             squareArrayList.add(GameWindow.blockArray[row][column]);
 
         }
@@ -92,6 +62,7 @@ public class PlayerDonaldTrump {
     public void moveLeft() {
         if (column - 1 >= 0) {
             column--;
+            GameWindow.blockArray[row][column].direction = Square.enumDirection.LEFT;
             squareArrayList.add(GameWindow.blockArray[row][column]);
         }
 
@@ -121,8 +92,8 @@ public class PlayerDonaldTrump {
 //                GameWindow.floodFill(square.row, square.column + 1, Square.enumColor.GRAY, Square.enumColor.BLUE);
         }
     }
-    public void fillUpRight()
-    {
+
+    public void fillUpRight() {
         for (Square square : squareArrayList) {
             if (square.row > 0)
                 GameWindow.floodFillpool2(square.row - 1, square.column, Square.enumColor.GRAY, Square.enumColor.GREEN);
@@ -134,16 +105,51 @@ public class PlayerDonaldTrump {
                 GameWindow.floodFillpool2(square.row, square.column + 1, Square.enumColor.GRAY, Square.enumColor.GREEN);
         }
     }
-    public void fillDownLeftWithBlue() {
+
+    public void fill() {
+        Square.enumDirection firstDirection = null;
+        Square.enumDirection secondDirection = null;
         for (Square square : squareArrayList) {
-//            if (square.row > 0)
-//                GameWindow.floodFill(square.row - 1, square.column, Square.enumColor.GRAY, Square.enumColor.BLUE);
-            if (square.column > 0)
-                GameWindow.floodFill(square.row, square.column - 1, Square.enumColor.YELLOW, Square.enumColor.GREEN);
-            if (square.row < GameWindow.NUMBER_OF_ROW - 1)
-                GameWindow.floodFill(square.row + 1, square.column, Square.enumColor.YELLOW, Square.enumColor.GREEN);
-//            if (square.column < GameWindow.NUMBER_OF_COLUMN - 1)
-//                GameWindow.floodFill(square.row, square.column + 1, Square.enumColor.GRAY, Square.enumColor.BLUE);
+            firstDirection = squareArrayList.get(0).direction;
+            if (square.direction != firstDirection)
+                secondDirection = square.direction;
+            square.color = Square.enumColor.BLUE;
+            square.setPictureForColor();
         }
+        ArrayList<Square> toRemove = new ArrayList<>();
+        for (int i = 0; i < squareArrayList.size() - 1; i++) {
+            Square temp = squareArrayList.get(i);
+            Square temp1 = squareArrayList.get(i + 1);
+            if (temp.direction != firstDirection && temp.direction != secondDirection)
+                toRemove.add(temp);
+            else if (temp.direction != temp1.direction)
+                toRemove.add(temp);
+
+        }
+        fillDownLeft();
+        fillUpRight();
+        if (GameWindow.pool1HasEnemy) {
+            for (Square square : GameWindow.pool1)
+                square.color = Square.enumColor.GRAY;
+        } else {
+            for (Square square : GameWindow.pool1) {
+                square.color = Square.enumColor.BLUE;
+                square.setPictureForColor();
+            }
+        }
+        if (GameWindow.pool2HasEnemy == true) {
+            for (Square square : GameWindow.pool2)
+                square.color = Square.enumColor.GRAY;
+        } else {
+            for (Square square : GameWindow.pool2) {
+                square.color = Square.enumColor.BLUE;
+                square.setPictureForColor();
+            }
+        }
+        GameWindow.pool1HasEnemy = false;
+        GameWindow.pool2HasEnemy = false;
+        GameWindow.pool1.clear();
+        GameWindow.pool2.clear();
+        squareArrayList.clear();
     }
 }
