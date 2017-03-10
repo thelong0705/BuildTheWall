@@ -136,6 +136,7 @@ public class GameWindow extends Frame {
             for (int i = 0; i < NUMBER_OF_ROW; i++) {
                 for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
                     Square square = blockArray[i][j];
+
                     square.draw(backGraphics);
                 }
             }

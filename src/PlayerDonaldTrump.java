@@ -23,47 +23,83 @@ public class PlayerDonaldTrump {
     public void moveUp() {
 
         if (row - 1 >= 0) {
+            if (GameWindow.blockArray[row - 1][column].color == Square.enumColor.BLUE && GameWindow.blockArray[row][column].color == Square.enumColor.RED)
+            {
+                for(Square square: squareArrayList)
+                {
+                    square.color = Square.enumColor.BLUE;
+                    square.setPictureForColor();
+                    fill4way();
+                }
+                GameWindow.floodFill(20,30, Square.enumColor.GREEN, Square.enumColor.GRAY);
+            }
             row--;
-            GameWindow.blockArray[row][column].direction = Square.enumDirection.UP;
-            squareArrayList.add(GameWindow.blockArray[row][column]);
+            if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY) {
+                GameWindow.blockArray[row][column].direction= Square.enumDirection.UP;
+                squareArrayList.add(GameWindow.blockArray[row][column]);
+            }
         }
     }
 
     public void moveDown() {
         if (row + 1 <= GameWindow.NUMBER_OF_ROW - 1) {
-            if (GameWindow.blockArray[row + 1][column].color == Square.enumColor.BLUE
-                    && GameWindow.blockArray[row][column].color == Square.enumColor.RED)
-                fill();
-
+            if (GameWindow.blockArray[row + 1][column].color == Square.enumColor.BLUE && GameWindow.blockArray[row][column].color == Square.enumColor.RED)
+            {
+                System.out.println("wtf");
+                for(Square square: squareArrayList)
+                {
+                    square.color = Square.enumColor.BLUE;
+                    square.setPictureForColor();
+                    fill4way();
+                }
+                GameWindow.floodFill(20,30, Square.enumColor.GREEN, Square.enumColor.GRAY);
+            }
             row++;
             if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY) {
-                GameWindow.blockArray[row][column].direction = Square.enumDirection.DOWN;
+                GameWindow.blockArray[row][column].direction= Square.enumDirection.DOWN;
                 squareArrayList.add(GameWindow.blockArray[row][column]);
             }
-
         }
-
-
     }
 
     public void moveRight() {
         if (column + 1 <= GameWindow.NUMBER_OF_COLUMN - 1) {
-//            if(GameWindow.blockArray[row][column+1].color== Square.enumColor.BLUE)
-//            {
-//                GameWindow.floodFill(row+1,column, Square.enumColor.GRAY, Square.enumColor.BLUE);
-//            }
+            if (GameWindow.blockArray[row][column+1].color == Square.enumColor.BLUE && GameWindow.blockArray[row][column].color == Square.enumColor.RED)
+            {
+                for(Square square: squareArrayList)
+                {
+                    square.color = Square.enumColor.BLUE;
+                    square.setPictureForColor();
+                    fill4way();
+                }
+                GameWindow.floodFill(20,30, Square.enumColor.GREEN, Square.enumColor.GRAY);
+            }
             column++;
-            GameWindow.blockArray[row][column].direction = Square.enumDirection.RIGHT;
-            squareArrayList.add(GameWindow.blockArray[row][column]);
+            if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY) {
+                GameWindow.blockArray[row][column].direction= Square.enumDirection.RIGHT;
+                squareArrayList.add(GameWindow.blockArray[row][column]);
+            }
 
         }
     }
 
     public void moveLeft() {
         if (column - 1 >= 0) {
+            if (GameWindow.blockArray[row][column-1].color == Square.enumColor.BLUE && GameWindow.blockArray[row][column].color == Square.enumColor.RED)
+            {
+                for(Square square: squareArrayList)
+                {
+                    square.color = Square.enumColor.BLUE;
+                    square.setPictureForColor();
+                    fill4way();
+                }
+                GameWindow.floodFill(20,30, Square.enumColor.GREEN, Square.enumColor.GRAY);
+            }
             column--;
-            GameWindow.blockArray[row][column].direction = Square.enumDirection.LEFT;
-            squareArrayList.add(GameWindow.blockArray[row][column]);
+            if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY) {
+                GameWindow.blockArray[row][column].direction= Square.enumDirection.LEFT;
+                squareArrayList.add(GameWindow.blockArray[row][column]);
+            }
         }
 
     }
@@ -82,37 +118,44 @@ public class PlayerDonaldTrump {
 
     public void fillDownLeft() {
         for (Square square : squareArrayList) {
-//            if (square.row > 0)
-//                GameWindow.floodFill(square.row - 1, square.column, Square.enumColor.GRAY, Square.enumColor.BLUE);
+
             if (square.column > 0)
                 GameWindow.floodFillpool1(square.row, square.column - 1, Square.enumColor.GRAY, Square.enumColor.GREEN);
             if (square.row < GameWindow.NUMBER_OF_ROW - 1)
                 GameWindow.floodFillpool1(square.row + 1, square.column, Square.enumColor.GRAY, Square.enumColor.GREEN);
-//            if (square.column < GameWindow.NUMBER_OF_COLUMN - 1)
-//                GameWindow.floodFill(square.row, square.column + 1, Square.enumColor.GRAY, Square.enumColor.BLUE);
         }
     }
 
     public void fillUpRight() {
         for (Square square : squareArrayList) {
+            System.out.println(square.direction);
             if (square.row > 0)
                 GameWindow.floodFillpool2(square.row - 1, square.column, Square.enumColor.GRAY, Square.enumColor.GREEN);
-//            if (square.column > 0)
-//                GameWindow.floodFill(square.row, square.column - 1, Square.enumColor.GRAY, Square.enumColor.YELLOW);
-//            if (square.row < GameWindow.NUMBER_OF_ROW - 1)
-//                GameWindow.floodFill(square.row + 1, square.column, Square.enumColor.GRAY, Square.enumColor.YELLOW);
             if (square.column < GameWindow.NUMBER_OF_COLUMN - 1)
                 GameWindow.floodFillpool2(square.row, square.column + 1, Square.enumColor.GRAY, Square.enumColor.GREEN);
         }
     }
+    public void fill4way()
+    {
+        for (Square square : squareArrayList) {
+            if (square.column > 0)
+                GameWindow.floodFill(square.row, square.column - 1, Square.enumColor.GRAY, Square.enumColor.GREEN);
+            if (square.row < GameWindow.NUMBER_OF_ROW - 1)
+                GameWindow.floodFill(square.row + 1, square.column, Square.enumColor.GRAY, Square.enumColor.GREEN);
+            if (square.row > 0)
+                GameWindow.floodFill(square.row - 1, square.column, Square.enumColor.GRAY, Square.enumColor.GREEN);
+            if (square.column < GameWindow.NUMBER_OF_COLUMN - 1)
+                GameWindow.floodFill(square.row, square.column + 1, Square.enumColor.GRAY, Square.enumColor.GREEN);
 
+        }
+    }
     public void fill() {
-        Square.enumDirection firstDirection = null;
+        Square.enumDirection firstDirection =  squareArrayList.get(0).direction;;
         Square.enumDirection secondDirection = null;
         for (Square square : squareArrayList) {
-            firstDirection = squareArrayList.get(0).direction;
             if (square.direction != firstDirection)
                 secondDirection = square.direction;
+
             square.color = Square.enumColor.BLUE;
             square.setPictureForColor();
         }
@@ -124,8 +167,9 @@ public class PlayerDonaldTrump {
                 toRemove.add(temp);
             else if (temp.direction != temp1.direction)
                 toRemove.add(temp);
-
         }
+        squareArrayList.removeAll(toRemove);
+
         fillDownLeft();
         fillUpRight();
         if (GameWindow.pool1HasEnemy) {
@@ -152,4 +196,5 @@ public class PlayerDonaldTrump {
         GameWindow.pool2.clear();
         squareArrayList.clear();
     }
+
 }

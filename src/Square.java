@@ -31,8 +31,8 @@ public class Square {
             case RED:
                 this.image = Utils.loadImageFromFile("block2.png");
                 break;
-            case ENEMY:
-                this.image=Utils.loadImageFromFile("images.png");
+            case GREEN:
+                this.image=Utils.loadImageFromFile("green.png");
                 break;
         }
     }
@@ -48,6 +48,9 @@ public class Square {
             case RED:
                 this.image = Utils.loadImageFromFile("block2.png");
                 break;
+            case GREEN:
+                this.image=Utils.loadImageFromFile("block.png");
+                break;
             default:
                 break;
         }
@@ -60,7 +63,6 @@ public class Square {
         return Utils.convertRowToYPixel(this.row);
     }
     public void draw(Graphics graphics) {
-
         graphics.drawImage(image, getXPixel(), getYPixel(),
                 GameWindow.SQUARE_LENGTH,GameWindow.SQUARE_LENGTH,null);
     }
