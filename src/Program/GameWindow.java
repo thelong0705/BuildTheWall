@@ -1,10 +1,13 @@
+package Program;
+
+import Utils.Utils;
+
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 /**
  * Created by Inpriron on 3/6/2017.

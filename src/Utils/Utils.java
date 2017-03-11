@@ -1,3 +1,7 @@
+package Utils;
+
+import Program.GameWindow;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
@@ -18,18 +22,18 @@ public class Utils {
     }
     public static int convertRowToYPixel(int row)
     {
-        return 30+GameWindow.SQUARE_LENGTH*row;
+        return 30+ GameWindow.SQUARE_LENGTH*row;
     }
     public static int convertColToXPixel(int col)
     {
-        return 10+GameWindow.SQUARE_LENGTH*col;
+        return 10+ GameWindow.SQUARE_LENGTH*col;
     }
     public static int convertYToRowArray(int y)
     {
-        return  (y-30)/GameWindow.SQUARE_LENGTH;
+        return  (y-30)/ GameWindow.SQUARE_LENGTH;
     }
     public static int convertXtoColumnArray(int x)
     {
-        return (x-10)/GameWindow.SQUARE_LENGTH;
+        return (x-10)/ GameWindow.SQUARE_LENGTH;
     }
 }

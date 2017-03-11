@@ -1,3 +1,7 @@
+package Program;
+
+import Utils.Utils;
+
 import java.awt.*;
 
 /**
@@ -62,6 +66,6 @@ public class Square {
     }
     public void draw(Graphics graphics) {
         graphics.drawImage(image, getXPixel(), getYPixel(),
-                GameWindow.SQUARE_LENGTH,GameWindow.SQUARE_LENGTH,null);
+                GameWindow.SQUARE_LENGTH, GameWindow.SQUARE_LENGTH,null);
     }
 }
