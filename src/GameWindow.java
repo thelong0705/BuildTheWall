@@ -16,20 +16,17 @@ public class GameWindow extends Frame {
     public static final int NUMBER_OF_ROW = 30;
     public static final int NUMBER_OF_COLUMN = 40;
     public static final int SQUARE_LENGTH = 20;
-    public static final int FRAME_HEIGHT_SIZE = NUMBER_OF_ROW * SQUARE_LENGTH +40;
-    public static final int FRAME_WIDTH_SIZE = (NUMBER_OF_COLUMN)* SQUARE_LENGTH+20;
+    public static final int FRAME_HEIGHT_SIZE = NUMBER_OF_ROW * SQUARE_LENGTH + 40;
+    public static final int FRAME_WIDTH_SIZE = (NUMBER_OF_COLUMN) * SQUARE_LENGTH + 20;
     Thread thread;
     static Square[][] blockArray = new Square[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
-    public static int cycleCounter=0;
+    public static int cycleCounter = 0;
     public PlayerDonaldTrump donaldTrump;
     public boolean isKeyLeft = false;
     public boolean isKeyRight = false;
     public boolean isKeyUp = false;
     public boolean isKeyDown = false;
-    public static ArrayList<Square> pool1=new ArrayList<>();
-    public static ArrayList<Square> pool2=new ArrayList<>();
-    public static boolean pool1HasEnemy=false;
-    public static boolean pool2HasEnemy=false;
+
     public GameWindow() {
         setVisible(true);
         setSize(FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE);
@@ -55,16 +52,16 @@ public class GameWindow extends Frame {
             public void keyPressed(KeyEvent keyEvent) {
                 switch (keyEvent.getKeyCode()) {
                     case KeyEvent.VK_RIGHT:
-                        isKeyRight = true;
+                       isKeyRight=true;
                         break;
                     case KeyEvent.VK_LEFT:
-                        isKeyLeft = true;
+                        isKeyLeft=true;
                         break;
                     case KeyEvent.VK_UP:
-                        isKeyUp = true;
+                        isKeyUp=true;
                         break;
                     case KeyEvent.VK_DOWN:
-                        isKeyDown = true;
+                        isKeyDown=true;
                         break;
                 }
             }
@@ -74,16 +71,16 @@ public class GameWindow extends Frame {
                 super.keyReleased(keyEvent);
                 switch (keyEvent.getKeyCode()) {
                     case KeyEvent.VK_RIGHT:
-                        isKeyRight = false;
+//                        isKeyRight = false;
                         break;
                     case KeyEvent.VK_LEFT:
-                        isKeyLeft = false;
+//                        isKeyLeft = false;
                         break;
                     case KeyEvent.VK_UP:
-                        isKeyUp = false;
+//                        isKeyUp = false;
                         break;
                     case KeyEvent.VK_DOWN:
-                        isKeyDown = false;
+//                        isKeyDown = false;
                         break;
                 }
             }
@@ -110,17 +107,19 @@ public class GameWindow extends Frame {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (isKeyRight&&cycleCounter%3==0)
+                    if (isKeyRight)
                         donaldTrump.moveRight();
-                    if (isKeyLeft&&cycleCounter%3==0)
+                    else if (isKeyLeft)
                         donaldTrump.moveLeft();
-                    if (isKeyUp&cycleCounter%3==0)
+                    else if (isKeyUp)
                         donaldTrump.moveUp();
-                    if (isKeyDown&cycleCounter%3==0)
+                    else if (isKeyDown)
                         donaldTrump.moveDown();
-                    if( blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.GRAY)
-                        blockArray[donaldTrump.row][donaldTrump.column].color= Square.enumColor.RED;
-                    blockArray[donaldTrump.row][donaldTrump.column].setPictureForColor();
+                    if(blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.BLUE)
+                        isKeyRight=isKeyDown=isKeyLeft=isKeyUp=false;
+//                    if( blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.GRAY)
+//                        blockArray[donaldTrump.row][donaldTrump.column].color= Square.enumColor.RED;
+//                    blockArray[donaldTrump.row][donaldTrump.column].setPictureForColor();
 
                     repaint();
                     cycleCounter++;
@@ -145,54 +144,18 @@ public class GameWindow extends Frame {
             graphics.drawImage(backBufferImage, 0, 0, null);
         }
     }
-    public static void floodFill(int row, int column, Square.enumColor sourceColor, Square.enumColor desColor)
-    {
+
+    public static void floodFill(int row, int column, Square.enumColor sourceColor, Square.enumColor desColor) {
         if (row < 0) return;
         if (column < 0) return;
-        if(row>=NUMBER_OF_ROW) return;
-        if(column>=NUMBER_OF_COLUMN)return;
-        if(blockArray[row][column].color!=sourceColor) return;
-        blockArray[row][column].color=desColor;
+        if (row >= NUMBER_OF_ROW) return;
+        if (column >= NUMBER_OF_COLUMN) return;
+        if (blockArray[row][column].color != sourceColor) return;
+        blockArray[row][column].color = desColor;
         blockArray[row][column].setPictureForColor();
-        floodFill(row-1,column,sourceColor,desColor);
-        floodFill(row+1,column,sourceColor,desColor);
-        floodFill(row,column-1,sourceColor,desColor);
-        floodFill(row,column+1,sourceColor,desColor);
-    }
-    public static void floodFillpool1(int row, int column, Square.enumColor sourceColor, Square.enumColor desColor)
-    {
-        if (row < 0) return;
-        if (column < 0) return;
-        if(row>=NUMBER_OF_ROW) return;
-        if(column>=NUMBER_OF_COLUMN)return;
-        if(blockArray[row][column].color!=sourceColor) return;
-        blockArray[row][column].color=desColor;
-        pool1.add(blockArray[row][column]);
-        if(row==20&&column==30)
-        {
-            pool1HasEnemy=true;
-        }
-        floodFillpool1(row-1,column,sourceColor,desColor);
-        floodFillpool1(row+1,column,sourceColor,desColor);
-        floodFillpool1(row,column-1,sourceColor,desColor);
-        floodFillpool1(row,column+1,sourceColor,desColor);
-    }
-    public static void floodFillpool2(int row, int column, Square.enumColor sourceColor, Square.enumColor desColor)
-    {
-        if (row < 0) return;
-        if (column < 0) return;
-        if(row>=NUMBER_OF_ROW) return;
-        if(column>=NUMBER_OF_COLUMN)return;
-        if(blockArray[row][column].color!=sourceColor) return;
-        blockArray[row][column].color=desColor;
-        pool2.add(blockArray[row][column]);
-        if(row==20&&column==30)
-        {
-            pool2HasEnemy=true;
-        }
-        floodFillpool2(row-1,column,sourceColor,desColor);
-        floodFillpool2(row+1,column,sourceColor,desColor);
-        floodFillpool2(row,column-1,sourceColor,desColor);
-        floodFillpool2(row,column+1,sourceColor,desColor);
+        floodFill(row - 1, column, sourceColor, desColor);
+        floodFill(row + 1, column, sourceColor, desColor);
+        floodFill(row, column - 1, sourceColor, desColor);
+        floodFill(row, column + 1, sourceColor, desColor);
     }
 }

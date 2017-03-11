@@ -5,18 +5,16 @@ import java.awt.*;
  */
 public class Square {
     public enum enumColor {
-        GRAY, BLUE, RED,ENEMY,YELLOW,GREEN
+        GRAY, BLUE, RED,GREEN
     }
     public enum enumDirection{
-        UP,DOWN,LEFT,RIGHT;
+        UP,DOWN,LEFT,RIGHT
     }
-
     public int column;
     public int row;
     Image image;
     enumColor color;
     enumDirection direction;
-
     public Square(int row, int column, enumColor Color) {
         this.column = column;
         this.row = row;
@@ -29,7 +27,7 @@ public class Square {
                 this.image = Utils.loadImageFromFile("blockgray.png");
                 break;
             case RED:
-                this.image = Utils.loadImageFromFile("block2.png");
+                this.image = Utils.loadImageFromFile("block.png");
                 break;
             case GREEN:
                 this.image=Utils.loadImageFromFile("green.png");
