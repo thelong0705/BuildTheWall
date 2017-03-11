@@ -119,20 +119,19 @@ public class GameWindow extends Frame {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (isKeyRight&&cycleCounter%3==0)
-                        donaldTrump.moveRight();
+
                     if (isKeyLeft&&cycleCounter%3==0)
                         donaldTrump.moveLeft();
+                    if (isKeyRight&&cycleCounter%3==0)
+                        donaldTrump.moveRight();
                     if (isKeyUp&&cycleCounter%3==0)
                         donaldTrump.moveUp();
                     if (isKeyDown&&cycleCounter%3==0)
                         donaldTrump.moveDown();
-                    System.out.println(blockArray[donaldTrump.row][donaldTrump.column].color);
                     if((blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.BLUE
                     ||blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.GREEN)
                             &&cycleCounter%3==0)
                     {
-                        System.out.println("wtf");
                         isKeyRight=isKeyDown=isKeyLeft=isKeyUp=false;
                     }
 

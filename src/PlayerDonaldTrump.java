@@ -21,11 +21,13 @@ public class PlayerDonaldTrump {
     public void moveUp() {
 
         if (row - 1 >= 0) {
-            if (GameWindow.blockArray[row - 1][column].color == Square.enumColor.BLUE && GameWindow.blockArray[row][column].color == Square.enumColor.RED) {
+            if (GameWindow.blockArray[row - 1][column].color == Square.enumColor.BLUE &&
+                    GameWindow.blockArray[row][column].color == Square.enumColor.RED) {
                 fill();
             }
-            if (GameWindow.blockArray[row - 1][column].color == Square.enumColor.RED && GameWindow.blockArray[row - 1][column].direction == Square.enumDirection.DOWN)
-                GameWindow.isKeyDown = true;
+            if (GameWindow.blockArray[row - 1][column].color == Square.enumColor.RED &&
+                    GameWindow.blockArray[row - 1][column].direction == Square.enumDirection.DOWN)
+                moveDown();
             else {
                 row--;
                 if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY)
@@ -37,13 +39,20 @@ public class PlayerDonaldTrump {
 
     public void moveDown() {
         if (row + 1 <= GameWindow.NUMBER_OF_ROW - 1) {
-            if (GameWindow.blockArray[row + 1][column].color == Square.enumColor.BLUE && GameWindow.blockArray[row][column].color == Square.enumColor.RED) {
+            if (GameWindow.blockArray[row + 1][column].color == Square.enumColor.BLUE &&
+                    GameWindow.blockArray[row][column].color == Square.enumColor.RED) {
                 fill();
             }
-            row++;
-            if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY)
-                GameWindow.blockArray[row][column].direction = Square.enumDirection.DOWN;
-            addIntoArrayList();
+            if (GameWindow.blockArray[row + 1][column].color == Square.enumColor.RED &&
+                    GameWindow.blockArray[row +1][column].direction == Square.enumDirection.UP)
+                moveUp();
+            else {
+                row++;
+                if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY)
+                    GameWindow.blockArray[row][column].direction = Square.enumDirection.DOWN;
+                addIntoArrayList();
+            }
+
         }
     }
 
@@ -52,11 +61,15 @@ public class PlayerDonaldTrump {
             if (GameWindow.blockArray[row][column + 1].color == Square.enumColor.BLUE && GameWindow.blockArray[row][column].color == Square.enumColor.RED) {
                 fill();
             }
-            column++;
-            if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY)
-                GameWindow.blockArray[row][column].direction = Square.enumDirection.RIGHT;
-            addIntoArrayList();
-
+            if (GameWindow.blockArray[row][column + 1].color == Square.enumColor.RED &&
+                    GameWindow.blockArray[row][column+1].direction == Square.enumDirection.LEFT)
+                moveLeft();
+            else {
+                column++;
+                if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY)
+                    GameWindow.blockArray[row][column].direction = Square.enumDirection.RIGHT;
+                addIntoArrayList();
+            }
         }
     }
 
@@ -65,10 +78,16 @@ public class PlayerDonaldTrump {
             if (GameWindow.blockArray[row][column - 1].color == Square.enumColor.BLUE && GameWindow.blockArray[row][column].color == Square.enumColor.RED) {
                 fill();
             }
-            column--;
-            if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY)
-                GameWindow.blockArray[row][column].direction = Square.enumDirection.LEFT;
-            addIntoArrayList();
+            if (GameWindow.blockArray[row][column - 1].color == Square.enumColor.RED &&
+                    GameWindow.blockArray[row][column-1].direction == Square.enumDirection.RIGHT)
+                moveRight();
+            else {
+                column--;
+                if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY)
+                    GameWindow.blockArray[row][column].direction = Square.enumDirection.LEFT;
+                addIntoArrayList();
+            }
+
         }
 
     }

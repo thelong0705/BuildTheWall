@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66407dd-283c-4c69-b381-9e78ed087912" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$3.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/PlayerDonaldTrump.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/PlayerDonaldTrump.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameWindow.java" afterPath="$PROJECT_DIR$/src/GameWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayerDonaldTrump.java" afterPath="$PROJECT_DIR$/src/PlayerDonaldTrump.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Square.java" afterPath="$PROJECT_DIR$/src/Square.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,28 +23,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="131" column="101" lean-forward="false" selection-start-line="131" selection-start-column="101" selection-end-line="131" selection-end-column="101" />
+            <state relative-caret-position="-916">
+              <caret line="57" column="23" lean-forward="true" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerDonaldTrump.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PlayerDonaldTrump.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-164">
-              <caret line="90" column="113" lean-forward="false" selection-start-line="90" selection-start-column="113" selection-end-line="90" selection-end-column="113" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
-                <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -85,6 +74,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="PlayerDonaldTrump.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PlayerDonaldTrump.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="82" column="28" lean-forward="false" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
+                <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -93,6 +96,12 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>wtf</find>
+      <find>out</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -109,8 +118,8 @@
         <option value="$PROJECT_DIR$/src/GameViews.java" />
         <option value="$PROJECT_DIR$/src/Utils.java" />
         <option value="$PROJECT_DIR$/src/Square.java" />
-        <option value="$PROJECT_DIR$/src/PlayerDonaldTrump.java" />
         <option value="$PROJECT_DIR$/src/GameWindow.java" />
+        <option value="$PROJECT_DIR$/src/PlayerDonaldTrump.java" />
       </list>
     </option>
   </component>
@@ -476,7 +485,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/PlayerDonaldTrump.java</url>
-          <line>87</line>
+          <line>106</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -942,25 +951,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerDonaldTrump.java">
+    <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-164">
-          <caret line="90" column="113" lean-forward="false" selection-start-line="90" selection-start-column="113" selection-end-line="90" selection-end-column="113" />
+        <state relative-caret-position="-916">
+          <caret line="57" column="23" lean-forward="true" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
-            <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
+            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/PlayerDonaldTrump.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="131" column="101" lean-forward="false" selection-start-line="131" selection-start-column="101" selection-end-line="131" selection-end-column="101" />
+        <state relative-caret-position="210">
+          <caret line="82" column="28" lean-forward="false" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
+            <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
+            <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
           </folding>
         </state>
       </provider>
