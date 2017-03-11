@@ -27,7 +27,7 @@ public class Square {
                 this.image = Utils.loadImageFromFile("blockgray.png");
                 break;
             case RED:
-                this.image = Utils.loadImageFromFile("block.png");
+                this.image = Utils.loadImageFromFile("block2.png");
                 break;
             case GREEN:
                 this.image=Utils.loadImageFromFile("green.png");

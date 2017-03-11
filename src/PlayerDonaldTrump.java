@@ -25,14 +25,13 @@ public class PlayerDonaldTrump {
                 fill();
             }
             if (GameWindow.blockArray[row - 1][column].color == Square.enumColor.RED && GameWindow.blockArray[row - 1][column].direction == Square.enumDirection.DOWN)
-                ;
+                GameWindow.isKeyDown = true;
             else {
                 row--;
                 if (GameWindow.blockArray[row][column].color == Square.enumColor.GRAY)
                     GameWindow.blockArray[row][column].direction = Square.enumDirection.UP;
                 addIntoArrayList();
             }
-
         }
     }
 

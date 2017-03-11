@@ -22,10 +22,10 @@ public class GameWindow extends Frame {
     static Square[][] blockArray = new Square[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
     public static int cycleCounter = 0;
     public PlayerDonaldTrump donaldTrump;
-    public boolean isKeyLeft = false;
-    public boolean isKeyRight = false;
-    public boolean isKeyUp = false;
-    public boolean isKeyDown = false;
+    public static boolean isKeyLeft = false;
+    public static boolean isKeyRight = false;
+    public static boolean isKeyUp = false;
+    public static boolean isKeyDown = false;
 
     public GameWindow() {
         setVisible(true);
@@ -53,15 +53,27 @@ public class GameWindow extends Frame {
                 switch (keyEvent.getKeyCode()) {
                     case KeyEvent.VK_RIGHT:
                        isKeyRight=true;
+                       isKeyDown=false;
+                       isKeyUp=false;
+                       isKeyLeft=false;
                         break;
                     case KeyEvent.VK_LEFT:
                         isKeyLeft=true;
+                        isKeyRight=false;
+                        isKeyDown=false;
+                        isKeyUp=false;
                         break;
                     case KeyEvent.VK_UP:
                         isKeyUp=true;
+                        isKeyLeft=false;
+                        isKeyRight=false;
+                        isKeyDown=false;
                         break;
                     case KeyEvent.VK_DOWN:
                         isKeyDown=true;
+                        isKeyUp=false;
+                        isKeyLeft=false;
+                        isKeyRight=false;
                         break;
                 }
             }
@@ -107,16 +119,23 @@ public class GameWindow extends Frame {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (isKeyRight)
+                    if (isKeyRight&&cycleCounter%3==0)
                         donaldTrump.moveRight();
-                    else if (isKeyLeft)
+                    if (isKeyLeft&&cycleCounter%3==0)
                         donaldTrump.moveLeft();
-                    else if (isKeyUp)
+                    if (isKeyUp&&cycleCounter%3==0)
                         donaldTrump.moveUp();
-                    else if (isKeyDown)
+                    if (isKeyDown&&cycleCounter%3==0)
                         donaldTrump.moveDown();
-                    if(blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.BLUE)
+                    System.out.println(blockArray[donaldTrump.row][donaldTrump.column].color);
+                    if((blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.BLUE
+                    ||blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.GREEN)
+                            &&cycleCounter%3==0)
+                    {
+                        System.out.println("wtf");
                         isKeyRight=isKeyDown=isKeyLeft=isKeyUp=false;
+                    }
+
 //                    if( blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.GRAY)
 //                        blockArray[donaldTrump.row][donaldTrump.column].color= Square.enumColor.RED;
 //                    blockArray[donaldTrump.row][donaldTrump.column].setPictureForColor();

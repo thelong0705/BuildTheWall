@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66407dd-283c-4c69-b381-9e78ed087912" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$1.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$2.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$3.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/PlayerDonaldTrump.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/PlayerDonaldTrump.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Square$1.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Square$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Square$enumColor.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Square$enumColor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Square.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Square.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameWindow.java" afterPath="$PROJECT_DIR$/src/GameWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayerDonaldTrump.java" afterPath="$PROJECT_DIR$/src/PlayerDonaldTrump.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Square.java" afterPath="$PROJECT_DIR$/src/Square.java" />
@@ -29,29 +20,28 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="116" column="22" lean-forward="true" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
+            <state relative-caret-position="108">
+              <caret line="131" column="101" lean-forward="false" selection-start-line="131" selection-start-column="101" selection-end-line="131" selection-end-column="101" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#windowClosing#0;class#1174:1534" expanded="false" />
+                <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerDonaldTrump.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlayerDonaldTrump.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlayerDonaldTrump.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+            <state relative-caret-position="-164">
+              <caret line="90" column="113" lean-forward="false" selection-start-line="90" selection-start-column="113" selection-end-line="90" selection-end-column="113" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
                 <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
-                <element signature="method#fill4way#0;class#PlayerDonaldTrump#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -71,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/src/Square.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+              <caret line="29" column="60" lean-forward="false" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -119,8 +109,8 @@
         <option value="$PROJECT_DIR$/src/GameViews.java" />
         <option value="$PROJECT_DIR$/src/Utils.java" />
         <option value="$PROJECT_DIR$/src/Square.java" />
-        <option value="$PROJECT_DIR$/src/GameWindow.java" />
         <option value="$PROJECT_DIR$/src/PlayerDonaldTrump.java" />
+        <option value="$PROJECT_DIR$/src/GameWindow.java" />
       </list>
     </option>
   </component>
@@ -486,7 +476,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/PlayerDonaldTrump.java</url>
-          <line>88</line>
+          <line>87</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -528,7 +518,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1174:1534" expanded="false" />
+            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -541,7 +531,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
             <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
-            <element signature="method#fill4way#0;class#PlayerDonaldTrump#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -576,7 +565,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1174:1534" expanded="false" />
+            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -589,7 +578,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
             <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
-            <element signature="method#fill4way#0;class#PlayerDonaldTrump#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -624,7 +612,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1174:1534" expanded="false" />
+            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -643,7 +631,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1174:1534" expanded="false" />
+            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -656,7 +644,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
             <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
-            <element signature="method#fill4way#0;class#PlayerDonaldTrump#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -721,7 +708,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1174:1534" expanded="false" />
+            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -781,7 +768,7 @@
           <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1174:1534" expanded="false" />
+            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -841,7 +828,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1174:1534" expanded="false" />
+            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -939,6 +926,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="29" column="60" lean-forward="false" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameViews.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -947,34 +942,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Square.java">
+    <entry file="file://$PROJECT_DIR$/src/PlayerDonaldTrump.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
-          <folding />
+        <state relative-caret-position="-164">
+          <caret line="90" column="113" lean-forward="false" selection-start-line="90" selection-start-column="113" selection-end-line="90" selection-end-column="113" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
+            <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="116" column="22" lean-forward="true" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
+        <state relative-caret-position="108">
+          <caret line="131" column="101" lean-forward="false" selection-start-line="131" selection-start-column="101" selection-end-line="131" selection-end-column="101" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#windowClosing#0;class#1174:1534" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerDonaldTrump.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#PlayerDonaldTrump#0;class#PlayerDonaldTrump#0" expanded="false" />
-            <element signature="method#draw#0;class#PlayerDonaldTrump#0" expanded="false" />
-            <element signature="method#fill4way#0;class#PlayerDonaldTrump#0" expanded="false" />
+            <element signature="method#windowClosing#0;class#1202:1562" expanded="false" />
           </folding>
         </state>
       </provider>
