@@ -12,12 +12,12 @@ import java.awt.*;
 public class ControllerManager {
     private int NUMBER_OF_ROW = GameWindow.NUMBER_OF_ROW;
     private int NUMBER_OF_COLUMN = GameWindow.NUMBER_OF_COLUMN;
-    public SquareController[][] gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
+    public SquareController[][] gameBoard ;
     public DonaldTrumpController donaldTrumpController;
 
 
     public ControllerManager() {
-        SquareController[][] gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
+        gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
         donaldTrumpController = new DonaldTrumpController(0, 0);
     }
 

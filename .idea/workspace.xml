@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66407dd-283c-4c69-b381-9e78ed087912" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameControllers/ControllerManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameControllers/DonaldTrumpController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameControllers/SquareController.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Program/PlayerDonaldTrump.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/DonaldTrumpModel.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/DonaldTrumpModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/GameModel.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/GameModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/SquareModel.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/SquareModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameViews/GameView.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameViews/GameView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Program/GameWindow$1.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Program/GameWindow$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Program/GameWindow$2.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Program/GameWindow$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Program/GameWindow$3.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Program/GameWindow$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Program/GameWindow.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Program/GameWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Utils/Utils.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/Utils/Utils.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Program/Square$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Program/Square$enumColor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Program/Square$enumDirection.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/Program/Square.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/GameController.java" afterPath="$PROJECT_DIR$/src/GameControllers/GameController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameModels/DonaldTrumpModel.java" afterPath="$PROJECT_DIR$/src/GameModels/DonaldTrumpModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameModels/GameModel.java" afterPath="$PROJECT_DIR$/src/GameModels/GameModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameModels/SquareModel.java" afterPath="$PROJECT_DIR$/src/GameModels/SquareModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameViews/GameView.java" afterPath="$PROJECT_DIR$/src/GameViews/GameView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Program/GameWindow.java" afterPath="$PROJECT_DIR$/src/Program/GameWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Program/PlayerDonaldTrump.java" afterPath="$PROJECT_DIR$/src/Program/PlayerDonaldTrump.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utils/Utils.java" afterPath="$PROJECT_DIR$/src/Utils/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/ControllerManager.java" afterPath="$PROJECT_DIR$/src/GameControllers/ControllerManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,26 +41,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Utils/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="64" column="128" lean-forward="false" selection-start-line="64" selection-start-column="128" selection-end-line="64" selection-end-column="128" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerDonaldTrump.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Program/PlayerDonaldTrump.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="116" column="35" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -131,8 +95,8 @@
       <file leaf-file-name="ControllerManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameControllers/ControllerManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+            <state relative-caret-position="85">
+              <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -195,6 +159,7 @@
         <option value="$PROJECT_DIR$/src/GameControllers/DonaldTrumpController.java" />
         <option value="$PROJECT_DIR$/src/Program/GameWindow.java" />
         <option value="$PROJECT_DIR$/src/Program/PlayerDonaldTrump.java" />
+        <option value="$PROJECT_DIR$/src/Program/Square.java" />
         <option value="$PROJECT_DIR$/src/GameControllers/ControllerManager.java" />
       </list>
     </option>
@@ -786,14 +751,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Program/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="57" column="9" lean-forward="false" selection-start-line="42" selection-start-column="7" selection-end-line="57" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameViews/GameView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -889,10 +846,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Program/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameControllers/ControllerManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+        <state relative-caret-position="85">
+          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
