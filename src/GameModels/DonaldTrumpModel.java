@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class DonaldTrumpModel extends GameModel {
     private int lives;
-    private ArrayList<SquareController> squarePlayerWentBy = new ArrayList<>();
+
 
     public DonaldTrumpModel(int row, int column, int lives) {
         super(row, column);
@@ -114,6 +114,7 @@ public class DonaldTrumpModel extends GameModel {
 
     public void fill(SquareController[][] gameBoard) {
         ArrayList<SquareController> toRemove = new ArrayList<>();
+        ArrayList<SquareController> squarePlayerWentBy=GameWindow.controllerManager.squarePlayerWentBy;
         for (SquareController square : squarePlayerWentBy) {
             square.setColor(SquareModel.enumColor.BLUE);
             toRemove.add(square);
@@ -126,6 +127,7 @@ public class DonaldTrumpModel extends GameModel {
 
     public void clearPlayerPath() {
         ArrayList<SquareController> toRemove = new ArrayList<>();
+        ArrayList<SquareController> squarePlayerWentBy=GameWindow.controllerManager.squarePlayerWentBy;
         for (SquareController square : squarePlayerWentBy) {
             square.setColor(SquareModel.enumColor.GRAY);
             toRemove.add(square);
@@ -134,6 +136,7 @@ public class DonaldTrumpModel extends GameModel {
     }
 
     public void addIntoArrayList(SquareController[][] gameBoard) {
+        ArrayList<SquareController> squarePlayerWentBy=GameWindow.controllerManager.squarePlayerWentBy;
         if (gameBoard[row][column].getColor() == SquareModel.enumColor.GRAY) {
             gameBoard[row][column].setColor(SquareModel.enumColor.RED);
             squarePlayerWentBy.add(gameBoard[row][column]);

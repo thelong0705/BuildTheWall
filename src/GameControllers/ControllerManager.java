@@ -16,11 +16,12 @@ public class ControllerManager {
     public SquareController[][] gameBoard ;
     public DonaldTrumpController donaldTrumpController;
     public ArrayList<EnemyController> enemyControllers;
-
+    public ArrayList<SquareController> squarePlayerWentBy = new ArrayList<>();
     public ControllerManager() {
         gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
         donaldTrumpController = new DonaldTrumpController(0, 0,GameWindow.PLAYER_LIFE);
         enemyControllers= new ArrayList<>();
+        squarePlayerWentBy= new ArrayList<>();
     }
 
     public SquareController[][] getGameBoard() {
@@ -54,6 +55,13 @@ public class ControllerManager {
         for(EnemyController enemyController: enemyControllers)
         {
             enemyController.draw(graphics);
+        }
+    }
+    public void runEnemy()
+    {
+        for(EnemyController enemyController: enemyControllers)
+        {
+            enemyController.run();
         }
     }
 }

@@ -118,7 +118,7 @@ public class GameWindow extends Frame {
 //        }
         controllerManager.initiateGameBoard();
         controllerManager.spawnEnemy(20,30);
-        controllerManager.spawnEnemy(20,10);
+        controllerManager.spawnEnemy(15,10);
         thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -129,25 +129,8 @@ public class GameWindow extends Frame {
                         e.printStackTrace();
                     }
 
-//                    if (isKeyLeft&&cycleCounter%3==0)
-//                        donaldTrump.moveLeft();
-//                    if (isKeyRight&&cycleCounter%3==0)
-//                        donaldTrump.moveRight();
-//                    if (isKeyUp&&cycleCounter%3==0)
-//                        donaldTrump.moveUp();
-//                    if (isKeyDown&&cycleCounter%3==0)
-//                        donaldTrump.moveDown();
-//                    if((blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.BLUE
-//                    ||blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.GREEN)
-//                            &&cycleCounter%3==0)
-//                    {
-//                        isKeyRight=isKeyDown=isKeyLeft=isKeyUp=false;
-//                    }
-
-//                    if( blockArray[donaldTrump.row][donaldTrump.column].color== Square.enumColor.GRAY)
-//                        blockArray[donaldTrump.row][donaldTrump.column].color= Square.enumColor.RED;
-//                    blockArray[donaldTrump.row][donaldTrump.column].setPictureForColor();
                     controllerManager.donaldTrumpController.run();
+                    controllerManager.runEnemy();
                     repaint();
                     cycleCounter++;
                 }
@@ -166,17 +149,5 @@ public class GameWindow extends Frame {
         }
     }
 
-//    public static void floodFill(int row, int column, Square.enumColor sourceColor, Square.enumColor desColor) {
-//        if (row < 0) return;
-//        if (column < 0) return;
-//        if (row >= NUMBER_OF_ROW) return;
-//        if (column >= NUMBER_OF_COLUMN) return;
-//        if (blockArray[row][column].color != sourceColor) return;
-//        blockArray[row][column].color = desColor;
-//        blockArray[row][column].setPictureForColor();
-//        floodFill(row - 1, column, sourceColor, desColor);
-//        floodFill(row + 1, column, sourceColor, desColor);
-//        floodFill(row, column - 1, sourceColor, desColor);
-//        floodFill(row, column + 1, sourceColor, desColor);
-//    }
+
 }
