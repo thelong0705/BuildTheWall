@@ -3,7 +3,7 @@ package GameControllers;
 import GameModels.GameModel;
 import GameModels.SquareModel;
 import GameViews.GameView;
-import Program.Square;
+
 import Utils.Utils;
 
 /**

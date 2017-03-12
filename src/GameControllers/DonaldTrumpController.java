@@ -38,8 +38,6 @@ public class DonaldTrumpController extends GameController {
                 GameWindow.isKeyRight = GameWindow.isKeyDown = GameWindow.isKeyLeft = GameWindow.isKeyUp = false;
             }
         }
-
     }
-
 
 }

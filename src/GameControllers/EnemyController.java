@@ -32,7 +32,7 @@ public class EnemyController extends GameController {
 
     @Override
     public void run() {
-        if(GameWindow.cycleCounter%15==0)
+        if(GameWindow.cycleCounter%12==0)
         {
             if(gameModel instanceof  EnemyModel)
             {

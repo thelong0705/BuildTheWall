@@ -24,4 +24,12 @@ public class GameController {
     {
 
     }
+    public void setRow(int row)
+    {
+        this.gameModel.setRow(row);
+    }
+    public void setColumn(int col)
+    {
+        this.gameModel.setColumn(col);
+    }
 }
