@@ -20,17 +20,22 @@ public class DonaldTrumpModel extends GameModel {
 
     public void moveUp(SquareController[][] gameBoard) {
         if (row - 1 >= 0) {
-            if (gameBoard[row - 1][column].getColor() == SquareModel.enumColor.BLUE &&
-                    gameBoard[row][column].getColor() == SquareModel.enumColor.RED) {
+            SquareController currentSquare = gameBoard[row][column];
+            SquareController nextSquare = gameBoard[row - 1][column];
+            if (checkFinish(currentSquare, nextSquare)) {
                 fill(gameBoard);
             }
-            if (gameBoard[row - 1][column].getColor() == SquareModel.enumColor.RED &&
-                    gameBoard[row - 1][column].getDirection() == SquareModel.enumDirection.DOWN)
-                moveDown(gameBoard);
-            else {
+            if (checkMeetRedSquare(nextSquare)) {
+                if (nextSquare.getDirection() == SquareModel.enumDirection.DOWN)
+                    moveDown(gameBoard);
+                else {
+                    row = column = 0;
+                    clearPlayerPath();
+                }
+            } else {
                 row--;
-                if (gameBoard[row][column].getColor() == SquareModel.enumColor.GRAY)
-                    gameBoard[row][column].setDirection(SquareModel.enumDirection.UP);
+                if (nextSquare.getColor() == SquareModel.enumColor.GRAY)
+                    nextSquare.setDirection(SquareModel.enumDirection.UP);
                 addIntoArrayList(gameBoard);
             }
         }
@@ -38,58 +43,76 @@ public class DonaldTrumpModel extends GameModel {
 
     public void moveDown(SquareController[][] gameBoard) {
         if (row + 1 <= GameWindow.NUMBER_OF_ROW - 1) {
-            if (gameBoard[row + 1][column].getColor() == SquareModel.enumColor.BLUE &&
-                    gameBoard[row][column].getColor() == SquareModel.enumColor.RED) {
+            SquareController currentSquare = gameBoard[row][column];
+            SquareController nextSquare = gameBoard[row + 1][column];
+            if (checkFinish(currentSquare, nextSquare)) {
                 fill(gameBoard);
             }
-            if (gameBoard[row + 1][column].getColor() == SquareModel.enumColor.RED &&
-                    gameBoard[row + 1][column].getDirection() == SquareModel.enumDirection.UP)
-                moveUp(gameBoard);
-            else {
+            if (checkMeetRedSquare(nextSquare)) {
+                if (nextSquare.getDirection() == SquareModel.enumDirection.UP)
+                    moveUp(gameBoard);
+                else {
+                    row = column = 0;
+                    clearPlayerPath();
+                }
+            } else {
                 row++;
-                if (gameBoard[row][column].getColor() == SquareModel.enumColor.GRAY)
-                    gameBoard[row][column].setDirection(SquareModel.enumDirection.DOWN);
+                if (nextSquare.getColor() == SquareModel.enumColor.GRAY)
+                    nextSquare.setDirection(SquareModel.enumDirection.DOWN);
                 addIntoArrayList(gameBoard);
             }
         }
     }
 
     public void moveRight(SquareController[][] gameBoard) {
+
         if (column + 1 <= GameWindow.NUMBER_OF_COLUMN - 1) {
-            if (gameBoard[row][column + 1].getColor() == SquareModel.enumColor.BLUE &&
-                    gameBoard[row][column].getColor() == SquareModel.enumColor.RED) {
+            SquareController currentSquare = gameBoard[row][column];
+            SquareController nextSquare = gameBoard[row][column + 1];
+            if (checkFinish(currentSquare, nextSquare)) {
                 fill(gameBoard);
             }
-            if (gameBoard[row][column + 1].getColor() == SquareModel.enumColor.RED &&
-                    gameBoard[row][column+1].getDirection() == SquareModel.enumDirection.LEFT)
-                moveLeft(gameBoard);
-            else {
+            if (checkMeetRedSquare(nextSquare)) {
+                if (nextSquare.getDirection() == SquareModel.enumDirection.LEFT)
+                    moveLeft(gameBoard);
+                else {
+                    row = column = 0;
+                    clearPlayerPath();
+                }
+            } else {
                 column++;
-                if (gameBoard[row][column].getColor() == SquareModel.enumColor.GRAY)
-                    gameBoard[row][column].setDirection(SquareModel.enumDirection.RIGHT) ;
+                if (nextSquare.getColor() == SquareModel.enumColor.GRAY)
+                    nextSquare.setDirection(SquareModel.enumDirection.RIGHT);
                 addIntoArrayList(gameBoard);
             }
         }
     }
+
     public void moveLeft(SquareController[][] gameBoard) {
         if (column - 1 >= 0) {
-            if (gameBoard[row][column - 1].getColor() == SquareModel.enumColor.BLUE &&
-                    gameBoard[row][column].getColor() == SquareModel.enumColor.RED) {
+            SquareController currentSquare = gameBoard[row][column];
+            SquareController nextSquare = gameBoard[row][column - 1];
+            if (checkFinish(currentSquare, nextSquare)) {
                 fill(gameBoard);
             }
-            if (gameBoard[row][column - 1].getColor() == SquareModel.enumColor.RED &&
-                    gameBoard[row][column-1].getDirection() == SquareModel.enumDirection.RIGHT)
-                moveRight(gameBoard);
-            else {
+            if (checkMeetRedSquare(nextSquare)) {
+                if (nextSquare.getDirection() == SquareModel.enumDirection.RIGHT)
+                    moveRight(gameBoard);
+                else {
+                    row = column = 0;
+                    clearPlayerPath();
+                }
+            } else {
                 column--;
-                if (gameBoard[row][column].getColor() == SquareModel.enumColor.GRAY)
-                    gameBoard[row][column].setDirection(SquareModel.enumDirection.LEFT);
+                if (nextSquare.getColor() == SquareModel.enumColor.GRAY)
+                    nextSquare.setDirection(SquareModel.enumDirection.LEFT);
                 addIntoArrayList(gameBoard);
             }
 
         }
 
     }
+
     public void fill(SquareController[][] gameBoard) {
         ArrayList<SquareController> toRemove = new ArrayList<>();
         for (SquareController square : squarePlayerWentBy) {
@@ -101,10 +124,28 @@ public class DonaldTrumpModel extends GameModel {
         Utils.floodFill(20, 30, SquareModel.enumColor.GREEN, SquareModel.enumColor.GRAY, gameBoard);
     }
 
+    public void clearPlayerPath() {
+        ArrayList<SquareController> toRemove = new ArrayList<>();
+        for (SquareController square : squarePlayerWentBy) {
+            square.setColor(SquareModel.enumColor.GRAY);
+            toRemove.add(square);
+        }
+        squarePlayerWentBy.removeAll(toRemove);
+    }
+
     public void addIntoArrayList(SquareController[][] gameBoard) {
         if (gameBoard[row][column].getColor() == SquareModel.enumColor.GRAY) {
             gameBoard[row][column].setColor(SquareModel.enumColor.RED);
             squarePlayerWentBy.add(gameBoard[row][column]);
         }
+    }
+
+    public boolean checkFinish(SquareController currentSquare, SquareController nextSquare) {
+        return nextSquare.getColor() == SquareModel.enumColor.BLUE &&
+                currentSquare.getColor() == SquareModel.enumColor.RED;
+    }
+
+    public boolean checkMeetRedSquare(SquareController nextSquare) {
+        return nextSquare.getColor() == SquareModel.enumColor.RED;
     }
 }
