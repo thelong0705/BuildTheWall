@@ -15,8 +15,25 @@ public class SquareModel extends GameModel {
     }
     private enumColor color;
     private enumDirection direction;
-    public SquareModel(int column, int row,enumColor color) {
-        super(column, row);
+
+    public enumColor getColor() {
+        return color;
+    }
+
+    public void setColor(enumColor color) {
+        this.color = color;
+    }
+
+    public enumDirection getDirection() {
+        return direction;
+    }
+
+    public void setDirection(enumDirection direction) {
+        this.direction = direction;
+    }
+
+    public SquareModel(int row, int column, enumColor color) {
+        super(row, column);
         this.color=color;
     }
 

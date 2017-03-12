@@ -25,7 +25,7 @@ public class GameModel {
         this.row = row;
     }
 
-    public GameModel(int column, int row) {
+    public GameModel(int row, int column) {
         this.column = column;
         this.row = row;
     }
