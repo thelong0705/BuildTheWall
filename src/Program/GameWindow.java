@@ -23,6 +23,7 @@ public class GameWindow extends Frame {
     public static final int FRAME_HEIGHT_SIZE = NUMBER_OF_ROW * SQUARE_LENGTH + 40;
     public static final int FRAME_WIDTH_SIZE = (NUMBER_OF_COLUMN) * SQUARE_LENGTH + 20;
     Thread thread;
+    public static final int PLAYER_LIFE=4;
 //    static Square[][] blockArray = new Square[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
     public static ControllerManager controllerManager;
     public static int cycleCounter = 0;
@@ -116,6 +117,8 @@ public class GameWindow extends Frame {
 //            }
 //        }
         controllerManager.initiateGameBoard();
+        controllerManager.spawnEnemy(20,30);
+        controllerManager.spawnEnemy(20,10);
         thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -158,6 +161,7 @@ public class GameWindow extends Frame {
         if (backBufferImage != null) {
             controllerManager.drawGameBoard(backGraphics);
             controllerManager.donaldTrumpController.draw(backGraphics);
+            controllerManager.drawEnemy(backGraphics);
             graphics.drawImage(backBufferImage, 0, 0, null);
         }
     }

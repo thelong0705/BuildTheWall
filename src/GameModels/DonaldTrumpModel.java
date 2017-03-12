@@ -1,5 +1,6 @@
 package GameModels;
 
+import GameControllers.EnemyController;
 import GameControllers.SquareController;
 import Program.GameWindow;
 
@@ -12,10 +13,12 @@ import java.util.ArrayList;
  * Created by Inpriron on 3/11/2017.
  */
 public class DonaldTrumpModel extends GameModel {
+    private int lives;
     private ArrayList<SquareController> squarePlayerWentBy = new ArrayList<>();
 
-    public DonaldTrumpModel(int row, int column) {
+    public DonaldTrumpModel(int row, int column, int lives) {
         super(row, column);
+        this.lives = lives;
     }
 
     public void moveUp(SquareController[][] gameBoard) {
@@ -29,8 +32,7 @@ public class DonaldTrumpModel extends GameModel {
                 if (nextSquare.getDirection() == SquareModel.enumDirection.DOWN)
                     moveDown(gameBoard);
                 else {
-                    row = column = 0;
-                    clearPlayerPath();
+                    hitRedSquare();
                 }
             } else {
                 row--;
@@ -52,8 +54,7 @@ public class DonaldTrumpModel extends GameModel {
                 if (nextSquare.getDirection() == SquareModel.enumDirection.UP)
                     moveUp(gameBoard);
                 else {
-                    row = column = 0;
-                    clearPlayerPath();
+                    hitRedSquare();
                 }
             } else {
                 row++;
@@ -76,8 +77,7 @@ public class DonaldTrumpModel extends GameModel {
                 if (nextSquare.getDirection() == SquareModel.enumDirection.LEFT)
                     moveLeft(gameBoard);
                 else {
-                    row = column = 0;
-                    clearPlayerPath();
+                    hitRedSquare();
                 }
             } else {
                 column++;
@@ -99,8 +99,7 @@ public class DonaldTrumpModel extends GameModel {
                 if (nextSquare.getDirection() == SquareModel.enumDirection.RIGHT)
                     moveRight(gameBoard);
                 else {
-                    row = column = 0;
-                    clearPlayerPath();
+                    hitRedSquare();
                 }
             } else {
                 column--;
@@ -121,7 +120,8 @@ public class DonaldTrumpModel extends GameModel {
             Utils.fill4way(square, gameBoard);
         }
         squarePlayerWentBy.removeAll(toRemove);
-        Utils.floodFill(20, 30, SquareModel.enumColor.GREEN, SquareModel.enumColor.GRAY, gameBoard);
+        for (EnemyController enemyController : GameWindow.controllerManager.enemyControllers)
+            Utils.floodFill(enemyController.getRow(), enemyController.getCol(), SquareModel.enumColor.GREEN, SquareModel.enumColor.GRAY, gameBoard);
     }
 
     public void clearPlayerPath() {
@@ -148,4 +148,12 @@ public class DonaldTrumpModel extends GameModel {
     public boolean checkMeetRedSquare(SquareController nextSquare) {
         return nextSquare.getColor() == SquareModel.enumColor.RED;
     }
+
+    public void hitRedSquare() {
+        row = column = 0;
+        clearPlayerPath();
+        lives--;
+        System.out.println(lives);
+    }
+
 }

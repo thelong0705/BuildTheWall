@@ -5,6 +5,7 @@ import GameModels.SquareModel;
 import Program.GameWindow;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Inpriron on 3/11/2017.
@@ -14,11 +15,12 @@ public class ControllerManager {
     private int NUMBER_OF_COLUMN = GameWindow.NUMBER_OF_COLUMN;
     public SquareController[][] gameBoard ;
     public DonaldTrumpController donaldTrumpController;
-
+    public ArrayList<EnemyController> enemyControllers;
 
     public ControllerManager() {
         gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
-        donaldTrumpController = new DonaldTrumpController(0, 0);
+        donaldTrumpController = new DonaldTrumpController(0, 0,GameWindow.PLAYER_LIFE);
+        enemyControllers= new ArrayList<>();
     }
 
     public SquareController[][] getGameBoard() {
@@ -40,6 +42,18 @@ public class ControllerManager {
             for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
                 gameBoard[i][j].draw(graphics);
             }
+        }
+    }
+    public void spawnEnemy(int row, int column)
+    {
+        EnemyController enemyController= new EnemyController(row,column);
+        enemyControllers.add(enemyController);
+    }
+    public void drawEnemy(Graphics graphics)
+    {
+        for(EnemyController enemyController: enemyControllers)
+        {
+            enemyController.draw(graphics);
         }
     }
 }

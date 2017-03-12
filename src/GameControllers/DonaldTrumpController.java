@@ -5,7 +5,6 @@ import GameModels.GameModel;
 import GameModels.SquareModel;
 import GameViews.GameView;
 import Program.GameWindow;
-import Program.Square;
 import Utils.Utils;
 
 /**
@@ -16,8 +15,8 @@ public class DonaldTrumpController extends GameController {
         super(gameModel, gameView);
     }
 
-    public DonaldTrumpController(int row, int column) {
-        this(new DonaldTrumpModel(row, column), new GameView(Utils.loadImageFromFile("images.png")));
+    public DonaldTrumpController(int row, int column, int lives) {
+        this(new DonaldTrumpModel(row, column,lives), new GameView(Utils.loadImageFromFile("images.png")));
     }
 
     @Override
