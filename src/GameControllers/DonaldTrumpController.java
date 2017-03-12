@@ -26,11 +26,11 @@ public class DonaldTrumpController extends GameController {
             DonaldTrumpModel model = (DonaldTrumpModel) gameModel;
             if (GameWindow.isKeyLeft && GameWindow.cycleCounter % 3 == 0)
                 model.moveLeft(gameBoard);
-            if (GameWindow.isKeyRight && GameWindow.cycleCounter % 3 == 0)
+            else if (GameWindow.isKeyRight && GameWindow.cycleCounter % 3 == 0)
                 model.moveRight(gameBoard);
-            if (GameWindow.isKeyUp && GameWindow.cycleCounter % 3 == 0)
+            else if (GameWindow.isKeyUp && GameWindow.cycleCounter % 3 == 0)
                 model.moveUp(gameBoard);
-            if (GameWindow.isKeyDown && GameWindow.cycleCounter % 3 == 0)
+            else if (GameWindow.isKeyDown && GameWindow.cycleCounter % 3 == 0)
                 model.moveDown(gameBoard);
             if ((gameBoard[model.getRow()][model.getColumn()].getColor() == SquareModel.enumColor.BLUE
                     || gameBoard[model.getRow()][model.getColumn()].getColor() == SquareModel.enumColor.GREEN)

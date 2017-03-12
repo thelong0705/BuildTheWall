@@ -39,9 +39,12 @@ public class ControllerManager {
     }
     public void drawGameBoard(Graphics graphics)
     {
+        GameWindow.blueSquare=0;
         for (int i = 0; i < NUMBER_OF_ROW; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
                 gameBoard[i][j].draw(graphics);
+                if(gameBoard[i][j].getColor()== SquareModel.enumColor.BLUE|| gameBoard[i][j].getColor()== SquareModel.enumColor.GREEN)
+                    GameWindow.blueSquare++;
             }
         }
     }

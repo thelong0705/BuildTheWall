@@ -32,7 +32,7 @@ public class GameWindow extends Frame {
     public static boolean isKeyRight = false;
     public static boolean isKeyUp = false;
     public static boolean isKeyDown = false;
-
+    public static int blueSquare=0;
     public GameWindow() {
         setVisible(true);
         setSize(FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE);
@@ -109,13 +109,6 @@ public class GameWindow extends Frame {
                 BufferedImage.TYPE_INT_ARGB);
         backGraphics = backBufferImage.getGraphics();
         controllerManager= new ControllerManager();
-//        for (int i = 0; i < NUMBER_OF_ROW; i++) {
-//            for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
-//                blockArray[i][j] = new Square(i, j, Square.enumColor.GRAY);
-//                if (i == 0 || j == 0 || i == NUMBER_OF_ROW - 1 || j == NUMBER_OF_COLUMN - 1)
-//                    blockArray[i][j] = new Square(i, j, Square.enumColor.BLUE);
-//            }
-//        }
         controllerManager.initiateGameBoard();
         controllerManager.spawnEnemy(20,30);
         controllerManager.spawnEnemy(15,10);
@@ -128,7 +121,11 @@ public class GameWindow extends Frame {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
+                    if(blueSquare>960)
+                    {
+                        System.out.println("YOU WIN");
+                        break;
+                    }
                     controllerManager.donaldTrumpController.run();
                     controllerManager.runEnemy();
                     repaint();
@@ -149,5 +146,8 @@ public class GameWindow extends Frame {
         }
     }
 
+    public void checkWin()
+    {
 
+    }
 }

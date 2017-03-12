@@ -61,7 +61,6 @@ public class EnemyModel extends GameModel {
     public void moveDownRight(SquareController[][] gameBoard, EnemyController enemyController) {
         SquareController currentSquare = gameBoard[row][column];
         SquareController nextSquare = gameBoard[row + 1][column + 1];
-
         if (nextSquare.getColor() == SquareModel.enumColor.RED) {
             hitPlayer();
         } else if (nextSquare.getColor() == SquareModel.enumColor.BLUE) {
@@ -80,7 +79,7 @@ public class EnemyModel extends GameModel {
         } else if (nextSquare.getColor() == SquareModel.enumColor.BLUE) {
             enemyController.enemyMoveBehaviour=new EnemyMoveUpRightBehaviour();
         } else {
-            row--;
+            row++;
             column--;
         }
     }
