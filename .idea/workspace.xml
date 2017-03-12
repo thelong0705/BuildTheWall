@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66407dd-283c-4c69-b381-9e78ed087912" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/ControllerManager.java" afterPath="$PROJECT_DIR$/src/GameControllers/ControllerManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/DonaldTrumpController.java" afterPath="$PROJECT_DIR$/src/GameControllers/DonaldTrumpController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameModels/EnemyModel.java" afterPath="$PROJECT_DIR$/src/GameModels/EnemyModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Program/GameWindow.java" afterPath="$PROJECT_DIR$/src/Program/GameWindow.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EnemyModel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EnemyModel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameModels/EnemyModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="62" column="69" lean-forward="false" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
+            <state relative-caret-position="359">
+              <caret line="99" column="84" lean-forward="false" selection-start-line="99" selection-start-column="84" selection-end-line="99" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,7 +107,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Program/GameWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -198,10 +196,10 @@
         <option value="$PROJECT_DIR$/src/GameControllers/EnemyController.java" />
         <option value="$PROJECT_DIR$/src/GameControllers/GameController.java" />
         <option value="$PROJECT_DIR$/src/GameControllers/SquareController.java" />
-        <option value="$PROJECT_DIR$/src/GameModels/EnemyModel.java" />
         <option value="$PROJECT_DIR$/src/GameControllers/DonaldTrumpController.java" />
         <option value="$PROJECT_DIR$/src/GameControllers/ControllerManager.java" />
         <option value="$PROJECT_DIR$/src/Program/GameWindow.java" />
+        <option value="$PROJECT_DIR$/src/GameModels/EnemyModel.java" />
       </list>
     </option>
   </component>
@@ -624,7 +622,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -924,16 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameModels/EnemyModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="62" column="69" lean-forward="false" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameControllers/DonaldTrumpController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
@@ -971,6 +959,16 @@
           <folding>
             <element signature="method#keyPressed#0;class#1782:3717" expanded="false" />
             <element signature="method#keyReleased#0;class#1782:3717" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameModels/EnemyModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="99" column="84" lean-forward="false" selection-start-line="99" selection-start-column="84" selection-end-line="99" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
