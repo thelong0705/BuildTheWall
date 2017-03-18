@@ -1,5 +1,7 @@
 package Program;
 
+import GUI.GameFrame;
+import GUI.MainPanel;
 import GameControllers.ControllerManager;
 import Utils.Utils;
 
@@ -34,8 +36,11 @@ public class GameWindow extends Frame {
     public static boolean isKeyDown = false;
     public static int blueSquare=0;
     public GameWindow() {
+        blueSquare=0;
         setVisible(true);
         setSize(FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE);
+        setLocationRelativeTo(null);
+        setAutoRequestFocus(true);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent windowEvent) {
@@ -123,7 +128,10 @@ public class GameWindow extends Frame {
                     }
                     if(blueSquare>960)
                     {
-                        System.out.println("YOU WIN");
+                        System.out.println("win");
+                        dispose();
+                        GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
+                        Main.gameFrame.setVisible(true);
                         break;
                     }
                     controllerManager.donaldTrumpController.run();
