@@ -53,23 +53,7 @@ public class SquareController extends GameController {
         }
         return null;
     }
-    public SquareModel.enumDirection getDirection()
-    {
-        if (gameModel instanceof SquareModel)
-        {
-            SquareModel model= (SquareModel)gameModel;
-            return model.getDirection();
-        }
-        return null;
-    }
-    public void setDirection(SquareModel.enumDirection enumDirection)
-    {
-        if(gameModel instanceof SquareModel)
-        {
-            SquareModel model= (SquareModel)gameModel;
-            model.setDirection(enumDirection);
-        }
-    }
+
     public int getColumn()
     {
         if(gameModel instanceof SquareModel)

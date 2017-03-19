@@ -1,7 +1,5 @@
 package GUI;
 
-import Program.GameWindow;
-
 import javax.swing.*;
 
 /**

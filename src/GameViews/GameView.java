@@ -1,7 +1,7 @@
 package GameViews;
 
 import GameModels.GameModel;
-import Program.GameWindow;
+import GUI.GameWindow;
 
 import java.awt.*;
 
@@ -25,6 +25,6 @@ public class GameView {
     private Image image;
     public void draw(Graphics graphics, GameModel gameModel) {
         graphics.drawImage(image, gameModel.getXPixel(), gameModel.getYPixel(),
-                GameWindow.SQUARE_LENGTH, GameWindow.SQUARE_LENGTH,null);
+                20, 20,null);
     }
 }

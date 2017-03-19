@@ -4,7 +4,7 @@ import GameModels.DonaldTrumpModel;
 import GameModels.GameModel;
 import GameModels.SquareModel;
 import GameViews.GameView;
-import Program.GameWindow;
+import GUI.GameWindow;
 import Utils.Utils;
 
 /**
@@ -16,28 +16,43 @@ public class DonaldTrumpController extends GameController {
     }
 
     public DonaldTrumpController(int row, int column, int lives) {
-        this(new DonaldTrumpModel(row, column,lives), new GameView(Utils.loadImageFromFile("images.png")));
+        this(new DonaldTrumpModel(row, column, lives), new GameView(Utils.loadImageFromFile("images.png")));
     }
+
 
     @Override
     public void run() {
         if (gameModel instanceof DonaldTrumpModel) {
-            SquareController[][] gameBoard=GameWindow.controllerManager.gameBoard;
             DonaldTrumpModel model = (DonaldTrumpModel) gameModel;
-            if (GameWindow.isKeyLeft && GameWindow.cycleCounter % 3 == 0)
-                model.moveLeft(gameBoard);
-            else if (GameWindow.isKeyRight && GameWindow.cycleCounter % 3 == 0)
-                model.moveRight(gameBoard);
-            else if (GameWindow.isKeyUp && GameWindow.cycleCounter % 3 == 0)
-                model.moveUp(gameBoard);
-            else if (GameWindow.isKeyDown && GameWindow.cycleCounter % 3 == 0)
-                model.moveDown(gameBoard);
-            if ((gameBoard[model.getRow()][model.getColumn()].getColor() == SquareModel.enumColor.BLUE
-                    || gameBoard[model.getRow()][model.getColumn()].getColor() == SquareModel.enumColor.GREEN)
-                    && GameWindow.cycleCounter % 3 == 0) {
-                GameWindow.isKeyRight = GameWindow.isKeyDown = GameWindow.isKeyLeft = GameWindow.isKeyUp = false;
-            }
+
+            if (GameWindow.isKeyRight)
+                model.moveRight();
+            else if (GameWindow.isKeyLeft)
+                model.moveLeft();
+            else if (GameWindow.isKeyUp)
+                model.moveUp();
+            else if (GameWindow.isKeyDown)
+                model.moveDown();
+
+
+//            if ((gameBoard[model.getRow()][model.getColumn()].getColor() == SquareModel.enumColor.BLUE
+//                    || gameBoard[model.getRow()][model.getColumn()].getColor() == SquareModel.enumColor.GREEN)
+//                    && GameWindow.cycleCounter % 3 == 0) {
+//                GameWindow.isKeyRight = GameWindow.isKeyDown = GameWindow.isKeyLeft = GameWindow.isKeyUp = false;
         }
+
+    }
+
+//    public DonaldTrumpModel getDonaldTrumpModel() {
+//        DonaldTrumpModel model = (DonaldTrumpModel) this.gameModel;
+//        return model;
+//    }
+    public void hitRedWall()
+    {
+        DonaldTrumpModel model = (DonaldTrumpModel) this.gameModel;
+        model.setRow(0);
+        model.setColumn(0);
+        model.setLives(model.getLives()-1);
     }
 
 }

@@ -1,6 +1,5 @@
 package GUI;
 
-import Program.GameWindow;
 import Program.Main;
 import Utils.Utils;
 

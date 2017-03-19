@@ -2,6 +2,8 @@ package GameModels;
 
 import Utils.Utils;
 
+import java.awt.*;
+
 /**
  * Created by Inpriron on 3/11/2017.
  */
@@ -34,5 +36,14 @@ public class GameModel {
     }
     public int getYPixel(){
         return Utils.convertRowToYPixel(this.row);
+    }
+    public Rectangle getRect() {
+        return new Rectangle(getXPixel(), getYPixel(),SquareModel.SQUARE_LENGTH , SquareModel.SQUARE_LENGTH);
+    }
+
+    public boolean intersects(GameModel other) {
+        Rectangle rect1 = this.getRect();
+        Rectangle rect2 = other.getRect();
+        return rect1.intersects(rect2);
     }
 }
