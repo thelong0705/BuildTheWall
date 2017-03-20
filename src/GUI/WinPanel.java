@@ -40,7 +40,7 @@ public class WinPanel extends JPanel{
 
     @Override
     protected void paintComponent(Graphics graphics) {
-        Image image = Utils.loadImageFromFile("ui_board.png");
+        Image image = Utils.loadImageFromFile("background.png");
         graphics.drawImage(image, 0, 0, GameFrame.WIDTH_F, GameFrame.HEIGHT_F, null);
 
 //        image = Utils.loadImageFromRes("gameover.png");

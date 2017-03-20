@@ -1,6 +1,7 @@
 package GUI;
 
 import GameControllers.GameBoardController;
+import Program.Main;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -24,6 +25,7 @@ public class GameWindow extends Frame {
     public static boolean isKeyRight = false;
     public static boolean isKeyUp = false;
     public static boolean isKeyDown = false;
+//    public static int blueSquare;
     public GameWindow() {
         setVisible(true);
         setSize(FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE);

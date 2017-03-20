@@ -1,6 +1,8 @@
 package GameControllers;
 
 
+import GUI.GameFrame;
+import GameModels.EnemyModel;
 import GameModels.SquareModel;
 import GUI.GameWindow;
 import Utils.Utils;
@@ -63,7 +65,7 @@ public class GameBoardController {
         }
         lastSquare = gameBoard[0][0];
         spawnEnemy(20, 30, 3);
-        spawnEnemy(5, 10, 3);
+//        spawnEnemy(5, 10, 3);
     }
 
     public void run() {
@@ -105,7 +107,6 @@ public class GameBoardController {
     }
 
     public void draw(Graphics graphics) {
-
         for (int i = 0; i < NUMBER_OF_ROW; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
                 gameBoard[i][j].draw(graphics);
@@ -185,19 +186,28 @@ public class GameBoardController {
 
         }
     }
-
+    private EnemyController enemyTemp;
     public void checkEnemyCollide() {
-      //EnemyController enemyTemp;
         for (SquareController squareController : blueSquareList) {
             for (EnemyController enemyController : enemyControllers) {
-        //        enemyTemp = enemyController.clone();
                 if (squareController.gameModel.intersects(enemyController.gameModel)) {
-                    System.out.println("wtf");
-//                    while (squareController.gameModel.intersects(enemyController.gameModel)) {
+//                    enemyTemp = enemyController.clone();
+//                    while (squareController.gameModel.intersects(enemyTemp.gameModel)) {
 //                        enemyTemp.setEnemyMoveBehaviour(enemyTemp.getRanDomMoveBehavior());
 //                        enemyTemp.run();
 //                    }
-                    enemyController.setEnemyMoveBehaviour(enemyController.getRanDomMoveBehavior());
+
+//                    do{
+//                        System.out.println("Square: "+squareController.gameModel.getXPixel()+" "+squareController.gameModel.getYPixel());
+//                        enemyTemp= enemyController.clone();
+//                        EnemyModel model= (EnemyModel) enemyTemp.gameModel;
+//                        System.out.println(model.getX()+" "+model.getY());
+//                        enemyTemp.setEnemyMoveBehaviour(enemyTemp.getRanDomMoveBehavior());
+//                        enemyTemp.run();
+//                        System.out.println(model.getX()+" "+model.getY());
+//                    }while(squareController.gameModel.intersects(enemyTemp.gameModel));
+//                    enemyController.setEnemyMoveBehaviour(enemyTemp.getEnemyMoveBehaviour());
+//                    enemyController.run();
                 }
             }
         }

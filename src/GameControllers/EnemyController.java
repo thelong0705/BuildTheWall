@@ -67,15 +67,19 @@ public class EnemyController extends GameController {
         EnemyMoveBehaviour enemyMoveBehaviour = null;
         switch (random.nextInt(4)) {
             case UP_LEFT:
+//                System.out.println("0");
                 enemyMoveBehaviour = new EnemyMoveUpLeftBehaviour();
                 break;
             case UP_RIGHT:
+//                System.out.println("1");
                 enemyMoveBehaviour = new EnemyMoveUpRightBehaviour();
                 break;
             case DOWN_LEFT:
+//                System.out.println("2");
                 enemyMoveBehaviour = new EnemyMoveDownLeftBehaviour();
                 break;
             case DOWN_RIGHT:
+//                System.out.println("3");
                 enemyMoveBehaviour = new EnemyMoveDownRightBehaviour();
                 break;
         }
