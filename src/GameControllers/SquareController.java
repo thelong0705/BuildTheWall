@@ -10,6 +10,24 @@ import Utils.Utils;
  * Created by Inpriron on 3/11/2017.
  */
 public class SquareController extends GameController {
+    private boolean isCelling;
+    private boolean isWall;
+
+    public boolean isCelling() {
+        return isCelling;
+    }
+
+    public void setCelling(boolean celling) {
+        isCelling = celling;
+    }
+
+    public boolean isWall() {
+        return isWall;
+    }
+
+    public void setWall(boolean wall) {
+        isWall = wall;
+    }
 
     public SquareController(GameModel gameModel, GameView gameView) {
         super(gameModel, gameView);

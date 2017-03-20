@@ -26,11 +26,11 @@ public class EnemyController extends GameController {
 
     public EnemyController(GameModel gameModel, GameView gameView) {
         super(gameModel, gameView);
-        enemyMoveBehaviour = getRanDomMoveBehavior();
+        enemyMoveBehaviour = new EnemyMoveCrossBehaviour();
     }
 
-    public EnemyController(int row, int column, int speed) {
-        this(new EnemyModel(row, column, speed), new GameView(Utils.loadImageFromFile("loco.png")));
+    public EnemyController(int row, int column, int xspeed, int yspeed) {
+        this(new EnemyModel(row, column, xspeed,yspeed), new GameView(Utils.loadImageFromFile("loco.png")));
     }
 
     @Override
@@ -92,7 +92,7 @@ public class EnemyController extends GameController {
 
     public EnemyController clone()
     {
-        EnemyController enemyControllerClone= new EnemyController(0,0,3);
+        EnemyController enemyControllerClone= new EnemyController(0,0,3,3);
         EnemyModel model= (EnemyModel)enemyControllerClone.gameModel;
         model.setX(((EnemyModel) this.gameModel).getX());
         model.setY(((EnemyModel) this.gameModel).getY());

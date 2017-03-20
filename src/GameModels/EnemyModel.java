@@ -20,7 +20,8 @@ import java.util.ArrayList;
 public class EnemyModel extends GameModel {
     private int x;
     private int y;
-    private int speed;
+    private int xspeed;
+    private int yspeed;
 
     public int getX() {
         return x;
@@ -30,42 +31,65 @@ public class EnemyModel extends GameModel {
         return y;
     }
 
-    public EnemyModel(int row, int column, int speed) {
+    public EnemyModel(int row, int column, int xspeed, int yspeed) {
         super(row, column);
         x = Utils.convertColToXPixel(column);
         y = Utils.convertRowToYPixel(row);
-        this.speed = speed;
+        this.xspeed=xspeed;
+        this.yspeed=yspeed;
     }
 
     public void moveUpLeft() {
-        if (x - speed >= GameBoardController.GAME_BOARD_LEFT_BORDER && y - speed >= GameBoardController.GAME_BOARD_UP_BORDER) {
-            x -= speed;
-            y -= speed;
+        if (x - xspeed >= GameBoardController.GAME_BOARD_LEFT_BORDER && y - yspeed >= GameBoardController.GAME_BOARD_UP_BORDER) {
+            x -= xspeed;
+            y -= yspeed;
         }
 
     }
 
     public void moveUpRight() {
-        if (x + speed <= GameBoardController.GAME_BOARD_RIGHT_BORDER && y - speed >= GameBoardController.GAME_BOARD_UP_BORDER) {
-            x += speed;
-            y -= speed;
+        if (x + xspeed <= GameBoardController.GAME_BOARD_RIGHT_BORDER && y - yspeed >= GameBoardController.GAME_BOARD_UP_BORDER) {
+            x += xspeed;
+            y -= yspeed;
         }
     }
 
     public void moveDownLeft() {
-        if (x - speed >= GameBoardController.GAME_BOARD_LEFT_BORDER && y + speed <= GameBoardController.GAME_BOARD_DOWN_BORDER) {
-            x -= speed;
-            y += speed;
+        if (x - xspeed >= GameBoardController.GAME_BOARD_LEFT_BORDER && y + yspeed <= GameBoardController.GAME_BOARD_DOWN_BORDER) {
+            x -= xspeed;
+            y += yspeed;
         }
     }
     public void moveDownRight()
     {
-        if (x + speed <= GameBoardController.GAME_BOARD_RIGHT_BORDER&& y + speed <= GameBoardController.GAME_BOARD_DOWN_BORDER) {
-            x += speed;
-            y += speed;
+        if (x + xspeed <= GameBoardController.GAME_BOARD_RIGHT_BORDER&& y + yspeed <= GameBoardController.GAME_BOARD_DOWN_BORDER) {
+            x += xspeed;
+            y += yspeed;
         }
     }
 
+    public int getXspeed() {
+        return xspeed;
+    }
+
+    public void setXspeed(int xspeed) {
+        this.xspeed = xspeed;
+    }
+
+    public int getYspeed() {
+        return yspeed;
+    }
+
+    public void setYspeed(int yspeed) {
+        this.yspeed = yspeed;
+    }
+
+    public void moveCross()
+    {
+        x += xspeed;
+        y += yspeed;
+
+    }
     @Override
     public int getRow() {
         return (y - 50) / 20;
@@ -147,12 +171,12 @@ public class EnemyModel extends GameModel {
 //    }
 //
 //    public void hitPlayer() {
-//        clearPlayerPath();
+//        clearPlayerPathAfterGetHit();
 //        GameWindow.gameBoardController.donaldTrumpController.setRow(0);
 //        GameWindow.gameBoardController.donaldTrumpController.setColumn(0);
 //    }
 //
-//    public void clearPlayerPath() {
+//    public void clearPlayerPathAfterGetHit() {
 //        ArrayList<SquareController> toRemove = new ArrayList<>();
 //        ArrayList<SquareController> squarePlayerWentBy = GameWindow.gameBoardController.squarePlayerWentBy;
 //        for (SquareController square : squarePlayerWentBy) {

@@ -1,7 +1,6 @@
 package GameControllers;
 
 
-import GUI.GameFrame;
 import GameModels.EnemyModel;
 import GameModels.SquareModel;
 import GUI.GameWindow;
@@ -60,11 +59,19 @@ public class GameBoardController {
                 {
                     gameBoard[i][j] = new SquareController(i, j, BLUE);
                     blueSquareList.add(gameBoard[i][j]);
+                    if(i==0||i==NUMBER_OF_ROW-1)
+                    {
+                        gameBoard[i][j].setCelling(true);
+                    }
+                    if(j==0||j==NUMBER_OF_COLUMN-1)
+                    {
+                        gameBoard[i][j].setWall(true);
+                    }
                 }
             }
         }
         lastSquare = gameBoard[0][0];
-        spawnEnemy(20, 30, 3);
+        spawnEnemy(20, 30, 3,4);
 //        spawnEnemy(5, 10, 3);
     }
 
@@ -95,8 +102,8 @@ public class GameBoardController {
 
     }
 
-    public void spawnEnemy(int row, int column, int speed) {
-        EnemyController enemyController = new EnemyController(row, column, speed);
+    public void spawnEnemy(int row, int column, int xspeed, int yspeed) {
+        EnemyController enemyController = new EnemyController(row, column, xspeed,yspeed);
         enemyControllers.add(enemyController);
     }
 
@@ -129,29 +136,48 @@ public class GameBoardController {
             GameWindow.isKeyDown = GameWindow.isKeyLeft = GameWindow.isKeyRight = GameWindow.isKeyUp = false;
         } else if (getSquarePlayerStanding().getColor() == RED) {
             donaldTrumpController.hitRedWall();
-            clearPlayerPath();
+            clearPlayerPathAfterGetHit();
         }
     }
 
     public void addToWentByList() {
         if (getSquarePlayerStanding().getColor() == SquareModel.enumColor.GRAY) {
+            if(GameWindow.isKeyLeft||GameWindow.isKeyRight)
+                getSquarePlayerStanding().setCelling(true);
+            if(GameWindow.isKeyDown||GameWindow.isKeyUp)
+                getSquarePlayerStanding().setWall(true);
             getSquarePlayerStanding().setColor(RED);
             squarePlayerWentBy.add(getSquarePlayerStanding());
         }
     }
 
-    public void clearPlayerPath() {
+    public void clearPlayerPathAfterGetHit() {
         ArrayList<SquareController> toRemove = new ArrayList<>();
         for (SquareController square : squarePlayerWentBy) {
             square.setColor(GRAY);
             toRemove.add(square);
+            square.setCelling(false);
+            square.setWall(false);
         }
         squarePlayerWentBy.removeAll(toRemove);
     }
 
     public void colorBlueAndClearPlayerPath() {
+        SquareController currentSquare;
+        SquareController nextSquare;
+        for(int i=0;i<squarePlayerWentBy.size()-1;i++)
+        {
+            currentSquare=squarePlayerWentBy.get(i);
+            nextSquare=squarePlayerWentBy.get(i+1);
+            if(currentSquare.isCelling()&&nextSquare.isWall())
+                currentSquare.setWall(true);
+            else if(currentSquare.isWall()&&nextSquare.isCelling())
+                currentSquare.setCelling(true);
+        }
         ArrayList<SquareController> toRemove = new ArrayList<>();
         for (SquareController square : squarePlayerWentBy) {
+//            System.out.println("isCelling: "+ square.isCelling());
+//            System.out.println("isWall: "+ square.isWall());
             square.setColor(BLUE);
             blueSquareList.add(square);
             toRemove.add(square);
@@ -186,28 +212,24 @@ public class GameBoardController {
 
         }
     }
-    private EnemyController enemyTemp;
+//    private EnemyController enemyTemp;
     public void checkEnemyCollide() {
-        for (SquareController squareController : blueSquareList) {
-            for (EnemyController enemyController : enemyControllers) {
+        boolean checkFlag=false;
+        for (EnemyController enemyController : enemyControllers) {
+            for (SquareController squareController : blueSquareList) {
                 if (squareController.gameModel.intersects(enemyController.gameModel)) {
-//                    enemyTemp = enemyController.clone();
-//                    while (squareController.gameModel.intersects(enemyTemp.gameModel)) {
-//                        enemyTemp.setEnemyMoveBehaviour(enemyTemp.getRanDomMoveBehavior());
-//                        enemyTemp.run();
-//                    }
+                    EnemyModel model= (EnemyModel) enemyController.gameModel;
+                    if(squareController.isCelling()&&squareController.isWall())
+                    {
 
-//                    do{
-//                        System.out.println("Square: "+squareController.gameModel.getXPixel()+" "+squareController.gameModel.getYPixel());
-//                        enemyTemp= enemyController.clone();
-//                        EnemyModel model= (EnemyModel) enemyTemp.gameModel;
-//                        System.out.println(model.getX()+" "+model.getY());
-//                        enemyTemp.setEnemyMoveBehaviour(enemyTemp.getRanDomMoveBehavior());
-//                        enemyTemp.run();
-//                        System.out.println(model.getX()+" "+model.getY());
-//                    }while(squareController.gameModel.intersects(enemyTemp.gameModel));
-//                    enemyController.setEnemyMoveBehaviour(enemyTemp.getEnemyMoveBehaviour());
-//                    enemyController.run();
+                        model.setXspeed(model.getXspeed()*-1);
+                        model.setYspeed(model.getYspeed()*-1);
+                    }
+                    else if(squareController.isCelling())
+                        model.setYspeed(model.getYspeed()*-1);
+                    else if(squareController.isWall())
+                        model.setXspeed(model.getXspeed()*-1);
+                    break;
                 }
             }
         }
