@@ -62,41 +62,10 @@ public class EnemyController extends GameController {
         return model.getColumn();
 
     }
-    public EnemyMoveBehaviour getRanDomMoveBehavior() {
-        Random random = new Random();
-        EnemyMoveBehaviour enemyMoveBehaviour = null;
-        switch (random.nextInt(4)) {
-            case UP_LEFT:
-//                System.out.println("0");
-                enemyMoveBehaviour = new EnemyMoveUpLeftBehaviour();
-                break;
-            case UP_RIGHT:
-//                System.out.println("1");
-                enemyMoveBehaviour = new EnemyMoveUpRightBehaviour();
-                break;
-            case DOWN_LEFT:
-//                System.out.println("2");
-                enemyMoveBehaviour = new EnemyMoveDownLeftBehaviour();
-                break;
-            case DOWN_RIGHT:
-//                System.out.println("3");
-                enemyMoveBehaviour = new EnemyMoveDownRightBehaviour();
-                break;
-        }
-        return enemyMoveBehaviour;
-    }
+
 
     public EnemyMoveBehaviour getEnemyMoveBehaviour() {
         return enemyMoveBehaviour;
     }
 
-    public EnemyController clone()
-    {
-        EnemyController enemyControllerClone= new EnemyController(0,0,3,3);
-        EnemyModel model= (EnemyModel)enemyControllerClone.gameModel;
-        model.setX(((EnemyModel) this.gameModel).getX());
-        model.setY(((EnemyModel) this.gameModel).getY());
-        return enemyControllerClone;
-
-    }
 }

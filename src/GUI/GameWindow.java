@@ -2,6 +2,7 @@ package GUI;
 
 import GameControllers.GameBoardController;
 import Program.Main;
+import Utils.Utils;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -95,29 +96,11 @@ public class GameWindow extends Frame {
                 }
             }
 
-//            @Override
-//            public void keyReleased(KeyEvent keyEvent) {
-//                switch (keyEvent.getKeyCode()) {
-//                    case KeyEvent.VK_UP:
-//                        isKeyUp=false;
-//                        break;
-//                    case KeyEvent.VK_DOWN:
-//                        isKeyDown=false;
-//                        break;
-//                    case KeyEvent.VK_LEFT:
-//                        isKeyLeft=false;
-//                        break;
-//                    case KeyEvent.VK_RIGHT:
-//                        isKeyRight=false;
-//                        break;
-//                }
-//            }
         });
         backBufferImage = new BufferedImage(
                 FRAME_WIDTH_SIZE,
                 FRAME_HEIGHT_SIZE,
                 BufferedImage.TYPE_INT_ARGB);
-        backGraphics = backBufferImage.getGraphics();
         gameBoardController = new GameBoardController();
         thread = new Thread(new Runnable() {
             @Override
@@ -128,17 +111,24 @@ public class GameWindow extends Frame {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-//                    if(blueSquare>960)
-//                    {
-//                        System.out.println("win");
-//                        dispose();
-//                        GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
-//                        Main.gameFrame.setVisible(true);
-//                        break;
-//                    }
+                    if(gameBoardController.checkWin())
+                    {
+                        System.out.println("win");
+                        dispose();
+                        GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
+                        Main.gameFrame.setVisible(true);
+                        break;
+                    }
+                    if(gameBoardController.checkLose())
+                    {
+                        System.out.println("lose");
+                        dispose();
+                        GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
+                        Main.gameFrame.setVisible(true);
+                        break;
+                    }
                     gameBoardController.run();
                     repaint();
-//                    cycleCounter++;
                 }
             }
         });
@@ -148,12 +138,11 @@ public class GameWindow extends Frame {
     @Override
     public void update(Graphics graphics) {
         if (backBufferImage != null) {
+            backGraphics = backBufferImage.getGraphics();
             gameBoardController.draw(backGraphics);
             graphics.drawImage(backBufferImage, 0, 0, null);
         }
     }
 
-    public void checkWin() {
 
-    }
 }

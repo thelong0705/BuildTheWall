@@ -47,12 +47,13 @@ public class DonaldTrumpController extends GameController {
 //        DonaldTrumpModel model = (DonaldTrumpModel) this.gameModel;
 //        return model;
 //    }
-    public void hitRedWall()
+    public void getHit()
     {
         DonaldTrumpModel model = (DonaldTrumpModel) this.gameModel;
         model.setRow(0);
         model.setColumn(0);
         model.setLives(model.getLives()-1);
+        System.out.println(model.getLives());
     }
 
 }
