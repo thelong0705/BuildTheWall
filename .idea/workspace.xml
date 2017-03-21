@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66407dd-283c-4c69-b381-9e78ed087912" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/EnemyMoveStrategy/EnemyMoveCrossBehaviour.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Utils/KeyRecorder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/EnemyController.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/EnemyController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/GameBoardController.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/GameBoardController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/SquareController$1.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/SquareController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/SquareController.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/SquareController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/DonaldTrumpModel.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/DonaldTrumpModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/EnemyModel.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameModels/EnemyModel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/EnemyController.java" afterPath="$PROJECT_DIR$/src/GameControllers/EnemyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" afterPath="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/SquareController.java" afterPath="$PROJECT_DIR$/src/GameControllers/SquareController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameModels/DonaldTrumpModel.java" afterPath="$PROJECT_DIR$/src/GameModels/DonaldTrumpModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameModels/EnemyModel.java" afterPath="$PROJECT_DIR$/src/GameModels/EnemyModel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +46,8 @@
       <file leaf-file-name="GameBoardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="231" column="26" lean-forward="false" selection-start-line="231" selection-start-column="26" selection-end-line="231" selection-end-column="26" />
+            <state relative-caret-position="57">
+              <caret line="111" column="34" lean-forward="true" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1063,8 +1051,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="231" column="26" lean-forward="false" selection-start-line="231" selection-start-column="26" selection-end-line="231" selection-end-column="26" />
+        <state relative-caret-position="57">
+          <caret line="111" column="34" lean-forward="true" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
