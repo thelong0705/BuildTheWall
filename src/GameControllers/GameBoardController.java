@@ -21,7 +21,7 @@ import static GameModels.SquareModel.enumColor.GREEN;
  * Created by Inpriron on 3/11/2017.
  */
 public class GameBoardController {
-    private int PLAYER_LIFE = 4;
+    private int PLAYER_LIFE = 2;
 
     public DonaldTrumpController getDonaldTrumpController() {
         return donaldTrumpController;
@@ -95,6 +95,8 @@ public class GameBoardController {
     }
 
     private void fillGameBoard() {
+        getSquarePlayerStanding().setCelling(true);
+        getSquarePlayerStanding().setWall(true);
         fillBoardWithGreen();
         for (EnemyController enemyController : enemyControllers) {
             floodFill(enemyController.getRow(), enemyController.getColumn(), GREEN, GRAY);
@@ -127,9 +129,11 @@ public class GameBoardController {
             enemyController.draw(graphics);
         }
         graphics.setFont(new Font(null, Font.BOLD, 15));
-        graphics.setColor(Color.black);
-        String scoreString = String.format("SCORE: %.0f", percentagePlayerFill);
+        graphics.setColor(Color.white);
+        String scoreString = String.format("PERCENTAGE: %.0f", percentagePlayerFill);
         graphics.drawString(scoreString, 50, 50);
+        String liveString=String.format("Lives: %d",((DonaldTrumpModel)donaldTrumpController.gameModel).getLives());
+        graphics.drawString(liveString,200,50);
     }
 
     public SquareController getSquarePlayerStanding() {

@@ -138,7 +138,10 @@ public class GameWindow extends Frame {
     @Override
     public void update(Graphics graphics) {
         if (backBufferImage != null) {
+
             backGraphics = backBufferImage.getGraphics();
+//            backGraphics.drawImage(Utils.loadImageFromFile("background.png"), 0, 0,
+//                FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
             gameBoardController.draw(backGraphics);
             graphics.drawImage(backBufferImage, 0, 0, null);
         }
