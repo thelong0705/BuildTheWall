@@ -18,7 +18,7 @@ import java.awt.image.BufferedImage;
 public class GameWindow extends Frame {
     private BufferedImage backBufferImage;
     private Graphics backGraphics;
-    public static final int FRAME_HEIGHT_SIZE = 30 * 20 + 40+20;//NUMBER_OF_ROW * SQUARE_LENGTH + 40;
+    public static final int FRAME_HEIGHT_SIZE = 30 * 20 + 40 + 20;//NUMBER_OF_ROW * SQUARE_LENGTH + 40;
     public static final int FRAME_WIDTH_SIZE = 40 * 20 + 20;//(NUMBER_OF_COLUMN) * SQUARE_LENGTH + 20;
     Thread thread;
     private GameBoardController gameBoardController;
@@ -26,7 +26,9 @@ public class GameWindow extends Frame {
     public static boolean isKeyRight = false;
     public static boolean isKeyUp = false;
     public static boolean isKeyDown = false;
-//    public static int blueSquare;
+    public static boolean isSpace = false;
+
+    //    public static int blueSquare;
     public GameWindow() {
         setVisible(true);
         setSize(FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE);
@@ -54,44 +56,44 @@ public class GameWindow extends Frame {
             public void keyPressed(KeyEvent keyEvent) {
                 switch (keyEvent.getKeyCode()) {
                     case KeyEvent.VK_UP:
-                        if(!isKeyDown)
-                        {
-                            isKeyUp=true;
-                            isKeyDown=false;
-                            isKeyLeft=false;
-                            isKeyRight=false;
+                        if (!isKeyDown) {
+                            isKeyUp = true;
+                            isKeyDown = false;
+                            isKeyLeft = false;
+                            isKeyRight = false;
                         }
 
                         break;
                     case KeyEvent.VK_DOWN:
-                        if(!isKeyUp)
-                        {
-                            isKeyDown=true;
-                            isKeyUp=false;
-                            isKeyLeft=false;
-                            isKeyRight=false;
+                        if (!isKeyUp) {
+                            isKeyDown = true;
+                            isKeyUp = false;
+                            isKeyLeft = false;
+                            isKeyRight = false;
                         }
 
                         break;
                     case KeyEvent.VK_LEFT:
-                        if(!isKeyRight)
-                        {
-                            isKeyLeft=true;
-                            isKeyRight=false;
-                            isKeyUp=false;
-                            isKeyDown=false;
+                        if (!isKeyRight) {
+                            isKeyLeft = true;
+                            isKeyRight = false;
+                            isKeyUp = false;
+                            isKeyDown = false;
                         }
 
                         break;
                     case KeyEvent.VK_RIGHT:
-                        if(!isKeyLeft)
-                        {
-                            isKeyRight=true;
-                            isKeyLeft=false;
-                            isKeyUp=false;
-                            isKeyDown=false;
+                        if (!isKeyLeft) {
+                            isKeyRight = true;
+                            isKeyLeft = false;
+                            isKeyUp = false;
+                            isKeyDown = false;
                         }
-
+                        break;
+                    case KeyEvent.VK_SPACE:
+                        System.out.println("space");
+                        isSpace = true;
+                        System.out.println(isSpace);
                         break;
                 }
             }
@@ -111,24 +113,29 @@ public class GameWindow extends Frame {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if(gameBoardController.checkWin())
-                    {
-                        System.out.println("win");
-                        dispose();
-                        GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
-                        Main.gameFrame.setVisible(true);
-                        break;
-                    }
-                    if(gameBoardController.checkLose())
-                    {
+                    if (gameBoardController.checkWin()) {
+
+                        System.out.println(isSpace);
+                        if(isSpace)
+                        {
+                            isSpace=false;
+                            gameBoardController = new GameBoardController();
+                        }
+//                        dispose();
+//                        GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
+//                        Main.gameFrame.setVisible(true);
+
+//                        break;
+                    } else if (gameBoardController.checkLose()) {
                         System.out.println("lose");
                         dispose();
                         GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
                         Main.gameFrame.setVisible(true);
                         break;
+                    } else {
+                        gameBoardController.run();
+                        repaint();
                     }
-                    gameBoardController.run();
-                    repaint();
                 }
             }
         });
@@ -140,10 +147,9 @@ public class GameWindow extends Frame {
         if (backBufferImage != null) {
 
             backGraphics = backBufferImage.getGraphics();
-//            backGraphics.drawImage(Utils.loadImageFromFile("background.png"), 0, 0,
-//                FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
             gameBoardController.draw(backGraphics);
             graphics.drawImage(backBufferImage, 0, 0, null);
+
         }
     }
 

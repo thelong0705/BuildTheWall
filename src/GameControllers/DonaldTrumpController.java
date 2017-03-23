@@ -16,7 +16,7 @@ public class DonaldTrumpController extends GameController {
     }
 
     public DonaldTrumpController(int row, int column, int lives) {
-        this(new DonaldTrumpModel(row, column, lives), new GameView(Utils.loadImageFromFile("images.png")));
+        this(new DonaldTrumpModel(row, column, lives), new GameView(Utils.loadImageFromFile("donald-trump.png")));
     }
 
 

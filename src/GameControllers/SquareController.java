@@ -45,7 +45,7 @@ public class SquareController extends GameController {
             model.setColor(color);
             switch (color) {
                 case BLUE:
-                    gameView.setImage(Utils.loadImageFromFile("block.png"));
+                    gameView.setImage(Utils.loadImageFromFile("shit.png"));
                     break;
                 case GRAY:
                     gameView.setImage(Utils.loadImageFromFile("blockgray.png"));
@@ -54,7 +54,7 @@ public class SquareController extends GameController {
                     gameView.setImage(Utils.loadImageFromFile("block2.png"));
                     break;
                 case GREEN:
-                    gameView.setImage(Utils.loadImageFromFile("block.png"));
+                    gameView.setImage(Utils.loadImageFromFile("shit.png"));
                     break;
                 default:
                     System.out.println("Invalid Color");
