@@ -52,8 +52,10 @@ public class GameBoardController {
 
     public void initiateGameBoard() {
         buildBoard();
-        spawnEnemy(Utils.convertColToXPixel(30),Utils.convertRowToYPixel(20) , 3, 4, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(30), Utils.convertRowToYPixel(20), 3, 4, EnemyController.EnemyType.MEXICO);
         spawnEnemy(Utils.convertColToXPixel(38), Utils.convertRowToYPixel(28), 5, 8, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(20), Utils.convertRowToYPixel(20), 5, 8, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(10), Utils.convertRowToYPixel(10), 5, 8, EnemyController.EnemyType.MEXICO);
     }
 
     public void buildBoard() {
@@ -109,7 +111,7 @@ public class GameBoardController {
     }
 
     public void spawnEnemy(int row, int column, int xspeed, int yspeed, EnemyController.EnemyType enemyType) {
-        EnemyController enemyController = EnemyController.create(row,column,xspeed,yspeed,enemyType);
+        EnemyController enemyController = EnemyController.create(row, column, xspeed, yspeed, enemyType);
         enemyControllers.add(enemyController);
     }
 
@@ -126,7 +128,6 @@ public class GameBoardController {
                 FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
 
         if (checkWin()) {
-            System.out.println("win");
             graphics.drawImage(image, 0, 0,
                     FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
             graphics.drawString(scoreString, 50, 50);
@@ -204,8 +205,7 @@ public class GameBoardController {
             blueSquareList.add(currentSquare);
             toRemove.add(currentSquare);
         }
-        if(nextSquare!=null)
-        {
+        if (nextSquare != null) {
             nextSquare.setCelling(true);
             nextSquare.setWall(true);
             nextSquare.setColor(BLUE);
@@ -218,7 +218,13 @@ public class GameBoardController {
     }
 
     public boolean checkFinishWall() {
-        return getSquarePlayerStanding().getColor() == BLUE && lastSquare.getColor() == RED;
+        if( getSquarePlayerStanding().getColor() == BLUE && lastSquare.getColor() == RED)
+        {
+            getSquarePlayerStanding().setWall(true);
+            getSquarePlayerStanding().setCelling(true);
+            return true;
+        }
+        return false;
     }
 
     public void floodFill(int row, int column, SquareModel.enumColor sourceColor,
@@ -271,7 +277,7 @@ public class GameBoardController {
                 if (squareController.gameModel.intersects(enemyController.gameModel)) {
 
                     EnemyModel model = (EnemyModel) enemyController.gameModel;
-                    if (checkNextToCorner(squareController)) {
+                    if (checkNextToCorner(squareController)||checkCorner(squareController)) {
                         model.setYspeed(model.getYspeed() * -1);
                         model.setXspeed(model.getXspeed() * -1);
                     } else {
@@ -329,7 +335,7 @@ public class GameBoardController {
     }
 
     public boolean checkWin() {
-        if (percentagePlayerFill >= 10)
+        if (percentagePlayerFill >= 80)
             return true;
         else
             return false;

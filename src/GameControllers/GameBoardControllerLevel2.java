@@ -38,25 +38,36 @@ public class GameBoardControllerLevel2 extends GameBoardController {
             for (int j = i + 1; j < enemyControllers.size(); j++) {
                 EnemyController enemyControllerI = enemyControllers.get(i);
                 EnemyController enemyControllerJ = enemyControllers.get(j);
-                if (enemyControllerI.getAliveTime() > 60 && enemyControllerJ.getAliveTime() > 60) {
-                    if (enemyControllerI.gameModel.intersects(enemyControllerJ.gameModel)) {
-                        EnemyModel modelI = (EnemyModel) enemyControllerI.gameModel;
-                        EnemyModel modelJ = (EnemyModel) enemyControllerJ.gameModel;
-                        if (modelI.getXspeed() == modelJ.getXspeed() * -1 && modelI.getYspeed() == modelJ.getYspeed()*-1) {
-                            spawnEnemy(modelI.getX(), modelI.getY(),
-                                    enemyControllerI.getXSpeed(), -enemyControllerI.getYSpeed(), EnemyController.EnemyType.CHINA);
-                            System.out.println(enemyControllerI.getRow());
-                            modelI.setXspeed(modelI.getXspeed() * -1);
-                            modelI.setYspeed(modelI.getYspeed() * -1);
-                            enemyControllerI.run();
-                            modelJ.setXspeed(modelJ.getXspeed() * -1);
-                            modelJ.setYspeed(modelJ.getYspeed() * -1);
-                            enemyControllerJ.run();
-                        }
+                if(enemyControllers.size()<8)
+                {
+                    if (enemyControllerI.getAliveTime() > 60 && enemyControllerJ.getAliveTime() > 60) {
+                        if (enemyControllerI.gameModel.intersects(enemyControllerJ.gameModel)) {
+                            EnemyModel modelI = (EnemyModel) enemyControllerI.gameModel;
+                            EnemyModel modelJ = (EnemyModel) enemyControllerJ.gameModel;
+                            if (modelI.getXspeed() == modelJ.getXspeed() * -1 && modelI.getYspeed() == modelJ.getYspeed()*-1) {
+                                spawnEnemy(modelI.getX(), modelI.getY(),
+                                        enemyControllerI.getXSpeed(), -enemyControllerI.getYSpeed(), EnemyController.EnemyType.CHINA);
+                                modelI.setXspeed(modelI.getXspeed() * -1);
+                                modelI.setYspeed(modelI.getYspeed() * -1);
+                                enemyControllerI.run();
+                                modelJ.setXspeed(modelJ.getXspeed() * -1);
+                                modelJ.setYspeed(modelJ.getYspeed() * -1);
+                                enemyControllerJ.run();
+                            }
 
+                        }
                     }
                 }
-            }
+                }
 
+
+    }
+
+    @Override
+    public boolean checkWin() {
+        if (percentagePlayerFill >= 80)
+            return true;
+        else
+            return false;
     }
 }
