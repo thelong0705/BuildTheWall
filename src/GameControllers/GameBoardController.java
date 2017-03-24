@@ -204,11 +204,16 @@ public class GameBoardController {
             blueSquareList.add(currentSquare);
             toRemove.add(currentSquare);
         }
-        nextSquare.setCelling(true);
-        nextSquare.setWall(true);
-        nextSquare.setColor(BLUE);
-        blueSquareList.add(nextSquare);
-        toRemove.add(nextSquare);
+        if(nextSquare!=null)
+        {
+            nextSquare.setCelling(true);
+            nextSquare.setWall(true);
+            nextSquare.setColor(BLUE);
+            blueSquareList.add(nextSquare);
+            toRemove.add(nextSquare);
+        }
+
+
         squarePlayerWentBy.removeAll(toRemove);
     }
 
@@ -275,7 +280,6 @@ public class GameBoardController {
                         if (squareController.isWall())
                             model.setXspeed(model.getXspeed() * -1);
                     }
-
                     break;
                 }
             }
@@ -325,7 +329,7 @@ public class GameBoardController {
     }
 
     public boolean checkWin() {
-        if (percentagePlayerFill >= 20)
+        if (percentagePlayerFill >= 10)
             return true;
         else
             return false;
