@@ -1,6 +1,7 @@
 package GUI;
 
 import GameControllers.GameBoardController;
+import GameControllers.GameBoardControllerLevel2;
 import Program.Main;
 import Utils.Utils;
 
@@ -91,9 +92,7 @@ public class GameWindow extends Frame {
                         }
                         break;
                     case KeyEvent.VK_SPACE:
-                        System.out.println("space");
                         isSpace = true;
-                        System.out.println(isSpace);
                         break;
                 }
             }
@@ -114,12 +113,10 @@ public class GameWindow extends Frame {
                         e.printStackTrace();
                     }
                     if (gameBoardController.checkWin()) {
-
-                        System.out.println(isSpace);
                         if(isSpace)
                         {
                             isSpace=false;
-                            gameBoardController = new GameBoardController();
+                            gameBoardController = new GameBoardControllerLevel2();
                         }
 //                        dispose();
 //                        GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);

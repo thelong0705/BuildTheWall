@@ -21,7 +21,7 @@ import static GameModels.SquareModel.enumColor.GREEN;
  * Created by Inpriron on 3/11/2017.
  */
 public class GameBoardController {
-    private int PLAYER_LIFE = 10;
+    protected static int PLAYER_LIFE = 10;
 
     public DonaldTrumpController getDonaldTrumpController() {
         return donaldTrumpController;
@@ -31,15 +31,15 @@ public class GameBoardController {
     public static final int NUMBER_OF_ROW = 30;
     public static final int NUMBER_OF_COLUMN = 40;
 
-    private int moveDelay = 0;
-    private SquareController[][] gameBoard;
-    private DonaldTrumpController donaldTrumpController;
-    private SquareController lastSquare;
-    private ArrayList<EnemyController> enemyControllers;
-    private ArrayList<SquareController> squarePlayerWentBy;
-    private ArrayList<SquareController> blueSquareList;
-    private float percentagePlayerFill;
-    private Image image = Utils.loadImageFromFile("mexico.jpg");
+    protected int moveDelay = 0;
+    protected SquareController[][] gameBoard;
+    protected DonaldTrumpController donaldTrumpController;
+    protected SquareController lastSquare;
+    protected ArrayList<EnemyController> enemyControllers;
+    protected ArrayList<SquareController> squarePlayerWentBy;
+    protected ArrayList<SquareController> blueSquareList;
+    protected float percentagePlayerFill;
+    protected Image image = Utils.loadImageFromFile("mexico.jpg");
 
     public GameBoardController() {
         gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
@@ -51,6 +51,12 @@ public class GameBoardController {
 
 
     public void initiateGameBoard() {
+        buildBoard();
+        spawnEnemy(20, 30, 3, 4, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(28, 38, 5, 8, EnemyController.EnemyType.MEXICO);
+    }
+
+    public void buildBoard() {
         blueSquareList = new ArrayList<>();
         for (int i = 0; i < NUMBER_OF_ROW; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
@@ -69,10 +75,7 @@ public class GameBoardController {
                 }
             }
         }
-
         lastSquare = gameBoard[0][0];
-        spawnEnemy(20, 30, 3, 4);
-        spawnEnemy(28, 38, 5, 8);
     }
 
     public void run() {
@@ -105,8 +108,8 @@ public class GameBoardController {
         colorBlueAndClearPlayerPath();
     }
 
-    public void spawnEnemy(int row, int column, int xspeed, int yspeed) {
-        EnemyController enemyController = new EnemyController(row, column, xspeed, yspeed);
+    public void spawnEnemy(int row, int column, int xspeed, int yspeed, EnemyController.EnemyType enemyType) {
+        EnemyController enemyController = EnemyController.create(row,column,xspeed,yspeed,enemyType);
         enemyControllers.add(enemyController);
     }
 
@@ -117,25 +120,13 @@ public class GameBoardController {
     }
 
     public void draw(Graphics graphics) {
+        String scoreString = String.format("PERCENTAGE: %d/80", (int) percentagePlayerFill);
+        String liveString = String.format("Lives: %d", ((DonaldTrumpModel) donaldTrumpController.gameModel).getLives());
         graphics.drawImage(image, 0, 0,
                 FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
-        for (int i = 0; i < NUMBER_OF_ROW; i++) {
-            for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
-                gameBoard[i][j].draw(graphics);
-            }
-        }
-        donaldTrumpController.draw(graphics);
 
-        for (EnemyController enemyController : enemyControllers) {
-            enemyController.draw(graphics);
-        }
-        graphics.setFont(new Font(null, Font.BOLD, 15));
-        graphics.setColor(Color.white);
-        String scoreString = String.format("PERCENTAGE: %.0f/80", percentagePlayerFill);
-        graphics.drawString(scoreString, 50, 50);
-        String liveString = String.format("Lives: %d", ((DonaldTrumpModel) donaldTrumpController.gameModel).getLives());
-        graphics.drawString(liveString, 200, 50);
         if (checkWin()) {
+            System.out.println("win");
             graphics.drawImage(image, 0, 0,
                     FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
             graphics.drawString(scoreString, 50, 50);
@@ -144,7 +135,20 @@ public class GameBoardController {
             graphics.setFont(new Font(null, Font.BOLD, 100));
             graphics.setColor(Color.black);
             graphics.drawString(winString, 300, 300);
-
+        } else {
+            for (int i = 0; i < NUMBER_OF_ROW; i++) {
+                for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
+                    gameBoard[i][j].draw(graphics);
+                }
+            }
+            donaldTrumpController.draw(graphics);
+            for (EnemyController enemyController : enemyControllers) {
+                enemyController.draw(graphics);
+            }
+            graphics.setFont(new Font(null, Font.BOLD, 15));
+            graphics.setColor(Color.white);
+            graphics.drawString(scoreString, 50, 50);
+            graphics.drawString(liveString, 200, 50);
         }
     }
 
@@ -226,46 +230,6 @@ public class GameBoardController {
         floodFill(row, column + 1, sourceColor, desColor);
     }
 
-//    public void newFloodFill(int row, int column, SquareModel.enumColor sourceColor,
-//                             SquareModel.enumColor desColor) {
-//        int westCol ;
-//        int eastCol ;
-//        int curRow;
-//        SquareController west;
-//        SquareController east;
-//        SquareController n;
-//        if (gameBoard[row][column].getColor() != sourceColor) return;
-//        Queue<SquareController> q = new LinkedList<>();
-//        q.add(gameBoard[row][column]);
-//        while (!q.isEmpty()) {
-//            west = east = n=q.peek();
-//            q.remove(q.peek());
-//            westCol=n.getColumn();
-//            eastCol=n.getColumn();
-//            curRow=n.getRow();
-//            while (west.getColor() == sourceColor) {
-//                westCol=westCol-1;
-//                west = gameBoard[curRow][westCol];
-//            }
-//            while (east.getColor() == sourceColor) {
-//
-//                eastCol=eastCol+1;
-//                east = gameBoard[curRow][eastCol];
-//            }
-//
-//            for(int i= westCol+1;i<eastCol;++i)
-//            {
-//
-//                gameBoard[curRow][i].setColor(desColor);
-//                if(gameBoard[curRow+1][i].getColor()==sourceColor)
-//                    q.add(gameBoard[curRow+1][i]);
-//                if(gameBoard[curRow-1][i].getColor()==sourceColor)
-//                    q.add(gameBoard[curRow-1][i]);
-//            }
-//            System.out.println(q.size());
-//        }
-//    }
-
     public void fillBoardWithGreen() {
         for (int i = 0; i < NUMBER_OF_ROW; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
@@ -339,7 +303,7 @@ public class GameBoardController {
     }
 
     public boolean checkCorner(SquareController squareController) {
-        if(squareController==null)
+        if (squareController == null)
             return false;
         int row = squareController.getRow();
         int column = squareController.getColumn();
@@ -357,11 +321,11 @@ public class GameBoardController {
                     squarePlayerTakeCounter++;
             }
         }
-        percentagePlayerFill = (float) squarePlayerTakeCounter / (NUMBER_OF_ROW * NUMBER_OF_COLUMN) * 100;
+        percentagePlayerFill = ((float) squarePlayerTakeCounter) / (NUMBER_OF_ROW * NUMBER_OF_COLUMN) * 100;
     }
 
     public boolean checkWin() {
-        if (percentagePlayerFill >= 80)
+        if (percentagePlayerFill >= 20)
             return true;
         else
             return false;

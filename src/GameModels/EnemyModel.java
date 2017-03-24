@@ -33,8 +33,8 @@ public class EnemyModel extends GameModel {
 
     public EnemyModel(int row, int column, int xspeed, int yspeed) {
         super(row, column);
-        x = Utils.convertColToXPixel(column);
-        y = Utils.convertRowToYPixel(row);
+        this.x =Utils.convertColToXPixel(column);
+        this.y = Utils.convertRowToYPixel(row);
         this.xspeed=xspeed;
         this.yspeed=yspeed;
     }
