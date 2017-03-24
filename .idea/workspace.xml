@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e66407dd-283c-4c69-b381-9e78ed087912" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" afterPath="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java" afterPath="$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameBoardControllerLevel2.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameBoardControllerLevel2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="40" column="47" lean-forward="false" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+            <state relative-caret-position="274">
+              <caret line="66" column="38" lean-forward="false" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameBoardController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameBoardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="57" column="83" lean-forward="false" selection-start-line="57" selection-start-column="83" selection-end-line="57" selection-end-column="83" />
+            <state relative-caret-position="272">
+              <caret line="338" column="38" lean-forward="false" selection-start-line="338" selection-start-column="38" selection-end-line="338" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,6 +141,7 @@
       <find>run</find>
       <find>fillGa</find>
       <find>checkWin</find>
+      <find>dr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -190,8 +190,8 @@
         <option value="$PROJECT_DIR$/src/GameControllers/EnemyController.java" />
         <option value="$PROJECT_DIR$/src/Utils/Utils.java" />
         <option value="$PROJECT_DIR$/src/GameControllers/SquareController.java" />
-        <option value="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" />
         <option value="$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java" />
+        <option value="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" />
       </list>
     </option>
   </component>
@@ -925,20 +925,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardController.java">
+    <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="57" column="83" lean-forward="false" selection-start-line="57" selection-start-column="83" selection-end-line="57" selection-end-column="83" />
+        <state relative-caret-position="274">
+          <caret line="66" column="38" lean-forward="false" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java">
+    <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="40" column="47" lean-forward="false" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+        <state relative-caret-position="272">
+          <caret line="338" column="38" lean-forward="false" selection-start-line="338" selection-start-column="38" selection-end-line="338" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

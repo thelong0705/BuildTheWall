@@ -133,10 +133,10 @@ public class GameBoardController {
                     FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
             graphics.drawString(scoreString, 50, 50);
             graphics.drawString(liveString, 200, 50);
-            String winString = "YOU WIN";
-            graphics.setFont(new Font(null, Font.BOLD, 100));
-            graphics.setColor(Color.black);
-            graphics.drawString(winString, 300, 300);
+            String winString = "LEVEL PASSED PRESS SPACE TO MOVE ON TO THE NEXT LEVEL";
+            graphics.setFont(new Font(null, Font.BOLD, 20));
+            graphics.setColor(Color.red);
+            graphics.drawString(winString, 100, FRAME_HEIGHT_SIZE/2);
         } else {
             for (int i = 0; i < NUMBER_OF_ROW; i++) {
                 for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
