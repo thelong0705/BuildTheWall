@@ -6,12 +6,18 @@ import GameViews.GameView;
 
 import Utils.Utils;
 
+import java.awt.*;
+
 /**
  * Created by Inpriron on 3/11/2017.
  */
 public class SquareController extends GameController {
     private boolean isCelling;
     private boolean isWall;
+    private static Image imageSquareBlue= Utils.loadImageFromFile("square.png");
+    private  static Image imageSquareGray= Utils.loadImageFromFile("blockgray.png");
+    private static Image imageSquareGreen=Utils.loadImageFromFile("square.png");
+    private static Image imageSquareRed=Utils.loadImageFromFile("block2.png");
 
     public boolean isCelling() {
         return isCelling;
@@ -45,16 +51,16 @@ public class SquareController extends GameController {
             model.setColor(color);
             switch (color) {
                 case BLUE:
-                    gameView.setImage(Utils.loadImageFromFile("shit.png"));
+                    gameView.setImage(imageSquareBlue);
                     break;
                 case GRAY:
-                    gameView.setImage(Utils.loadImageFromFile("blockgray.png"));
+                    gameView.setImage(imageSquareGray);
                     break;
                 case RED:
-                    gameView.setImage(Utils.loadImageFromFile("block2.png"));
+                    gameView.setImage(imageSquareRed);
                     break;
                 case GREEN:
-                    gameView.setImage(Utils.loadImageFromFile("shit.png"));
+                    gameView.setImage(imageSquareGreen);
                     break;
                 default:
                     System.out.println("Invalid Color");
