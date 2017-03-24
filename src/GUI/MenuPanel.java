@@ -51,7 +51,7 @@ public class MenuPanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics graphics) {
-        Image image = Utils.loadImageFromFile("btw.jpg");
+        Image image = Utils.loadImageFromFile("menu.png");
         graphics.drawImage(image, 0, 0, GameWindow.FRAME_WIDTH_SIZE, GameWindow.FRAME_HEIGHT_SIZE, null);
     }
 }

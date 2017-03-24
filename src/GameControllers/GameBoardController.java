@@ -9,8 +9,6 @@ import Utils.Utils;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 
 import static GUI.GameWindow.FRAME_HEIGHT_SIZE;
 import static GUI.GameWindow.FRAME_WIDTH_SIZE;
@@ -74,7 +72,7 @@ public class GameBoardController {
 
         lastSquare = gameBoard[0][0];
         spawnEnemy(20, 30, 3, 4);
-       // spawnEnemy(15, 20, 5, 8);
+        spawnEnemy(28, 38, 5, 8);
     }
 
     public void run() {
@@ -137,13 +135,12 @@ public class GameBoardController {
         graphics.drawString(scoreString, 50, 50);
         String liveString = String.format("Lives: %d", ((DonaldTrumpModel) donaldTrumpController.gameModel).getLives());
         graphics.drawString(liveString, 200, 50);
-        if(checkWin())
-        {
+        if (checkWin()) {
             graphics.drawImage(image, 0, 0,
                     FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
             graphics.drawString(scoreString, 50, 50);
             graphics.drawString(liveString, 200, 50);
-            String winString="YOU WIN";
+            String winString = "YOU WIN";
             graphics.setFont(new Font(null, Font.BOLD, 100));
             graphics.setColor(Color.black);
             graphics.drawString(winString, 300, 300);
@@ -229,45 +226,45 @@ public class GameBoardController {
         floodFill(row, column + 1, sourceColor, desColor);
     }
 
-    public void newFloodFill(int row, int column, SquareModel.enumColor sourceColor,
-                             SquareModel.enumColor desColor) {
-        int westCol ;
-        int eastCol ;
-        int curRow;
-        SquareController west;
-        SquareController east;
-        SquareController n;
-        if (gameBoard[row][column].getColor() != sourceColor) return;
-        Queue<SquareController> q = new LinkedList<>();
-        q.add(gameBoard[row][column]);
-        while (!q.isEmpty()) {
-            west = east = n=q.peek();
-            q.remove(q.peek());
-            westCol=n.getColumn();
-            eastCol=n.getColumn();
-            curRow=n.getRow();
-            while (west.getColor() == sourceColor) {
-                westCol=westCol-1;
-                west = gameBoard[curRow][westCol];
-            }
-            while (east.getColor() == sourceColor) {
-
-                eastCol=eastCol+1;
-                east = gameBoard[curRow][eastCol];
-            }
-
-            for(int i= westCol+1;i<eastCol;++i)
-            {
-
-                gameBoard[curRow][i].setColor(desColor);
-                if(gameBoard[curRow+1][i].getColor()==sourceColor)
-                    q.add(gameBoard[curRow+1][i]);
-                if(gameBoard[curRow-1][i].getColor()==sourceColor)
-                    q.add(gameBoard[curRow-1][i]);
-            }
-            System.out.println(q.size());
-        }
-    }
+//    public void newFloodFill(int row, int column, SquareModel.enumColor sourceColor,
+//                             SquareModel.enumColor desColor) {
+//        int westCol ;
+//        int eastCol ;
+//        int curRow;
+//        SquareController west;
+//        SquareController east;
+//        SquareController n;
+//        if (gameBoard[row][column].getColor() != sourceColor) return;
+//        Queue<SquareController> q = new LinkedList<>();
+//        q.add(gameBoard[row][column]);
+//        while (!q.isEmpty()) {
+//            west = east = n=q.peek();
+//            q.remove(q.peek());
+//            westCol=n.getColumn();
+//            eastCol=n.getColumn();
+//            curRow=n.getRow();
+//            while (west.getColor() == sourceColor) {
+//                westCol=westCol-1;
+//                west = gameBoard[curRow][westCol];
+//            }
+//            while (east.getColor() == sourceColor) {
+//
+//                eastCol=eastCol+1;
+//                east = gameBoard[curRow][eastCol];
+//            }
+//
+//            for(int i= westCol+1;i<eastCol;++i)
+//            {
+//
+//                gameBoard[curRow][i].setColor(desColor);
+//                if(gameBoard[curRow+1][i].getColor()==sourceColor)
+//                    q.add(gameBoard[curRow+1][i]);
+//                if(gameBoard[curRow-1][i].getColor()==sourceColor)
+//                    q.add(gameBoard[curRow-1][i]);
+//            }
+//            System.out.println(q.size());
+//        }
+//    }
 
     public void fillBoardWithGreen() {
         for (int i = 0; i < NUMBER_OF_ROW; i++) {
@@ -290,7 +287,6 @@ public class GameBoardController {
             for (SquareController squareController : squarePlayerWentBy) {
                 if (enemyController.gameModel.intersects(squareController.gameModel)
                         || enemyController.gameModel.intersects(donaldTrumpController.gameModel)) {
-                    System.out.println("wtf");
                     donaldTrumpController.getHit();
                     clearPlayerPathAfterGetHit();
                     break;
@@ -304,15 +300,53 @@ public class GameBoardController {
         for (EnemyController enemyController : enemyControllers) {
             for (SquareController squareController : blueSquareList) {
                 if (squareController.gameModel.intersects(enemyController.gameModel)) {
+
                     EnemyModel model = (EnemyModel) enemyController.gameModel;
-                    if (squareController.isCelling())
+                    if (checkNextToCorner(squareController)) {
                         model.setYspeed(model.getYspeed() * -1);
-                    if (squareController.isWall())
                         model.setXspeed(model.getXspeed() * -1);
+                    } else {
+                        if (squareController.isCelling())
+                            model.setYspeed(model.getYspeed() * -1);
+                        if (squareController.isWall())
+                            model.setXspeed(model.getXspeed() * -1);
+                    }
+
                     break;
                 }
             }
         }
+    }
+
+    public boolean checkNextToCorner(SquareController squareController) {
+        int row = squareController.getRow();
+        int column = squareController.getColumn();
+        SquareController north = null;
+        SquareController south = null;
+        SquareController west = null;
+        SquareController east = null;
+        if (row + 1 <= NUMBER_OF_ROW - 1)
+            north = gameBoard[row + 1][column];
+        if (row - 1 >= 0)
+            south = gameBoard[row - 1][column];
+        if (column + 1 <= NUMBER_OF_COLUMN - 1)
+            east = gameBoard[row][column + 1];
+        if (column - 1 >= 0)
+            west = gameBoard[row][column - 1];
+        if (checkCorner(south) || checkCorner(north) || checkCorner(west) || checkCorner(east))
+            return true;
+        return false;
+    }
+
+    public boolean checkCorner(SquareController squareController) {
+        if(squareController==null)
+            return false;
+        int row = squareController.getRow();
+        int column = squareController.getColumn();
+        if (gameBoard[row][column].isCelling() && gameBoard[row][column].isWall()) {
+            return true;
+        } else
+            return false;
     }
 
     public void updatePercentage() {
