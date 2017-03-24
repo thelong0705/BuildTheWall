@@ -20,8 +20,8 @@ public class GameBoardControllerLevel2 extends GameBoardController {
     @Override
     public void initiateGameBoard() {
         buildBoard();
-        spawnEnemy(Utils.convertColToXPixel(30),Utils.convertRowToYPixel(20) , 3, 4, EnemyController.EnemyType.CHINA);
-        spawnEnemy(Utils.convertColToXPixel(38), Utils.convertRowToYPixel(28), 3, 4, EnemyController.EnemyType.CHINA);
+        spawnEnemy(Utils.convertColToXPixel(30), Utils.convertRowToYPixel(20), 2, 5, EnemyController.EnemyType.CHINA);
+        spawnEnemy(Utils.convertColToXPixel(20), Utils.convertRowToYPixel(15), 5, 2, EnemyController.EnemyType.CHINA);
         spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 3, 4, EnemyController.EnemyType.CHINA);
         image = Utils.loadImageFromFile("chinawall.jpg");
     }
@@ -38,13 +38,12 @@ public class GameBoardControllerLevel2 extends GameBoardController {
             for (int j = i + 1; j < enemyControllers.size(); j++) {
                 EnemyController enemyControllerI = enemyControllers.get(i);
                 EnemyController enemyControllerJ = enemyControllers.get(j);
-                if(enemyControllers.size()<8)
-                {
+                if (enemyControllers.size() < 6) {
                     if (enemyControllerI.getAliveTime() > 60 && enemyControllerJ.getAliveTime() > 60) {
                         if (enemyControllerI.gameModel.intersects(enemyControllerJ.gameModel)) {
                             EnemyModel modelI = (EnemyModel) enemyControllerI.gameModel;
                             EnemyModel modelJ = (EnemyModel) enemyControllerJ.gameModel;
-                            if (modelI.getXspeed() == modelJ.getXspeed() * -1 && modelI.getYspeed() == modelJ.getYspeed()*-1) {
+                            if (modelI.getXspeed() * modelJ.getXspeed() < 0 || modelI.getYspeed() * modelJ.getYspeed() < 0) {
                                 spawnEnemy(modelI.getX(), modelI.getY(),
                                         enemyControllerI.getXSpeed(), -enemyControllerI.getYSpeed(), EnemyController.EnemyType.CHINA);
                                 modelI.setXspeed(modelI.getXspeed() * -1);
@@ -58,7 +57,7 @@ public class GameBoardControllerLevel2 extends GameBoardController {
                         }
                     }
                 }
-                }
+            }
 
 
     }

@@ -52,10 +52,10 @@ public class GameBoardController {
 
     public void initiateGameBoard() {
         buildBoard();
-        spawnEnemy(Utils.convertColToXPixel(30), Utils.convertRowToYPixel(20), 3, 4, EnemyController.EnemyType.MEXICO);
-        spawnEnemy(Utils.convertColToXPixel(38), Utils.convertRowToYPixel(28), 5, 8, EnemyController.EnemyType.MEXICO);
-        spawnEnemy(Utils.convertColToXPixel(20), Utils.convertRowToYPixel(20), 5, 8, EnemyController.EnemyType.MEXICO);
-        spawnEnemy(Utils.convertColToXPixel(10), Utils.convertRowToYPixel(10), 5, 8, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(30), Utils.convertRowToYPixel(20), 5,2, EnemyController.EnemyType.MEXICO);
+
+        spawnEnemy(Utils.convertColToXPixel(10), Utils.convertRowToYPixel(10), 2, 5, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 3, 4 , EnemyController.EnemyType.MEXICO);
     }
 
     public void buildBoard() {
@@ -336,7 +336,7 @@ public class GameBoardController {
     }
 
     public boolean checkWin() {
-        if (percentagePlayerFill >= 10)
+        if (percentagePlayerFill >= 80)
             return true;
         else
             return false;
