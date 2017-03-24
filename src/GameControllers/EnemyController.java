@@ -38,19 +38,19 @@ public class EnemyController extends GameController {
 //    public EnemyController(int row, int column, int xspeed, int yspeed) {
 //        this(new EnemyModel(row, column, xspeed,yspeed), new GameView(Utils.loadImageFromFile("loco.png")));
 //    }
-    public static EnemyController create(int row, int column, int xspeed, int yspeed,EnemyType type)
+    public static EnemyController create(int x, int y, int xspeed, int yspeed,EnemyType type)
     {
 
         EnemyController enemyController=null;
         if(type==EnemyType.MEXICO)
         {
-            enemyController=new EnemyController(new EnemyModel(row, column, xspeed,yspeed),
+            enemyController=new EnemyController(new EnemyModel(x, y, xspeed,yspeed),
                     new GameView(mexicoEnemyImage));
             enemyController.enemyMoveBehaviour= new EnemyMoveCrossBehaviour();
         }
         else if(type==EnemyType.CHINA)
         {
-            enemyController=new EnemyController(new EnemyModel(row, column, xspeed,yspeed),
+            enemyController=new EnemyController(new EnemyModel(x, y, xspeed,yspeed),
                     new GameView(chinaEnemyImage));
             enemyController.enemyMoveBehaviour= new EnemyMoveCrossBehaviour();
         }

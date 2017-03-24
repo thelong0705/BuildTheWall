@@ -20,9 +20,9 @@ public class GameBoardControllerLevel2 extends GameBoardController {
     @Override
     public void initiateGameBoard() {
         buildBoard();
-        spawnEnemy(20, 30, 5, 6, EnemyController.EnemyType.CHINA);
-        spawnEnemy(28, 38, 5, 6, EnemyController.EnemyType.CHINA);
-        spawnEnemy(2, 2, 5, 6, EnemyController.EnemyType.CHINA);
+        spawnEnemy(Utils.convertColToXPixel(30),Utils.convertRowToYPixel(20) , 5, 6, EnemyController.EnemyType.CHINA);
+        spawnEnemy(Utils.convertColToXPixel(38), Utils.convertRowToYPixel(28), 5, 6, EnemyController.EnemyType.CHINA);
+        spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 5, 6, EnemyController.EnemyType.CHINA);
         image = Utils.loadImageFromFile("background.png");
     }
 
@@ -43,7 +43,7 @@ public class GameBoardControllerLevel2 extends GameBoardController {
                         EnemyModel modelI = (EnemyModel) enemyControllerI.gameModel;
                         EnemyModel modelJ = (EnemyModel) enemyControllerJ.gameModel;
                         if (modelI.getXspeed() == modelJ.getXspeed() * -1 && modelI.getYspeed() == modelJ.getYspeed()*-1) {
-                            spawnEnemy(enemyControllerI.getRow(), enemyControllerI.getColumn(),
+                            spawnEnemy(modelI.getX(), modelI.getY(),
                                     enemyControllerI.getXSpeed(), -enemyControllerI.getYSpeed(), EnemyController.EnemyType.CHINA);
                             System.out.println(enemyControllerI.getRow());
                             modelI.setXspeed(modelI.getXspeed() * -1);

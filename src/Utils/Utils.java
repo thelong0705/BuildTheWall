@@ -31,13 +31,13 @@ public class Utils {
         return 10 +20 * col;
     }
 
-//    public static int convertYToRowArray(int y) {
-//        return (y - 30) / GameWindow.SQUARE_LENGTH;
-//    }
-//
-//    public static int convertXtoColumnArray(int x) {
-//        return (x - 10) / GameWindow.SQUARE_LENGTH;
-//    }
+    public static int convertYToRowArray(int y) {
+        return (y - 50) /20;
+    }
+
+    public static int convertXtoColumnArray(int x) {
+        return (x - 10) /20;
+    }
 
 //    public static void floodFill(int row, int column, SquareModel.enumColor sourceColor,
 //                                 SquareModel.enumColor desColor, SquareController[][] gameBoard) {

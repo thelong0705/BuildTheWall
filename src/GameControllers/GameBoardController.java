@@ -52,8 +52,8 @@ public class GameBoardController {
 
     public void initiateGameBoard() {
         buildBoard();
-        spawnEnemy(20, 30, 3, 4, EnemyController.EnemyType.MEXICO);
-        spawnEnemy(28, 38, 5, 8, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(30),Utils.convertRowToYPixel(20) , 3, 4, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(38), Utils.convertRowToYPixel(28), 5, 8, EnemyController.EnemyType.MEXICO);
     }
 
     public void buildBoard() {
