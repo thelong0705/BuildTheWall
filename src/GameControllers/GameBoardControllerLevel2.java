@@ -20,10 +20,10 @@ public class GameBoardControllerLevel2 extends GameBoardController {
     @Override
     public void initiateGameBoard() {
         buildBoard();
-        spawnEnemy(Utils.convertColToXPixel(30),Utils.convertRowToYPixel(20) , 5, 6, EnemyController.EnemyType.CHINA);
-        spawnEnemy(Utils.convertColToXPixel(38), Utils.convertRowToYPixel(28), 5, 6, EnemyController.EnemyType.CHINA);
-        spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 5, 6, EnemyController.EnemyType.CHINA);
-        image = Utils.loadImageFromFile("background.png");
+        spawnEnemy(Utils.convertColToXPixel(30),Utils.convertRowToYPixel(20) , 3, 4, EnemyController.EnemyType.CHINA);
+        spawnEnemy(Utils.convertColToXPixel(38), Utils.convertRowToYPixel(28), 3, 4, EnemyController.EnemyType.CHINA);
+        spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 3, 4, EnemyController.EnemyType.CHINA);
+        image = Utils.loadImageFromFile("chinawall.jpg");
     }
 
     @Override

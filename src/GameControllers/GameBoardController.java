@@ -110,6 +110,7 @@ public class GameBoardController {
         colorBlueAndClearPlayerPath();
     }
 
+
     public void spawnEnemy(int row, int column, int xspeed, int yspeed, EnemyController.EnemyType enemyType) {
         EnemyController enemyController = EnemyController.create(row, column, xspeed, yspeed, enemyType);
         enemyControllers.add(enemyController);
@@ -300,9 +301,9 @@ public class GameBoardController {
         SquareController west = null;
         SquareController east = null;
         if (row + 1 <= NUMBER_OF_ROW - 1)
-            north = gameBoard[row + 1][column];
+           south = gameBoard[row + 1][column];
         if (row - 1 >= 0)
-            south = gameBoard[row - 1][column];
+            north = gameBoard[row - 1][column];
         if (column + 1 <= NUMBER_OF_COLUMN - 1)
             east = gameBoard[row][column + 1];
         if (column - 1 >= 0)
@@ -335,7 +336,7 @@ public class GameBoardController {
     }
 
     public boolean checkWin() {
-        if (percentagePlayerFill >= 80)
+        if (percentagePlayerFill >= 10)
             return true;
         else
             return false;
