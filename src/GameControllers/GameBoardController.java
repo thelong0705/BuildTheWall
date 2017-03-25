@@ -52,10 +52,10 @@ public class GameBoardController {
 
     public void initiateGameBoard() {
         buildBoard();
-        spawnEnemy(Utils.convertColToXPixel(30), Utils.convertRowToYPixel(20), 5,2, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(30), Utils.convertRowToYPixel(20), 5, 2, EnemyController.EnemyType.MEXICO);
 
         spawnEnemy(Utils.convertColToXPixel(10), Utils.convertRowToYPixel(10), 2, 5, EnemyController.EnemyType.MEXICO);
-        spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 3, 4 , EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 3, 4, EnemyController.EnemyType.MEXICO);
     }
 
     public void buildBoard() {
@@ -136,7 +136,7 @@ public class GameBoardController {
             String winString = "LEVEL PASSED PRESS SPACE TO MOVE ON TO THE NEXT LEVEL";
             graphics.setFont(new Font(null, Font.BOLD, 20));
             graphics.setColor(Color.red);
-            graphics.drawString(winString, 100, FRAME_HEIGHT_SIZE/2);
+            graphics.drawString(winString, 100, FRAME_HEIGHT_SIZE / 2);
         } else {
             for (int i = 0; i < NUMBER_OF_ROW; i++) {
                 for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
@@ -194,14 +194,18 @@ public class GameBoardController {
         ArrayList<SquareController> toRemove = new ArrayList<>();
         SquareController currentSquare = null;
         SquareController nextSquare = null;
-        for (int i = 0; i < squarePlayerWentBy.size() - 1; i++) {
+
+        for (int i = 0; i < squarePlayerWentBy.size(); i++) {
 
             currentSquare = squarePlayerWentBy.get(i);
-            nextSquare = squarePlayerWentBy.get(i + 1);
-            if (currentSquare.isCelling() && nextSquare.isWall())
-                currentSquare.setWall(true);
-            else if (currentSquare.isWall() && nextSquare.isCelling())
-                currentSquare.setCelling(true);
+            if (i != squarePlayerWentBy.size() - 1) {
+                nextSquare = squarePlayerWentBy.get(i + 1);
+                if (currentSquare.isCelling() && nextSquare.isWall())
+                    currentSquare.setWall(true);
+                else if (currentSquare.isWall() && nextSquare.isCelling())
+                    currentSquare.setCelling(true);
+            }
+
             currentSquare.setColor(BLUE);
             blueSquareList.add(currentSquare);
             toRemove.add(currentSquare);
@@ -219,8 +223,7 @@ public class GameBoardController {
     }
 
     public boolean checkFinishWall() {
-        if( getSquarePlayerStanding().getColor() == BLUE && lastSquare.getColor() == RED)
-        {
+        if (getSquarePlayerStanding().getColor() == BLUE && lastSquare.getColor() == RED) {
             getSquarePlayerStanding().setWall(true);
             getSquarePlayerStanding().setCelling(true);
             return true;
@@ -277,7 +280,7 @@ public class GameBoardController {
                 if (squareController.gameModel.intersects(enemyController.gameModel)) {
 
                     EnemyModel model = (EnemyModel) enemyController.gameModel;
-                    if (checkNextToCorner(squareController)||checkCorner(squareController)) {
+                    if (checkNextToCorner(squareController) || checkCorner(squareController)) {
                         model.setYspeed(model.getYspeed() * -1);
                         model.setXspeed(model.getXspeed() * -1);
                     } else {
@@ -300,7 +303,7 @@ public class GameBoardController {
         SquareController west = null;
         SquareController east = null;
         if (row + 1 <= NUMBER_OF_ROW - 1)
-           south = gameBoard[row + 1][column];
+            south = gameBoard[row + 1][column];
         if (row - 1 >= 0)
             north = gameBoard[row - 1][column];
         if (column + 1 <= NUMBER_OF_COLUMN - 1)
