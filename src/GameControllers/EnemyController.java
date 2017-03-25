@@ -19,6 +19,7 @@ import java.util.Random;
 public class EnemyController extends GameController {
     private static Image mexicoEnemyImage= Utils.loadImageFromFile("loco.png");
     private static Image chinaEnemyImage= Utils.loadImageFromFile("chinese.png");
+    private static Image iraqEnemyImage= Utils.loadImageFromFile("enemy1.jpg");
     private int aliveTime;
 
     public int getAliveTime() {
@@ -28,7 +29,8 @@ public class EnemyController extends GameController {
     private EnemyMoveBehaviour enemyMoveBehaviour;
     public enum EnemyType{
         MEXICO,
-        CHINA
+        CHINA,
+        IRAQ
     }
     public EnemyController(GameModel gameModel, GameView gameView) {
         super(gameModel, gameView);
@@ -52,6 +54,12 @@ public class EnemyController extends GameController {
         {
             enemyController=new EnemyController(new EnemyModel(x, y, xspeed,yspeed),
                     new GameView(chinaEnemyImage));
+            enemyController.enemyMoveBehaviour= new EnemyMoveCrossBehaviour();
+        }
+        else if(type== EnemyType.IRAQ)
+        {
+            enemyController=new EnemyController(new EnemyModel(x, y, xspeed,yspeed),
+                    new GameView(iraqEnemyImage));
             enemyController.enemyMoveBehaviour= new EnemyMoveCrossBehaviour();
         }
          return enemyController;

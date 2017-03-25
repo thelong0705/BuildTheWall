@@ -252,7 +252,6 @@ public class GameBoardController {
         }
     }
 
-    //    private EnemyController enemyTemp;
     public void checkEnemyCollide() {
         checkEnemyBounceWall();
         checkEnemyHit();
@@ -336,7 +335,7 @@ public class GameBoardController {
     }
 
     public boolean checkWin() {
-        if (percentagePlayerFill >= 80)
+        if (percentagePlayerFill >= 10)
             return true;
         else
             return false;

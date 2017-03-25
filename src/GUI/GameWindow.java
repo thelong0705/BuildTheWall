@@ -2,6 +2,7 @@ package GUI;
 
 import GameControllers.GameBoardController;
 import GameControllers.GameBoardControllerLevel2;
+import GameControllers.GameBoardControllerLevel3;
 import Program.Main;
 import Utils.Utils;
 
@@ -28,8 +29,7 @@ public class GameWindow extends Frame {
     public static boolean isKeyUp = false;
     public static boolean isKeyDown = false;
     public static boolean isSpace = false;
-
-    //    public static int blueSquare;
+    private int level=1;
     public GameWindow() {
         setVisible(true);
         setSize(FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE);
@@ -116,13 +116,17 @@ public class GameWindow extends Frame {
                         if(isSpace)
                         {
                             isSpace=false;
-                            gameBoardController = new GameBoardControllerLevel2();
+                            level++;
+                            if(level==2)
+                                gameBoardController = new GameBoardControllerLevel2();
+                            else if(level==3)
+                                gameBoardController= new GameBoardControllerLevel3();
+                            else
+                            {
+                                //IN RA MAN HINH THANG
+                            }
                         }
-//                        dispose();
-//                        GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
-//                        Main.gameFrame.setVisible(true);
 
-//                        break;
                     } else if (gameBoardController.checkLose()) {
                         System.out.println("lose");
                         dispose();
