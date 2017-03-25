@@ -335,7 +335,7 @@ public class GameBoardController {
     }
 
     public boolean checkWin() {
-        if (percentagePlayerFill >= 10)
+        if (percentagePlayerFill >= 80)
             return true;
         else
             return false;

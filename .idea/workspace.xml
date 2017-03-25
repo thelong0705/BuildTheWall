@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e66407dd-283c-4c69-b381-9e78ed087912" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GUI/GameWindow$1.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GUI/GameWindow$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GUI/GameWindow$2.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GUI/GameWindow$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GUI/GameWindow$3.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GUI/GameWindow$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GUI/GameWindow.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GUI/GameWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/EnemyController$EnemyType.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/EnemyController$EnemyType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/EnemyController.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/EnemyController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/GameBoardController.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/GameBoardController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/GameBoardControllerLevel2.class" afterPath="$PROJECT_DIR$/out/production/BuildTheWall/GameControllers/GameBoardControllerLevel2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/GameWindow.java" afterPath="$PROJECT_DIR$/src/GUI/GameWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/EnemyController.java" afterPath="$PROJECT_DIR$/src/GameControllers/EnemyController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" afterPath="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java" afterPath="$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java" />
     </list>
@@ -34,18 +22,18 @@
       <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/GameWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="1870">
               <caret line="125" column="54" lean-forward="false" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameBoardControllerLevel2.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameBoardControllerLevel2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="66" column="38" lean-forward="false" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+            <state relative-caret-position="448">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,7 +44,7 @@
       <file leaf-file-name="GameBoardControllerLevel3.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
+            <state relative-caret-position="1530">
               <caret line="94" column="38" lean-forward="false" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -68,7 +56,7 @@
       <file leaf-file-name="EnemyController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameControllers/EnemyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="884">
               <caret line="62" column="53" lean-forward="false" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
               <folding />
             </state>
@@ -109,10 +97,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameBoardController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameBoardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
+            <state relative-caret-position="244">
               <caret line="337" column="38" lean-forward="false" selection-start-line="337" selection-start-column="38" selection-end-line="337" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -206,8 +194,8 @@
         <option value="$PROJECT_DIR$/src/GameControllers/EnemyController.java" />
         <option value="$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel3.java" />
         <option value="$PROJECT_DIR$/src/GUI/GameWindow.java" />
-        <option value="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" />
         <option value="$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java" />
+        <option value="$PROJECT_DIR$/src/GameControllers/GameBoardController.java" />
       </list>
     </option>
   </component>
@@ -394,9 +382,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -659,12 +647,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -687,6 +674,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -939,7 +927,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameControllers/EnemyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="884">
           <caret line="62" column="53" lean-forward="false" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
           <folding />
         </state>
@@ -947,7 +935,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="1530">
           <caret line="94" column="38" lean-forward="false" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -957,26 +945,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="1870">
           <caret line="125" column="54" lean-forward="false" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardController.java">
+    <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="337" column="38" lean-forward="false" selection-start-line="337" selection-start-column="38" selection-end-line="337" selection-end-column="38" />
+        <state relative-caret-position="448">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardControllerLevel2.java">
+    <entry file="file://$PROJECT_DIR$/src/GameControllers/GameBoardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="66" column="38" lean-forward="false" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+        <state relative-caret-position="244">
+          <caret line="337" column="38" lean-forward="false" selection-start-line="337" selection-start-column="38" selection-end-line="337" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

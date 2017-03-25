@@ -62,11 +62,5 @@ public class GameBoardControllerLevel2 extends GameBoardController {
 
     }
 
-    @Override
-    public boolean checkWin() {
-        if (percentagePlayerFill >= 10)
-            return true;
-        else
-            return false;
-    }
+
 }
