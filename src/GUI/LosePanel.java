@@ -1,6 +1,5 @@
 package GUI;
 
-import Program.Main;
 import Utils.Utils;
 
 import javax.swing.*;
@@ -9,12 +8,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Created by Inpriron on 3/17/2017.
+ * Created by Inpriron on 3/28/2017.
  */
-public class WinPanel extends JPanel{
+public class LosePanel extends JPanel {
     private JLabel btnCombatFinish;
 
-    public WinPanel() {
+    public LosePanel() {
         setLayout(null);
         initComp();
     }
@@ -40,10 +39,8 @@ public class WinPanel extends JPanel{
 
     @Override
     protected void paintComponent(Graphics graphics) {
-        Image image = Utils.loadImageFromFile("123.jpg");
+        Image image = Utils.loadImageFromFile("456.png");
         graphics.drawImage(image, 0, 0, GameFrame.WIDTH_F, GameFrame.HEIGHT_F, null);
 
-//        image = Utils.loadImageFromRes("gameover.png");
-//        graphics.drawImage(image, (GameFrame.WIDTH_F - image.getWidth(null)) / 2, 0, image.getWidth(null), image.getHeight(null), null);
     }
 }

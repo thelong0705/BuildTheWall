@@ -104,10 +104,45 @@ public class GameBoardController {
         getSquarePlayerStanding().setCelling(true);
         getSquarePlayerStanding().setWall(true);
         fillBoardWithGreen();
+        SquareController squareGreen;
         for (EnemyController enemyController : enemyControllers) {
-            floodFill(enemyController.getRow(), enemyController.getColumn(), GREEN, GRAY);
+            if (gameBoard[enemyController.getRow()][enemyController.getColumn()].getColor() == BLUE) {
+                squareGreen = findTheNearestGreen(gameBoard[enemyController.getRow()][enemyController.getColumn()]);
+            } else
+                squareGreen = gameBoard[enemyController.getRow()][enemyController.getColumn()];
+            floodFill(squareGreen.getRow(), squareGreen.getColumn(), GREEN, GRAY);
         }
         colorBlueAndClearPlayerPath();
+    }
+
+    private SquareController findTheNearestGreen(SquareController squareController) {
+        int row = squareController.getRow();
+        int column = squareController.getColumn();
+        SquareController north = null;
+        SquareController south = null;
+        SquareController west = null;
+        SquareController east = null;
+        if (row + 1 <= NUMBER_OF_ROW - 1) {
+            south = gameBoard[row + 1][column];
+            if (south.getColor() == GREEN)
+                return south;
+        }
+        if (row - 1 >= 0) {
+            north = gameBoard[row - 1][column];
+            if (north.getColor() == GREEN)
+                return north;
+        }
+        if (column + 1 <= NUMBER_OF_COLUMN - 1) {
+            east = gameBoard[row][column + 1];
+            if (east.getColor() == GREEN)
+                return east;
+        }
+        if (column - 1 >= 0) {
+            west = gameBoard[row][column - 1];
+            if (west.getColor() == GREEN)
+                return west;
+        }
+        return squareController;
     }
 
 
@@ -306,36 +341,36 @@ public class GameBoardController {
         }
     }
 
-    public boolean checkNextToCorner(SquareController squareController) {
-        int row = squareController.getRow();
-        int column = squareController.getColumn();
-        SquareController north = null;
-        SquareController south = null;
-        SquareController west = null;
-        SquareController east = null;
-        if (row + 1 <= NUMBER_OF_ROW - 1)
-            south = gameBoard[row + 1][column];
-        if (row - 1 >= 0)
-            north = gameBoard[row - 1][column];
-        if (column + 1 <= NUMBER_OF_COLUMN - 1)
-            east = gameBoard[row][column + 1];
-        if (column - 1 >= 0)
-            west = gameBoard[row][column - 1];
-        if (checkCorner(south) || checkCorner(north) || checkCorner(west) || checkCorner(east))
-            return true;
-        return false;
-    }
-
-    public boolean checkCorner(SquareController squareController) {
-        if (squareController == null)
-            return false;
-        int row = squareController.getRow();
-        int column = squareController.getColumn();
-        if (gameBoard[row][column].isCelling() && gameBoard[row][column].isWall()) {
-            return true;
-        } else
-            return false;
-    }
+//    public boolean checkNextToCorner(SquareController squareController) {
+//        int row = squareController.getRow();
+//        int column = squareController.getColumn();
+//        SquareController north = null;
+//        SquareController south = null;
+//        SquareController west = null;
+//        SquareController east = null;
+//        if (row + 1 <= NUMBER_OF_ROW - 1)
+//            south = gameBoard[row + 1][column];
+//        if (row - 1 >= 0)
+//            north = gameBoard[row - 1][column];
+//        if (column + 1 <= NUMBER_OF_COLUMN - 1)
+//            east = gameBoard[row][column + 1];
+//        if (column - 1 >= 0)
+//            west = gameBoard[row][column - 1];
+//        if (checkCorner(south) || checkCorner(north) || checkCorner(west) || checkCorner(east))
+//            return true;
+//        return false;
+//    }
+//
+//    public boolean checkCorner(SquareController squareController) {
+//        if (squareController == null)
+//            return false;
+//        int row = squareController.getRow();
+//        int column = squareController.getColumn();
+//        if (gameBoard[row][column].isCelling() && gameBoard[row][column].isWall()) {
+//            return true;
+//        } else
+//            return false;
+//    }
 
     public void updatePercentage() {
         int squarePlayerTakeCounter = 0;

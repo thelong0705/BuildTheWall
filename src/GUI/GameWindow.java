@@ -123,14 +123,16 @@ public class GameWindow extends Frame {
                                 gameBoardController= new GameBoardControllerLevel3();
                             else
                             {
-                                //IN RA MAN HINH THANG
+                                dispose();
+                                GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
+                                Main.gameFrame.setVisible(true);
                             }
                         }
 
                     } else if (gameBoardController.checkLose()) {
                         System.out.println("lose");
                         dispose();
-                        GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
+                        GameFrame.mainPanel.showPanel(MainPanel.TAG_LOSE);
                         Main.gameFrame.setVisible(true);
                         break;
                     } else {

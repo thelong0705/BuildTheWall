@@ -41,14 +41,21 @@ public class GameBoardControllerLevel3 extends GameBoardController {
                         setNearBySquare(squareController);
                     }
                     EnemyModel model = (EnemyModel) enemyController.gameModel;
-                    if (checkNextToCorner(squareController) || checkCorner(squareController)) {
+                    int xspeed = model.getXspeed();
+                    int yspeed = model.getYspeed();
+                    if (squareController.isCelling())
                         model.setYspeed(model.getYspeed() * -1);
+                    if (squareController.isWall())
                         model.setXspeed(model.getXspeed() * -1);
-                    } else {
-                        if (squareController.isCelling())
-                            model.setYspeed(model.getYspeed() * -1);
-                        if (squareController.isWall())
-                            model.setXspeed(model.getXspeed() * -1);
+                    EnemyController temp = EnemyController.create(model.getX(), model.getY(), model.getXspeed(),
+                            model.getYspeed(), EnemyController.EnemyType.MEXICO);
+                    temp.run();
+                    for (SquareController squareTemp : blueSquareList) {
+                        if (squareTemp.gameModel.intersects(temp.gameModel)) {
+                            model.setXspeed(xspeed * -1);
+                            model.setYspeed(yspeed * -1);
+                            break;
+                        }
                     }
                     break;
                 }
@@ -95,10 +102,5 @@ public class GameBoardControllerLevel3 extends GameBoardController {
             }
         }
     }
-    public boolean checkWin() {
-        if (percentagePlayerFill >= 80)
-            return true;
-        else
-            return false;
-    }
+   
 }
