@@ -12,7 +12,8 @@ import java.util.ArrayList;
 public class GameBoardControllerLevel3 extends GameBoardController {
     public GameBoardControllerLevel3() {
         gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
-        donaldTrumpController = new DonaldTrumpController(0, 0, PLAYER_LIFE);
+        DonaldTrumpController.donaldTrumpInstance.setColumn(0);
+        DonaldTrumpController.donaldTrumpInstance.setRow(0);
         enemyControllers = new ArrayList<>();
         squarePlayerWentBy = new ArrayList<>();
         initiateGameBoard();
@@ -78,23 +79,26 @@ public class GameBoardControllerLevel3 extends GameBoardController {
                 blueSquareList.add(north);
             }
         }
-        if (column + 1 <= NUMBER_OF_COLUMN - 1)
-        {
+        if (column + 1 <= NUMBER_OF_COLUMN - 1) {
             east = gameBoard[row][column + 1];
             if (east.getColor() == SquareModel.enumColor.GREEN) {
                 east.setColor(SquareModel.enumColor.BLUE);
-               blueSquareList.add(east);
+                blueSquareList.add(east);
             }
         }
 
-        if (column - 1 >= 0)
-        {
+        if (column - 1 >= 0) {
             west = gameBoard[row][column - 1];
             if (west.getColor() == SquareModel.enumColor.GREEN) {
                 west.setColor(SquareModel.enumColor.BLUE);
                 blueSquareList.add(west);
             }
         }
-
+    }
+    public boolean checkWin() {
+        if (percentagePlayerFill >= 80)
+            return true;
+        else
+            return false;
     }
 }

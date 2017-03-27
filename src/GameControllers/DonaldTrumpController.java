@@ -19,7 +19,7 @@ public class DonaldTrumpController extends GameController {
         this(new DonaldTrumpModel(row, column, lives), new GameView(Utils.loadImageFromFile("donald-trump.png")));
     }
 
-
+    public static DonaldTrumpController donaldTrumpInstance = new DonaldTrumpController(0,0,5);
     @Override
     public void run() {
         if (gameModel instanceof DonaldTrumpModel) {

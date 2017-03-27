@@ -21,11 +21,11 @@ import static GameModels.SquareModel.enumColor.GREEN;
  * Created by Inpriron on 3/11/2017.
  */
 public class GameBoardController {
-    protected static int PLAYER_LIFE = 10;
 
-    public DonaldTrumpController getDonaldTrumpController() {
-        return donaldTrumpController;
-    }
+
+//    public DonaldTrumpController getDonaldTrumpController() {
+//        return DonaldTrumpController.donaldTrumpInstance;
+//    }
 
 
     public static final int NUMBER_OF_ROW = 30;
@@ -33,7 +33,7 @@ public class GameBoardController {
 
     protected int moveDelay = 0;
     protected SquareController[][] gameBoard;
-    protected DonaldTrumpController donaldTrumpController;
+    // protected DonaldTrumpController donaldTrumpController;
     protected SquareController lastSquare;
     protected ArrayList<EnemyController> enemyControllers;
     protected ArrayList<SquareController> squarePlayerWentBy;
@@ -43,7 +43,7 @@ public class GameBoardController {
 
     public GameBoardController() {
         gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
-        donaldTrumpController = new DonaldTrumpController(0, 0, PLAYER_LIFE);
+        //donaldTrumpController = new DonaldTrumpController(0, 0, PLAYER_LIFE);
         enemyControllers = new ArrayList<>();
         squarePlayerWentBy = new ArrayList<>();
         initiateGameBoard();
@@ -52,9 +52,9 @@ public class GameBoardController {
 
     public void initiateGameBoard() {
         buildBoard();
-        spawnEnemy(Utils.convertColToXPixel(30), Utils.convertRowToYPixel(20), 5, 2, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(1), Utils.convertRowToYPixel(1), -5, -2, EnemyController.EnemyType.MEXICO);
 
-        spawnEnemy(Utils.convertColToXPixel(10), Utils.convertRowToYPixel(10), 2, 5, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(38), Utils.convertRowToYPixel(28), 2, 5, EnemyController.EnemyType.MEXICO);
         spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 3, 4, EnemyController.EnemyType.MEXICO);
     }
 
@@ -82,7 +82,7 @@ public class GameBoardController {
 
     public void run() {
         if (moveDelay == 0) {
-            donaldTrumpController.run();
+            DonaldTrumpController.donaldTrumpInstance.run();
             controlDonaldTrumpMovement();
             if (checkFinishWall()) {
                 {
@@ -124,7 +124,7 @@ public class GameBoardController {
 
     public void draw(Graphics graphics) {
         String scoreString = String.format("PERCENTAGE: %d/80", (int) percentagePlayerFill);
-        String liveString = String.format("Lives: %d", ((DonaldTrumpModel) donaldTrumpController.gameModel).getLives());
+        String liveString = String.format("Lives: %d", ((DonaldTrumpModel) DonaldTrumpController.donaldTrumpInstance.gameModel).getLives());
         graphics.drawImage(image, 0, 0,
                 FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
 
@@ -143,7 +143,7 @@ public class GameBoardController {
                     gameBoard[i][j].draw(graphics);
                 }
             }
-            donaldTrumpController.draw(graphics);
+            DonaldTrumpController.donaldTrumpInstance.draw(graphics);
             for (EnemyController enemyController : enemyControllers) {
                 enemyController.draw(graphics);
             }
@@ -155,7 +155,7 @@ public class GameBoardController {
     }
 
     public SquareController getSquarePlayerStanding() {
-        return gameBoard[donaldTrumpController.gameModel.getRow()][donaldTrumpController.gameModel.getColumn()];
+        return gameBoard[DonaldTrumpController.donaldTrumpInstance.gameModel.getRow()][DonaldTrumpController.donaldTrumpInstance.gameModel.getColumn()];
     }
 
     public void controlDonaldTrumpMovement() {
@@ -163,7 +163,7 @@ public class GameBoardController {
                 getSquarePlayerStanding().getColor() == SquareModel.enumColor.GREEN) {
             GameWindow.isKeyDown = GameWindow.isKeyLeft = GameWindow.isKeyRight = GameWindow.isKeyUp = false;
         } else if (getSquarePlayerStanding().getColor() == RED) {
-            donaldTrumpController.getHit();
+            DonaldTrumpController.donaldTrumpInstance.getHit();
             clearPlayerPathAfterGetHit();
         }
     }
@@ -264,8 +264,8 @@ public class GameBoardController {
         for (EnemyController enemyController : enemyControllers) {
             for (SquareController squareController : squarePlayerWentBy) {
                 if (enemyController.gameModel.intersects(squareController.gameModel)
-                        || enemyController.gameModel.intersects(donaldTrumpController.gameModel)) {
-                    donaldTrumpController.getHit();
+                        || enemyController.gameModel.intersects(DonaldTrumpController.donaldTrumpInstance.gameModel)) {
+                    DonaldTrumpController.donaldTrumpInstance.getHit();
                     clearPlayerPathAfterGetHit();
                     break;
                 }
@@ -278,16 +278,27 @@ public class GameBoardController {
         for (EnemyController enemyController : enemyControllers) {
             for (SquareController squareController : blueSquareList) {
                 if (squareController.gameModel.intersects(enemyController.gameModel)) {
-
                     EnemyModel model = (EnemyModel) enemyController.gameModel;
-                    if (checkNextToCorner(squareController) || checkCorner(squareController)) {
+//                    if (checkNextToCorner(squareController) || checkCorner(squareController)) {
+//                        model.setYspeed(model.getYspeed() * -1);
+//                        model.setXspeed(model.getXspeed() * -1);
+//                    }
+//
+                    int xspeed = model.getXspeed();
+                    int yspeed = model.getYspeed();
+                    if (squareController.isCelling())
                         model.setYspeed(model.getYspeed() * -1);
+                    if (squareController.isWall())
                         model.setXspeed(model.getXspeed() * -1);
-                    } else {
-                        if (squareController.isCelling())
-                            model.setYspeed(model.getYspeed() * -1);
-                        if (squareController.isWall())
-                            model.setXspeed(model.getXspeed() * -1);
+                    EnemyController temp = EnemyController.create(model.getX(), model.getY(), model.getXspeed(),
+                            model.getYspeed(), EnemyController.EnemyType.MEXICO);
+                    temp.run();
+                    for (SquareController squareTemp : blueSquareList) {
+                        if (squareTemp.gameModel.intersects(temp.gameModel)) {
+                            model.setXspeed(xspeed * -1);
+                            model.setYspeed(yspeed * -1);
+                            break;
+                        }
                     }
                     break;
                 }
@@ -345,7 +356,7 @@ public class GameBoardController {
     }
 
     public boolean checkLose() {
-        DonaldTrumpModel model = (DonaldTrumpModel) donaldTrumpController.gameModel;
+        DonaldTrumpModel model = (DonaldTrumpModel) DonaldTrumpController.donaldTrumpInstance.gameModel;
         if (model.getLives() < 1)
             return true;
         else

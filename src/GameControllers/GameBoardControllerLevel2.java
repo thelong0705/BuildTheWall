@@ -11,7 +11,9 @@ import java.util.ArrayList;
 public class GameBoardControllerLevel2 extends GameBoardController {
     public GameBoardControllerLevel2() {
         gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
-        donaldTrumpController = new DonaldTrumpController(0, 0, PLAYER_LIFE);
+//        donaldTrumpController = new DonaldTrumpController(0, 0, PLAYER_LIFE);
+        DonaldTrumpController.donaldTrumpInstance.setColumn(0);
+        DonaldTrumpController.donaldTrumpInstance.setRow(0);
         enemyControllers = new ArrayList<>();
         squarePlayerWentBy = new ArrayList<>();
         initiateGameBoard();
