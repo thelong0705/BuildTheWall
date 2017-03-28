@@ -1,5 +1,6 @@
 package GameControllers;
 
+import GUI.GameWindow;
 import GameModels.EnemyModel;
 import GameModels.SquareModel;
 import Utils.Utils;
@@ -11,11 +12,7 @@ import java.util.ArrayList;
  */
 public class GameBoardControllerLevel3 extends GameBoardController {
     public GameBoardControllerLevel3() {
-        gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
-        DonaldTrumpController.donaldTrumpInstance.setColumn(0);
-        DonaldTrumpController.donaldTrumpInstance.setRow(0);
-        enemyControllers = new ArrayList<>();
-        squarePlayerWentBy = new ArrayList<>();
+
         initiateGameBoard();
     }
 
@@ -25,7 +22,7 @@ public class GameBoardControllerLevel3 extends GameBoardController {
         spawnEnemy(Utils.convertColToXPixel(30), Utils.convertRowToYPixel(20), 2, 5, EnemyController.EnemyType.IRAQ);
         spawnEnemy(Utils.convertColToXPixel(20), Utils.convertRowToYPixel(15), 5, 2, EnemyController.EnemyType.IRAQ);
         spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 3, 4, EnemyController.EnemyType.IRAQ);
-        image = Utils.loadImageFromFile("background.png");
+        image = Utils.loadImageFromFile("is.jpg");
     }
 
     @Override
@@ -102,5 +99,5 @@ public class GameBoardControllerLevel3 extends GameBoardController {
             }
         }
     }
-   
+
 }

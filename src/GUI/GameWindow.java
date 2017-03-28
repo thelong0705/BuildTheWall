@@ -24,13 +24,18 @@ public class GameWindow extends Frame {
     public static final int FRAME_WIDTH_SIZE = 40 * 20 + 20;//(NUMBER_OF_COLUMN) * SQUARE_LENGTH + 20;
     Thread thread;
     private GameBoardController gameBoardController;
-    public static boolean isKeyLeft = false;
-    public static boolean isKeyRight = false;
-    public static boolean isKeyUp = false;
-    public static boolean isKeyDown = false;
-    public static boolean isSpace = false;
+    public static boolean isKeyLeft;
+    public static boolean isKeyRight;
+    public static boolean isKeyUp ;
+    public static boolean isKeyDown;
+    public boolean isSpace;
     private int level=1;
     public GameWindow() {
+        isKeyLeft = false;
+        isKeyRight = false;
+        isKeyUp = false;
+        isKeyDown = false;
+        isSpace = false;
         setVisible(true);
         setSize(FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE);
         setLocationRelativeTo(null);
@@ -117,23 +122,24 @@ public class GameWindow extends Frame {
                         {
                             isSpace=false;
                             level++;
-                            if(level==2)
+                            if(level==2) {
                                 gameBoardController = new GameBoardControllerLevel2();
+                            }
                             else if(level==3)
                                 gameBoardController= new GameBoardControllerLevel3();
                             else
                             {
-                                dispose();
+                                level=1;
                                 GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
                                 Main.gameFrame.setVisible(true);
+                                dispose();
                             }
                         }
 
                     } else if (gameBoardController.checkLose()) {
-                        System.out.println("lose");
-                        dispose();
                         GameFrame.mainPanel.showPanel(MainPanel.TAG_LOSE);
                         Main.gameFrame.setVisible(true);
+                        dispose();
                         break;
                     } else {
                         gameBoardController.run();

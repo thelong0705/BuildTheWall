@@ -53,7 +53,6 @@ public class DonaldTrumpController extends GameController {
         model.setRow(0);
         model.setColumn(0);
         model.setLives(model.getLives()-1);
-        System.out.println(model.getLives());
     }
 
 }

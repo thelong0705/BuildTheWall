@@ -39,7 +39,7 @@ public class LosePanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics graphics) {
-        Image image = Utils.loadImageFromFile("456.png");
+        Image image = Utils.loadImageFromFile("download.jpg");
         graphics.drawImage(image, 0, 0, GameFrame.WIDTH_F, GameFrame.HEIGHT_F, null);
 
     }
