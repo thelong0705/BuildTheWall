@@ -11,7 +11,6 @@ import java.util.ArrayList;
  */
 public class GameBoardControllerLevel2 extends GameBoardController {
     public GameBoardControllerLevel2() {
-        initiateGameBoard();
     }
 
     @Override
@@ -36,6 +35,7 @@ public class GameBoardControllerLevel2 extends GameBoardController {
                 EnemyController enemyControllerI = enemyControllers.get(i);
                 EnemyController enemyControllerJ = enemyControllers.get(j);
                 if (enemyControllers.size() < 6) {
+
                     if (enemyControllerI.getAliveTime() > 60 && enemyControllerJ.getAliveTime() > 60) {
                         if (enemyControllerI.gameModel.intersects(enemyControllerJ.gameModel)) {
                             EnemyModel modelI = (EnemyModel) enemyControllerI.gameModel;

@@ -133,6 +133,7 @@ public class GameWindow extends Frame {
                                 GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
                                 Main.gameFrame.setVisible(true);
                                 dispose();
+
                             }
                         }
 

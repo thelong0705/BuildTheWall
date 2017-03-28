@@ -12,8 +12,6 @@ import java.util.ArrayList;
  */
 public class GameBoardControllerLevel3 extends GameBoardController {
     public GameBoardControllerLevel3() {
-
-        initiateGameBoard();
     }
 
     @Override

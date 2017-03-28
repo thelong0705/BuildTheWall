@@ -27,7 +27,6 @@ public class GameBoardController {
 
     protected int moveDelay = 0;
     protected SquareController[][] gameBoard;
-    // protected DonaldTrumpController donaldTrumpController;
     protected SquareController lastSquare;
     protected ArrayList<EnemyController> enemyControllers;
     protected ArrayList<SquareController> squarePlayerWentBy;
@@ -36,30 +35,30 @@ public class GameBoardController {
     protected Image image = Utils.loadImageFromFile("mexico.jpg");
 
     public GameBoardController() {
-        GameWindow.isKeyDown=false;
-        GameWindow.isKeyUp=false;
-        GameWindow.isKeyLeft=false;
-        GameWindow.isKeyRight=false;
+        GameWindow.isKeyDown = false;
+        GameWindow.isKeyUp = false;
+        GameWindow.isKeyLeft = false;
+        GameWindow.isKeyRight = false;
         gameBoard = new SquareController[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
         DonaldTrumpController.donaldTrumpInstance.setColumn(0);
         DonaldTrumpController.donaldTrumpInstance.setRow(0);
         enemyControllers = new ArrayList<>();
         squarePlayerWentBy = new ArrayList<>();
+        blueSquareList = new ArrayList<>();
         initiateGameBoard();
     }
 
 
     public void initiateGameBoard() {
-        DonaldTrumpModel model=(DonaldTrumpModel)DonaldTrumpController.donaldTrumpInstance.gameModel;
+        DonaldTrumpModel model = (DonaldTrumpModel) DonaldTrumpController.donaldTrumpInstance.gameModel;
         model.setLives(5);
         buildBoard();
-        spawnEnemy(Utils.convertColToXPixel(1), Utils.convertRowToYPixel(1), -5, -2, EnemyController.EnemyType.MEXICO);
-        spawnEnemy(Utils.convertColToXPixel(38), Utils.convertRowToYPixel(28), 2, 5, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(20), Utils.convertRowToYPixel(20), -5, -2, EnemyController.EnemyType.MEXICO);
+        spawnEnemy(Utils.convertColToXPixel(10), Utils.convertRowToYPixel(20), 2, 5, EnemyController.EnemyType.MEXICO);
         spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 3, 4, EnemyController.EnemyType.MEXICO);
     }
 
     public void buildBoard() {
-        blueSquareList = new ArrayList<>();
         for (int i = 0; i < NUMBER_OF_ROW; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
                 gameBoard[i][j] = new SquareController(i, j, SquareModel.enumColor.GRAY);
@@ -107,7 +106,7 @@ public class GameBoardController {
         SquareController squareGreen;
         for (EnemyController enemyController : enemyControllers) {
             if (gameBoard[enemyController.getRow()][enemyController.getColumn()].getColor() == BLUE) {
-               squareGreen = findTheNearestGreen(enemyController);
+                squareGreen = findTheNearestGreen(enemyController);
             } else
                 squareGreen = gameBoard[enemyController.getRow()][enemyController.getColumn()];
             floodFill(squareGreen.getRow(), squareGreen.getColumn(), GREEN, GRAY);
@@ -115,18 +114,27 @@ public class GameBoardController {
         colorBlueAndClearPlayerPath();
     }
 
-    private SquareController findTheNearestGreen(EnemyController enemyController){
-        SquareController squareController= gameBoard[enemyController.getRow()][enemyController.getColumn()];
-        int row = squareController.getRow();
-        int column = squareController.getColumn();
-        if(enemyController.getXSpeed()>0&&enemyController.getYSpeed()>0)
-            return gameBoard[row-1][column-1];
-        else if(enemyController.getXSpeed()>0&&enemyController.getYSpeed()<0)
-            return gameBoard[row+1][column-1];
-        else if(enemyController.getXSpeed()<0&&enemyController.getYSpeed()>0)
-            return gameBoard[row-1][column+1];
-        else
-            return gameBoard[row+1][column+1];
+    private SquareController findTheNearestGreen(EnemyController enemyController) {
+//        SquareController squareController= gameBoard[enemyController.getRow()][enemyController.getColumn()];
+//        int row = squareController.getRow();
+//        int column = squareController.getColumn();
+//        if(enemyController.getXSpeed()>0&&enemyController.getYSpeed()>0)
+//            return gameBoard[row+1][column+1];
+//        else if(enemyController.getXSpeed()>0&&enemyController.getYSpeed()<0)
+//            return gameBoard[row-1][column+1];
+//        else if(enemyController.getXSpeed()<0&&enemyController.getYSpeed()>0)
+//            return gameBoard[row+1][column-1];
+//        else
+//            return gameBoard[row-1][column-1];
+        for (int i = 0; i < NUMBER_OF_ROW; i++) {
+            for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
+                if(gameBoard[i][j].getColor()==GREEN)
+                    if(gameBoard[i][j].gameModel.intersects(enemyController.gameModel))
+                        return gameBoard[i][j];
+
+            }
+        }
+        return  gameBoard[enemyController.getRow()][enemyController.getColumn()];
     }
 
 
