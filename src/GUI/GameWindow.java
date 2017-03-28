@@ -126,14 +126,15 @@ public class GameWindow extends Frame {
                                 gameBoardController = new GameBoardControllerLevel2();
                             }
                             else if(level==3)
+                            {
                                 gameBoardController= new GameBoardControllerLevel3();
+                            }
                             else
                             {
                                 level=1;
                                 GameFrame.mainPanel.showPanel(MainPanel.TAG_WIN);
                                 Main.gameFrame.setVisible(true);
                                 dispose();
-
                             }
                         }
 
