@@ -17,9 +17,9 @@ import java.util.Random;
  * Created by Inpriron on 3/12/2017.
  */
 public class EnemyController extends GameController {
-    private static Image mexicoEnemyImage= Utils.loadImageFromFile("loco.png");
-    private static Image chinaEnemyImage= Utils.loadImageFromFile("chinese.png");
-    private static Image iraqEnemyImage= Utils.loadImageFromFile("enemy1.jpg");
+    private static Image mexicoEnemyImage= Utils.loadImageFromFile("enemy_lv1.png");
+    private static Image chinaEnemyImage= Utils.loadImageFromFile("enemy_lv2.png");
+    private static Image iraqEnemyImage= Utils.loadImageFromFile("enemy_lv3.jpg");
     private int aliveTime;
 
     public int getAliveTime() {
@@ -38,7 +38,7 @@ public class EnemyController extends GameController {
     }
 
 //    public EnemyController(int row, int column, int xspeed, int yspeed) {
-//        this(new EnemyModel(row, column, xspeed,yspeed), new GameView(Utils.loadImageFromFile("loco.png")));
+//        this(new EnemyModel(row, column, xspeed,yspeed), new GameView(Utils.loadImageFromFile("enemy_lv1.png")));
 //    }
     public static EnemyController create(int x, int y, int xspeed, int yspeed,EnemyType type)
     {

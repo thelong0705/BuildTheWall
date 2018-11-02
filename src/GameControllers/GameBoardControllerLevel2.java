@@ -19,7 +19,7 @@ public class GameBoardControllerLevel2 extends GameBoardController {
         spawnEnemy(Utils.convertColToXPixel(30), Utils.convertRowToYPixel(20), 2, 5, EnemyController.EnemyType.CHINA);
         spawnEnemy(Utils.convertColToXPixel(20), Utils.convertRowToYPixel(15), 5, 2, EnemyController.EnemyType.CHINA);
         spawnEnemy(Utils.convertColToXPixel(15), Utils.convertRowToYPixel(15), 3, 4, EnemyController.EnemyType.CHINA);
-        image = Utils.loadImageFromFile("chinawall.jpg");
+        image = Utils.loadImageFromFile("china_wall.jpg");
     }
 
     @Override

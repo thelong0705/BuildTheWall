@@ -29,19 +29,20 @@ public class MenuPanel extends JPanel {
                     GameWindow gameWindow= new GameWindow();
                 }
                 if (mouseEvent.getSource().equals(btnExit)) {
-                    System.exit(0);
+//                    System.exit(0);
+                	GameFrame.mainPanel.showPanel(MainPanel.TAG_INS);
                 }
             }
         };
 
-        ImageIcon icon = new ImageIcon("resources/start_en.png");
+        ImageIcon icon = new ImageIcon("resources/button_start-game.png");
         btnStart = new JLabel(icon);
-        btnStart.setBounds((GameWindow.FRAME_WIDTH_SIZE - icon.getIconWidth()) / 2 , 400, icon.getIconWidth(), icon.getIconHeight());
+        btnStart.setBounds((GameWindow.FRAME_WIDTH_SIZE - icon.getIconWidth()) / 2 , 420, icon.getIconWidth(), icon.getIconHeight());
         btnStart.setFocusable(false);
         add(btnStart);
         btnStart.addMouseListener(mouseAdapter);
 
-        icon = new ImageIcon("resources/exit_btn.png");
+        icon = new ImageIcon("resources/button_instruction.png");
         btnExit = new JLabel(icon);
         btnExit.setBounds((GameWindow.FRAME_WIDTH_SIZE - icon.getIconWidth()) / 2 , btnStart.getY() + btnStart.getHeight() + 20, icon.getIconWidth(), icon.getIconHeight());
         btnExit.setFocusable(false);

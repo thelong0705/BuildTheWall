@@ -4,7 +4,6 @@ import GameControllers.GameBoardController;
 import GameControllers.GameBoardControllerLevel2;
 import GameControllers.GameBoardControllerLevel3;
 import Program.Main;
-import Utils.Utils;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -28,14 +27,14 @@ public class GameWindow extends Frame {
     public static boolean isKeyRight;
     public static boolean isKeyUp ;
     public static boolean isKeyDown;
-    public boolean isSpace;
+    public boolean isEnter;
     private int level=1;
     public GameWindow() {
         isKeyLeft = false;
         isKeyRight = false;
         isKeyUp = false;
         isKeyDown = false;
-        isSpace = false;
+        isEnter = false;
         setVisible(true);
         setSize(FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE);
         setLocationRelativeTo(null);
@@ -96,8 +95,8 @@ public class GameWindow extends Frame {
                             isKeyDown = false;
                         }
                         break;
-                    case KeyEvent.VK_SPACE:
-                        isSpace = true;
+                    case KeyEvent.VK_ENTER:
+                        isEnter = true;
                         break;
                 }
             }
@@ -106,7 +105,7 @@ public class GameWindow extends Frame {
         backBufferImage = new BufferedImage(
                 FRAME_WIDTH_SIZE,
                 FRAME_HEIGHT_SIZE,
-                BufferedImage.TYPE_INT_ARGB);
+                BufferedImage.TYPE_INT_ARGB);   
         gameBoardController = new GameBoardController();
         thread = new Thread(new Runnable() {
             @Override
@@ -118,9 +117,9 @@ public class GameWindow extends Frame {
                         e.printStackTrace();
                     }
                     if (gameBoardController.checkWin()) {
-                        if(isSpace)
+                        if(isEnter)
                         {
-                            isSpace=false;
+                            isEnter =false;
                             level++;
                             if(level==2) {
                                 gameBoardController = new GameBoardControllerLevel2();

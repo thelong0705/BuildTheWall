@@ -14,10 +14,10 @@ import java.awt.*;
 public class SquareController extends GameController {
     private boolean isCelling;
     private boolean isWall;
-    private static Image imageSquareBlue= Utils.loadImageFromFile("test.png");
-    private  static Image imageSquareGray= Utils.loadImageFromFile("blockgray.png");
-    private static Image imageSquareGreen=Utils.loadImageFromFile("test.png");
-    private static Image imageSquareRed=Utils.loadImageFromFile("block2.png");
+    private static Image imageSquareBlue= Utils.loadImageFromFile("square.png");
+    private  static Image imageSquareGray= Utils.loadImageFromFile("block_gray.png");
+    private static Image imageSquareGreen=Utils.loadImageFromFile("square.png");
+    private static Image imageSquareRed=Utils.loadImageFromFile("block_red.png");
 
     public boolean isCelling() {
         return isCelling;

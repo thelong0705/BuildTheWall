@@ -29,7 +29,7 @@ public class LosePanel extends JPanel {
             }
         };
 
-        ImageIcon icon = new ImageIcon(Utils.loadImageFromFile("back-1.png"));
+        ImageIcon icon = new ImageIcon(Utils.loadImageFromFile("back_to_menu.png"));
         btnCombatFinish = new JLabel(icon);
         btnCombatFinish.setBounds((GameFrame.WIDTH_F - icon.getIconWidth()) / 2, 515, icon.getIconWidth(), icon.getIconHeight());
         btnCombatFinish.setFocusable(false);
@@ -39,7 +39,7 @@ public class LosePanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics graphics) {
-        Image image = Utils.loadImageFromFile("download.jpg");
+        Image image = Utils.loadImageFromFile("game_over.jpg");
         graphics.drawImage(image, 0, 0, GameFrame.WIDTH_F, GameFrame.HEIGHT_F, null);
 
     }

@@ -115,17 +115,6 @@ public class GameBoardController {
     }
 
     private SquareController findTheNearestGreen(EnemyController enemyController) {
-//        SquareController squareController= gameBoard[enemyController.getRow()][enemyController.getColumn()];
-//        int row = squareController.getRow();
-//        int column = squareController.getColumn();
-//        if(enemyController.getXSpeed()>0&&enemyController.getYSpeed()>0)
-//            return gameBoard[row+1][column+1];
-//        else if(enemyController.getXSpeed()>0&&enemyController.getYSpeed()<0)
-//            return gameBoard[row-1][column+1];
-//        else if(enemyController.getXSpeed()<0&&enemyController.getYSpeed()>0)
-//            return gameBoard[row+1][column-1];
-//        else
-//            return gameBoard[row-1][column-1];
         for (int i = 0; i < NUMBER_OF_ROW; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
                 if(gameBoard[i][j].getColor()==GREEN)
@@ -151,18 +140,18 @@ public class GameBoardController {
 
     public void draw(Graphics graphics) {
         String scoreString = String.format("PERCENTAGE: %d/80", (int) percentagePlayerFill);
-        String liveString = String.format("Lives: %d", ((DonaldTrumpModel) DonaldTrumpController.donaldTrumpInstance.gameModel).getLives());
+        String liveString = String.format(" Lives: %d", ((DonaldTrumpModel) DonaldTrumpController.donaldTrumpInstance.gameModel).getLives());
+        String scoreAndLiveString = scoreString + liveString;
         graphics.drawImage(image, 0, 0,
                 FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
 
         if (checkWin()) {
             graphics.drawImage(image, 0, 0,
                     FRAME_WIDTH_SIZE, FRAME_HEIGHT_SIZE, null);
-            graphics.drawString(scoreString, 50, 50);
-            graphics.drawString(liveString, 200, 50);
-            String winString = "LEVEL PASSED PRESS SPACE TO MOVE ON TO THE NEXT LEVEL";
-            graphics.setFont(new Font(null, Font.BOLD, 20));
-            graphics.setColor(Color.red);
+            graphics.drawString(scoreAndLiveString, FRAME_WIDTH_SIZE - 250, 48);
+            String winString = "LEVEL PASSED PRESS ENTER TO MOVE ON TO THE NEXT LEVEL";
+            graphics.setFont(new Font(null, Font.BOLD, 15));
+            graphics.setColor(Color.GREEN);
             graphics.drawString(winString, 100, FRAME_HEIGHT_SIZE / 2);
         } else {
             for (int i = 0; i < NUMBER_OF_ROW; i++) {
@@ -175,9 +164,8 @@ public class GameBoardController {
                 enemyController.draw(graphics);
             }
             graphics.setFont(new Font(null, Font.BOLD, 15));
-            graphics.setColor(Color.white);
-            graphics.drawString(scoreString, 50, 50);
-            graphics.drawString(liveString, 200, 50);
+            graphics.setColor(Color.BLACK);
+            graphics.drawString(scoreAndLiveString, FRAME_WIDTH_SIZE - 250, 48);
         }
     }
 
@@ -306,11 +294,6 @@ public class GameBoardController {
             for (SquareController squareController : blueSquareList) {
                 if (squareController.gameModel.intersects(enemyController.gameModel)) {
                     EnemyModel model = (EnemyModel) enemyController.gameModel;
-//                    if (checkNextToCorner(squareController) || checkCorner(squareController)) {
-//                        model.setYspeed(model.getYspeed() * -1);
-//                        model.setXspeed(model.getXspeed() * -1);
-//                    }
-//
                     int xspeed = model.getXspeed();
                     int yspeed = model.getYspeed();
                     if (squareController.isCelling())
@@ -333,36 +316,6 @@ public class GameBoardController {
         }
     }
 
-//    public boolean checkNextToCorner(SquareController squareController) {
-//        int row = squareController.getRow();
-//        int column = squareController.getColumn();
-//        SquareController north = null;
-//        SquareController south = null;
-//        SquareController west = null;
-//        SquareController east = null;
-//        if (row + 1 <= NUMBER_OF_ROW - 1)
-//            south = gameBoard[row + 1][column];
-//        if (row - 1 >= 0)
-//            north = gameBoard[row - 1][column];
-//        if (column + 1 <= NUMBER_OF_COLUMN - 1)
-//            east = gameBoard[row][column + 1];
-//        if (column - 1 >= 0)
-//            west = gameBoard[row][column - 1];
-//        if (checkCorner(south) || checkCorner(north) || checkCorner(west) || checkCorner(east))
-//            return true;
-//        return false;
-//    }
-//
-//    public boolean checkCorner(SquareController squareController) {
-//        if (squareController == null)
-//            return false;
-//        int row = squareController.getRow();
-//        int column = squareController.getColumn();
-//        if (gameBoard[row][column].isCelling() && gameBoard[row][column].isWall()) {
-//            return true;
-//        } else
-//            return false;
-//    }
 
     public void updatePercentage() {
         int squarePlayerTakeCounter = 0;

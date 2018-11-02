@@ -11,11 +11,13 @@ public class MainPanel extends JPanel {
     public static final String TAG_GAME = "tag_game";
     public static final String TAG_WIN = "tag_win";
     public static final String TAG_LOSE="tag_lose";
+    public static final String TAG_INS="tag_instruction";
     private CardLayout cardLayout;
     private GameWindow gameWindow;
     private MenuPanel menuPanel;
     private WinPanel winPanel;
     private LosePanel losePanel;
+    private InstructionPanel insPanel;
 //    private GameOverPanel gameOverPanel;
     public MainPanel()
     {
@@ -26,16 +28,18 @@ public class MainPanel extends JPanel {
     }
     public void showPanel(String tag) {
         if (tag.equals(TAG_WIN)) {
-
             winPanel = new WinPanel();
             add(winPanel, tag);
             cardLayout.show(this, tag);
-
         } else if (tag.equals(TAG_LOSE)) {
-             losePanel= new LosePanel();
+            losePanel= new LosePanel();
             add(losePanel, TAG_LOSE);
             cardLayout.show(this, tag);
-        } else {
+        } else if (tag.equals(TAG_INS)) {
+        	insPanel = new InstructionPanel();
+        	add(insPanel, TAG_INS);
+        	cardLayout.show(this, tag);
+        }else {
             cardLayout.show(this, tag);
         }
     }
